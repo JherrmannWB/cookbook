@@ -1,0 +1,16 @@
+{
+  "groups": [
+    {
+      "aisle": "Dairy",
+      "items": ["Butter", "Whole milk", "Eggs"]
+    },
+    {
+      "aisle": "Baking",
+      "items": ["All-purpose flour", "Baking powder", "Salt", "Sugar"]
+    },
+    {
+      "aisle": "Produce",
+      "items": ["Yellow onions", "Carrots", "Celery"]
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+/* ==========================================================================
+   Papaw's Kitchen — main stylesheet
+   Design tokens first: the whole site's look is tuned from this block.
+   ========================================================================== */
+
+:root {
+  /* Color — warm, high contrast (all pairings meet WCAG AA or better) */
+  --color-bg: #fbf7f0;          /* warm cream page background */
+  --color-surface: #fffdf8;     /* card background */
+  --color-text: #33261a;        /* deep brown body text (≈13:1 on cream) */
+  --color-text-soft: #5c4a38;   /* secondary text (≈7:1 on cream) */
+  --color-accent: #8a3319;      /* terracotta — links, highlights (≈7.7:1) */
+  --color-accent-dark: #6b2712; /* hover/active */
+  --color-border: #e3d7c3;      /* soft card borders */
+  --color-footer-bg: #f1e8d9;
+
+  /* Type — large and readable */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --text-base: 1.25rem;   /* 20px */
+  --text-lg: 1.5rem;      /* 24px */
+  --text-xl: 1.9rem;      /* ~30px */
+  --text-2xl: 2.4rem;     /* ~38px */
+
+  /* Spacing scale — generous air everywhere */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+
+  --radius: 12px;
+  --shadow: 0 1px 4px rgba(51, 38, 26, 0.08);
+  --content-width: 62rem;
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  margin: 0 0 var(--space-2);
+}
+
+h1 { font-size: var(--text-2xl); }
+h2 { font-size: var(--text-xl); }
+h3 { font-size: var(--text-lg); }
+
+p {
+  margin: 0 0 var(--space-2);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--color-accent-dark);
+}
+
+/* One clear, high-visibility focus style everywhere */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Skip link (injected by layout.js, first focusable element on the page)
+   -------------------------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--color-accent);
+  color: #fff;
+  padding: var(--space-1) var(--space-2);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: var(--space-2);
+  top: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   Header + navigation
+   No hidden menus: every page is one tap away, always visible.
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  text-align: center;
+  padding: var(--space-4) var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.site-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: bold;
+  margin: 0;
+}
+
+.site-title a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.site-tagline {
+  color: var(--color-text-soft);
+  margin: var(--space-1) 0 0;
+}
+
+.site-nav {
+  list-style: none;
+  margin: var(--space-3) auto 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1);
+  max-width: var(--content-width);
+}
+
+.site-nav a {
+  display: block;
+  padding: 0.6em 1em;            /* ≥44px touch target */
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--color-text);
+  border: 1px solid transparent;
+}
+
+.site-nav a:hover {
+  border-color: var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.site-nav a[aria-current="page"] {
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: bold;
+}
+
+/* --------------------------------------------------------------------------
+   Main content
+   -------------------------------------------------------------------------- */
+
+main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-2) var(--space-5);
+}
+
+.lead {
+  font-size: var(--text-lg);
+  color: var(--color-text-soft);
+  max-width: 46rem;
+}
+
+/* --------------------------------------------------------------------------
+   Cards
+   -------------------------------------------------------------------------- */
+
+.card-grid {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 40em) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 62em) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-3);
+}
+
+/* Whole card is clickable via its heading link */
+.card {
+  position: relative;
+}
+
+.card h2,
+.card h3 {
+  margin-bottom: var(--space-1);
+}
+
+.card a {
+  text-decoration: none;
+  color: var(--color-accent);
+}
+
+.card a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.card p {
+  margin: 0;
+  color: var(--color-text-soft);
+}
+
+.card .card-icon {
+  font-size: var(--text-xl);
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+/* --------------------------------------------------------------------------
+   Notice box — friendly "coming soon" panels on placeholder pages
+   -------------------------------------------------------------------------- */
+
+.notice {
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-top: var(--space-3);
+  color: var(--color-text-soft);
+}
+
+.notice p:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+
+.button {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6em 1.4em;
+  font-size: var(--text-base);
+  font-family: var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--color-accent-dark);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  background: var(--color-footer-bg);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  padding: var(--space-4) var(--space-2);
+  color: var(--color-text-soft);
+}
+
+.site-footer p {
+  margin: 0 0 var(--space-1);
+}
+
+.site-footer p:last-child {
+  margin-bottom: 0;
+}

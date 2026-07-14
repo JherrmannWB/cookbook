@@ -1,0 +1,24 @@
+{
+  "recipes": [
+    {
+      "id": "buttermilk-biscuits",
+      "title": "Buttermilk Biscuits",
+      "category": "breads",
+      "tags": ["breakfast", "baking"],
+      "seasons": ["all"],
+      "familyFavorite": true,
+      "totalTime": "30 minutes",
+      "image": null
+    },
+    {
+      "id": "chicken-and-dumplings",
+      "title": "Chicken and Dumplings",
+      "category": "main-dishes",
+      "tags": ["dinner", "comfort-food", "chicken"],
+      "seasons": ["fall", "winter"],
+      "familyFavorite": true,
+      "totalTime": "1 hour 30 minutes",
+      "image": null
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found — Papaw’s Kitchen</title>
+  <!-- GitHub Pages serves this file for ANY missing URL, at any depth,
+       so styles are inlined and the home link is resolved by script:
+       relative paths could break here. -->
+  <style>
+    body {
+      margin: 0;
+      background: #fbf7f0;
+      color: #33261a;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.25rem;
+      line-height: 1.65;
+      display: grid;
+      min-height: 100vh;
+      place-items: center;
+      text-align: center;
+      padding: 1rem;
+    }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.4rem;
+      margin: 0 0 1rem;
+    }
+    a.home {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: #8a3319;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 0.6em 1.4em;
+    }
+    a.home:hover { background: #6b2712; }
+    a.home:focus-visible { outline: 3px solid #8a3319; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Well, that page wandered off.</h1>
+    <p>We couldn’t find what you were looking for —<br>but the kitchen is right this way.</p>
+    <a class="home" id="home-link" href="/">Back to the kitchen</a>
+  </main>
+  <script>
+    /* On a GitHub Pages project site the home page lives one path segment
+       deep (e.g. /cookbook/), so "/" alone would miss it. */
+    (function () {
+      if (window.location.hostname.endsWith('.github.io')) {
+        var first = window.location.pathname.split('/')[1] || '';
+        document.getElementById('home-link').href = '/' + (first ? first + '/' : '');
+      }
+    })();
+  </script>
+</body>
+</html>

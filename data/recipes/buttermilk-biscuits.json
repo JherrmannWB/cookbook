@@ -1,0 +1,38 @@
+{
+  "id": "buttermilk-biscuits",
+  "title": "Buttermilk Biscuits",
+  "story": "Papaw made these every Sunday morning. The secret is a hot oven and a gentle hand — the less you fuss with the dough, the taller they rise.",
+  "category": "breads",
+  "tags": ["breakfast", "baking"],
+  "seasons": ["all"],
+  "familyFavorite": true,
+  "servings": "8 biscuits",
+  "times": {
+    "prep": "15 minutes",
+    "cook": "12 minutes",
+    "total": "30 minutes"
+  },
+  "image": null,
+  "ingredients": [
+    { "item": "all-purpose flour", "quantity": 2, "unit": "cups" },
+    { "item": "baking powder", "quantity": 1, "unit": "tablespoon" },
+    { "item": "salt", "quantity": 1, "unit": "teaspoon" },
+    { "item": "cold butter", "quantity": 6, "unit": "tablespoons", "note": "cut into small pieces" },
+    { "item": "buttermilk", "quantity": 0.75, "unit": "cup", "note": "cold" }
+  ],
+  "steps": [
+    "Preheat the oven to 450°F.",
+    "Whisk the flour, baking powder, and salt together in a large bowl.",
+    "Work the cold butter into the flour with your fingers until it looks like coarse crumbs.",
+    "Pour in the buttermilk and stir just until the dough comes together.",
+    "Turn the dough onto a floured counter, pat it about 3/4 inch thick, and cut out biscuits.",
+    "Bake on a baking sheet for 10 to 12 minutes, until golden on top.",
+    "Serve warm with butter."
+  ],
+  "notes": [
+    "Handle the dough as little as possible — that keeps the biscuits tender.",
+    "No buttermilk? Stir 2 teaspoons of vinegar into regular milk and wait 5 minutes."
+  ],
+  "approvedProducts": ["publix-buttermilk"],
+  "dateAdded": "2026-07-14"
+}

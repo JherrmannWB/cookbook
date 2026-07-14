@@ -1,0 +1,43 @@
+{
+  "id": "chicken-and-dumplings",
+  "title": "Chicken and Dumplings",
+  "story": "The dish that ends every argument at the table. Slow, simple, and worth every minute.",
+  "category": "main-dishes",
+  "tags": ["dinner", "comfort-food", "chicken"],
+  "seasons": ["fall", "winter"],
+  "familyFavorite": true,
+  "servings": "6 servings",
+  "times": {
+    "prep": "20 minutes",
+    "cook": "1 hour 10 minutes",
+    "total": "1 hour 30 minutes"
+  },
+  "image": null,
+  "ingredients": [
+    { "item": "whole chicken", "quantity": 1, "unit": "", "note": "about 4 pounds" },
+    { "item": "carrots", "quantity": 3, "unit": "", "note": "sliced" },
+    { "item": "celery stalks", "quantity": 3, "unit": "", "note": "sliced" },
+    { "item": "yellow onion", "quantity": 1, "unit": "", "note": "chopped" },
+    { "item": "chicken broth", "quantity": 8, "unit": "cups" },
+    { "item": "all-purpose flour", "quantity": 2, "unit": "cups", "note": "for the dumplings" },
+    { "item": "baking powder", "quantity": 1, "unit": "tablespoon" },
+    { "item": "salt", "quantity": 1, "unit": "teaspoon" },
+    { "item": "whole milk", "quantity": 0.75, "unit": "cup" },
+    { "item": "butter", "quantity": 4, "unit": "tablespoons", "note": "melted" },
+    { "item": "black pepper", "quantity": null, "unit": "", "note": "to taste" }
+  ],
+  "steps": [
+    "Put the chicken, carrots, celery, and onion in a large pot and cover with the broth.",
+    "Bring to a boil, then lower the heat and simmer for about 1 hour, until the chicken is cooked through.",
+    "Lift the chicken out, let it cool a little, and pull the meat off the bones in big pieces.",
+    "Stir the flour, baking powder, and salt together; add the milk and melted butter to make a soft dough.",
+    "Bring the pot back to a gentle simmer and return the chicken to it.",
+    "Drop the dough in by big spoonfuls, cover the pot, and cook for 15 minutes without peeking.",
+    "Season with pepper and serve hot."
+  ],
+  "notes": [
+    "Don't lift the lid while the dumplings cook — the steam is what makes them fluffy."
+  ],
+  "approvedProducts": [],
+  "dateAdded": "2026-07-14"
+}
