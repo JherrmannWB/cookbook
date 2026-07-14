@@ -1,17 +1,15 @@
 {
   "id": "buttermilk-biscuits",
   "title": "Buttermilk Biscuits",
-  "story": "Papaw made these every Sunday morning. The secret is a hot oven and a gentle hand — the less you fuss with the dough, the taller they rise.",
+  "description": "Papaw made these every Sunday morning. The secret is a hot oven and a gentle hand — the less you fuss with the dough, the taller they rise.",
   "category": "breads",
-  "tags": ["breakfast", "baking"],
-  "seasons": ["all"],
-  "familyFavorite": true,
+  "difficulty": "Easy",
+  "prepTime": "15 minutes",
+  "cookTime": "12 minutes",
+  "totalTime": "30 minutes",
   "servings": "8 biscuits",
-  "times": {
-    "prep": "15 minutes",
-    "cook": "12 minutes",
-    "total": "30 minutes"
-  },
+  "estimatedCost": "$4",
+  "budgetFriendly": true,
   "image": null,
   "ingredients": [
     { "item": "all-purpose flour", "quantity": 2, "unit": "cups" },
@@ -20,7 +18,7 @@
     { "item": "cold butter", "quantity": 6, "unit": "tablespoons", "note": "cut into small pieces" },
     { "item": "buttermilk", "quantity": 0.75, "unit": "cup", "note": "cold" }
   ],
-  "steps": [
+  "instructions": [
     "Preheat the oven to 450°F.",
     "Whisk the flour, baking powder, and salt together in a large bowl.",
     "Work the cold butter into the flour with your fingers until it looks like coarse crumbs.",
@@ -29,10 +27,18 @@
     "Bake on a baking sheet for 10 to 12 minutes, until golden on top.",
     "Serve warm with butter."
   ],
+  "tags": ["breakfast", "baking"],
+  "seasons": ["all"],
   "notes": [
     "Handle the dough as little as possible — that keeps the biscuits tender.",
     "No buttermilk? Stir 2 teaspoons of vinegar into regular milk and wait 5 minutes."
   ],
-  "approvedProducts": ["publix-buttermilk"],
+  "leftovers": "Best the day they're made, but they keep 2 days in a bread box. Split and toast before serving.",
+  "storage": "Cool completely, then store in a sealed bag on the counter. Freeze extras up to a month.",
+  "familyRating": 5,
+  "mamawApproved": true,
+  "papawApproved": true,
+  "featured": true,
+  "approvedProducts": ["publix-buttermilk", "white-lily-flour"],
   "dateAdded": "2026-07-14"
 }

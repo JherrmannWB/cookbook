@@ -1,8 +1,6 @@
 {
   "weeks": [
-    {
-      "weekOf": "2026-07-13",
-      "title": "Week of July 13"
-    }
+    { "id": "week-01", "title": "Week 1 — Comfort Classics", "budget": "$85" },
+    { "id": "week-02", "title": "Week 2 — Easy Does It", "budget": "$75" }
   ]
 }

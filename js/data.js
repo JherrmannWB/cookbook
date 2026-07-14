@@ -20,10 +20,12 @@ window.PapawData = (function () {
     return cache[path];
   }
 
+  /* Recipe summaries for browsing, searching, and filtering (one small file). */
   function getRecipeIndex() {
     return getJSON('data/recipes/index.json');
   }
 
+  /* One full recipe, loaded only when it's opened. */
   function getRecipe(id) {
     return getJSON('data/recipes/' + encodeURIComponent(id) + '.json');
   }
@@ -32,12 +34,17 @@ window.PapawData = (function () {
     return getJSON('data/meal-plans/index.json');
   }
 
-  function getMealPlan(weekOf) {
-    return getJSON('data/meal-plans/' + encodeURIComponent(weekOf) + '.json');
+  /* weekId is e.g. 'week-01' */
+  function getMealPlan(weekId) {
+    return getJSON('data/meal-plans/' + encodeURIComponent(weekId) + '.json');
   }
 
   function getProducts() {
-    return getJSON('data/products.json');
+    return getJSON('data/approved-products/products.json');
+  }
+
+  function getFavorites() {
+    return getJSON('data/family-favorites/favorites.json');
   }
 
   function getStaples() {
@@ -51,6 +58,7 @@ window.PapawData = (function () {
     getMealPlanIndex: getMealPlanIndex,
     getMealPlan: getMealPlan,
     getProducts: getProducts,
+    getFavorites: getFavorites,
     getStaples: getStaples
   };
 })();

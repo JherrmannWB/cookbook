@@ -1,0 +1,19 @@
+{
+  "favorites": [
+    {
+      "recipeId": "chicken-and-dumplings",
+      "note": "The dish that ends every argument at the table.",
+      "addedBy": "Mamaw"
+    },
+    {
+      "recipeId": "buttermilk-biscuits",
+      "note": "Sunday mornings aren't Sunday mornings without them.",
+      "addedBy": "Papaw"
+    },
+    {
+      "recipeId": "lemon-garlic-chicken",
+      "note": "The one everybody asks to have again before it's even gone.",
+      "addedBy": "The grandkids"
+    }
+  ]
+}

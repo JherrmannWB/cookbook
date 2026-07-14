@@ -1,0 +1,48 @@
+{
+  "id": "week-01",
+  "title": "Week 1 — Comfort Classics",
+  "budget": "$85",
+  "notes": "Squash is in season — keep an eye out at Publix.",
+  "sundayPrep": [
+    "Simmer the chicken and pull the meat for Monday's chicken and dumplings.",
+    "Wash and slice the squash for Tuesday's casserole.",
+    "Boil eggs for lunches.",
+    "Make a double batch of biscuits — freeze half."
+  ],
+  "lunches": [
+    { "day": "Monday", "text": "Egg salad sandwiches" },
+    { "day": "Tuesday", "text": "Leftover chicken and dumplings" },
+    { "day": "Wednesday", "text": "Ham and cheese on biscuits" },
+    { "day": "Thursday", "text": "Soup and crackers" },
+    { "day": "Friday", "text": "Chicken salad from Thursday's chicken" },
+    { "day": "Saturday", "text": "Sandwiches, cook's choice" },
+    { "day": "Sunday", "recipeId": "buttermilk-biscuits" }
+  ],
+  "dinners": [
+    { "day": "Monday", "recipeId": "chicken-and-dumplings" },
+    { "day": "Tuesday", "recipeId": "squash-casserole", "note": "with sliced tomatoes" },
+    { "day": "Wednesday", "text": "Leftovers" },
+    { "day": "Thursday", "recipeId": "lemon-garlic-chicken" },
+    { "day": "Friday", "text": "Fish night" },
+    { "day": "Saturday", "text": "Dinner at Susan's" },
+    { "day": "Sunday", "text": "Sunday supper — roast and vegetables" }
+  ],
+  "groceryList": [
+    {
+      "section": "Meat",
+      "items": ["1 whole chicken (about 4 lbs)", "8 bone-in chicken thighs", "Fish for Friday"]
+    },
+    {
+      "section": "Produce",
+      "items": ["2 lbs yellow squash", "3 carrots", "1 bunch celery", "2 yellow onions", "2 lemons", "1 head garlic", "Tomatoes"]
+    },
+    {
+      "section": "Dairy",
+      "items": ["1 lb butter", "1 dozen eggs", "Buttermilk", "Whole milk", "Sour cream", "Sharp cheddar cheese"]
+    },
+    {
+      "section": "Pantry",
+      "items": ["All-purpose flour", "Baking powder", "Chicken broth (8 cups)", "Buttery round crackers", "Olive oil", "Dried oregano"]
+    }
+  ]
+}

@@ -1,23 +1,55 @@
 {
   "recipes": [
     {
-      "id": "buttermilk-biscuits",
-      "title": "Buttermilk Biscuits",
-      "category": "breads",
-      "tags": ["breakfast", "baking"],
-      "seasons": ["all"],
-      "familyFavorite": true,
-      "totalTime": "30 minutes",
+      "id": "lemon-garlic-chicken",
+      "title": "Lemon Garlic Chicken",
+      "description": "Juicy chicken thighs roasted with lemon and plenty of garlic. Bright, simple, and the whole house smells wonderful.",
+      "category": "main-dishes",
+      "difficulty": "Easy",
+      "totalTime": "45 minutes",
+      "tags": ["dinner", "chicken", "one-pan"],
+      "budgetFriendly": true,
+      "familyRating": 5,
+      "featured": true,
       "image": null
     },
     {
       "id": "chicken-and-dumplings",
       "title": "Chicken and Dumplings",
+      "description": "The dish that ends every argument at the table. Slow, simple, and worth every minute.",
       "category": "main-dishes",
-      "tags": ["dinner", "comfort-food", "chicken"],
-      "seasons": ["fall", "winter"],
-      "familyFavorite": true,
+      "difficulty": "Medium",
       "totalTime": "1 hour 30 minutes",
+      "tags": ["dinner", "comfort-food", "chicken"],
+      "budgetFriendly": true,
+      "familyRating": 5,
+      "featured": false,
+      "image": null
+    },
+    {
+      "id": "squash-casserole",
+      "title": "Squash Casserole",
+      "description": "Tender yellow squash baked under a buttery cracker topping. The side dish that disappears first at every family supper.",
+      "category": "sides",
+      "difficulty": "Easy",
+      "totalTime": "55 minutes",
+      "tags": ["side-dish", "vegetables", "casserole"],
+      "budgetFriendly": true,
+      "familyRating": 4,
+      "featured": false,
+      "image": null
+    },
+    {
+      "id": "buttermilk-biscuits",
+      "title": "Buttermilk Biscuits",
+      "description": "Papaw made these every Sunday morning. The secret is a hot oven and a gentle hand — the less you fuss with the dough, the taller they rise.",
+      "category": "breads",
+      "difficulty": "Easy",
+      "totalTime": "30 minutes",
+      "tags": ["breakfast", "baking"],
+      "budgetFriendly": true,
+      "familyRating": 5,
+      "featured": true,
       "image": null
     }
   ]

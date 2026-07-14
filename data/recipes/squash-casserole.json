@@ -1,0 +1,46 @@
+{
+  "id": "squash-casserole",
+  "title": "Squash Casserole",
+  "description": "Tender yellow squash baked under a buttery cracker topping. The side dish that disappears first at every family supper.",
+  "category": "sides",
+  "difficulty": "Easy",
+  "prepTime": "20 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "55 minutes",
+  "servings": "8 servings",
+  "estimatedCost": "$9",
+  "budgetFriendly": true,
+  "image": null,
+  "ingredients": [
+    { "item": "yellow squash", "quantity": 2, "unit": "pounds", "note": "sliced" },
+    { "item": "yellow onion", "quantity": 1, "unit": "", "note": "chopped" },
+    { "item": "butter", "quantity": 4, "unit": "tablespoons" },
+    { "item": "eggs", "quantity": 2, "unit": "", "note": "beaten" },
+    { "item": "sour cream", "quantity": 0.5, "unit": "cup" },
+    { "item": "sharp cheddar cheese", "quantity": 1.5, "unit": "cups", "note": "shredded" },
+    { "item": "buttery round crackers", "quantity": 1.5, "unit": "cups", "note": "crushed" },
+    { "item": "salt", "quantity": 0.5, "unit": "teaspoon" },
+    { "item": "black pepper", "quantity": 0.25, "unit": "teaspoon" }
+  ],
+  "instructions": [
+    "Preheat the oven to 350°F and butter a 9x13 baking dish.",
+    "Cook the squash and onion in half the butter over medium heat until soft, about 10 minutes, then drain well.",
+    "Stir in the eggs, sour cream, 1 cup of the cheese, half the crackers, salt, and pepper.",
+    "Spread the mixture in the dish and top with the remaining cheese and crackers.",
+    "Melt the rest of the butter and drizzle it over the top.",
+    "Bake for 30 to 35 minutes, until golden and bubbly at the edges."
+  ],
+  "tags": ["side-dish", "vegetables", "casserole"],
+  "seasons": ["summer", "fall"],
+  "notes": [
+    "Drain the squash well or the casserole turns watery — press it gently in a colander."
+  ],
+  "leftovers": "Keeps 3 days in the refrigerator and reheats beautifully.",
+  "storage": "Cover the dish with foil and refrigerate. Reheat at 325°F until warm in the middle.",
+  "familyRating": 4,
+  "mamawApproved": true,
+  "papawApproved": true,
+  "featured": false,
+  "approvedProducts": [],
+  "dateAdded": "2026-07-14"
+}

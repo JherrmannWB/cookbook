@@ -1,0 +1,44 @@
+{
+  "id": "lemon-garlic-chicken",
+  "title": "Lemon Garlic Chicken",
+  "description": "Juicy chicken thighs roasted with lemon and plenty of garlic. Bright, simple, and the whole house smells wonderful.",
+  "category": "main-dishes",
+  "difficulty": "Easy",
+  "prepTime": "10 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "45 minutes",
+  "servings": "4 servings",
+  "estimatedCost": "$11",
+  "budgetFriendly": true,
+  "image": null,
+  "ingredients": [
+    { "item": "chicken thighs", "quantity": 8, "unit": "", "note": "bone-in, skin-on" },
+    { "item": "lemons", "quantity": 2, "unit": "", "note": "one juiced, one sliced" },
+    { "item": "garlic cloves", "quantity": 6, "unit": "", "note": "smashed" },
+    { "item": "olive oil", "quantity": 3, "unit": "tablespoons" },
+    { "item": "dried oregano", "quantity": 1, "unit": "teaspoon" },
+    { "item": "salt", "quantity": 1, "unit": "teaspoon" },
+    { "item": "black pepper", "quantity": 0.5, "unit": "teaspoon" }
+  ],
+  "instructions": [
+    "Preheat the oven to 425°F.",
+    "Pat the chicken dry and season it all over with the salt, pepper, and oregano.",
+    "Whisk the lemon juice and olive oil together in a large baking dish.",
+    "Add the chicken skin-side up, and tuck the garlic and lemon slices around it.",
+    "Roast for 30 to 35 minutes, until the skin is golden and the juices run clear.",
+    "Rest for 5 minutes, then spoon the pan juices over the top and serve."
+  ],
+  "tags": ["dinner", "chicken", "one-pan"],
+  "seasons": ["all"],
+  "notes": [
+    "Spoon the pan juices over rice or bread — that's the best part."
+  ],
+  "leftovers": "Keeps 3 days in the refrigerator. Wonderful chopped over a salad for lunch.",
+  "storage": "Store in a covered dish in the refrigerator. Reheat covered in a 325°F oven until warm.",
+  "familyRating": 5,
+  "mamawApproved": true,
+  "papawApproved": true,
+  "featured": true,
+  "approvedProducts": [],
+  "dateAdded": "2026-07-14"
+}

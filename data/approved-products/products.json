@@ -1,0 +1,81 @@
+{
+  "products": [
+    {
+      "id": "publix-buttermilk",
+      "name": "Whole Buttermilk",
+      "category": "Dairy",
+      "store": "Publix",
+      "notes": "The whole kind, not low-fat.",
+      "approved": true,
+      "favorite": true,
+      "image": null,
+      "usedIn": ["buttermilk-biscuits"]
+    },
+    {
+      "id": "land-o-lakes-butter",
+      "name": "Land O'Lakes Salted Butter",
+      "category": "Dairy",
+      "store": "Publix",
+      "notes": "Sticks, not the tub — the tub won't work for baking.",
+      "approved": true,
+      "favorite": false,
+      "image": null,
+      "usedIn": []
+    },
+    {
+      "id": "white-lily-flour",
+      "name": "White Lily All-Purpose Flour",
+      "category": "Baking",
+      "store": "Publix",
+      "notes": "The soft flour that makes biscuits light. Worth it.",
+      "approved": true,
+      "favorite": true,
+      "image": null,
+      "usedIn": ["buttermilk-biscuits"]
+    },
+    {
+      "id": "clabber-girl-baking-powder",
+      "name": "Clabber Girl Baking Powder",
+      "category": "Baking",
+      "store": "Publix",
+      "notes": "Check the date on the bottom — old baking powder means flat biscuits.",
+      "approved": true,
+      "favorite": false,
+      "image": null,
+      "usedIn": []
+    },
+    {
+      "id": "greenwise-chicken-broth",
+      "name": "GreenWise Chicken Broth",
+      "category": "Pantry",
+      "store": "Publix",
+      "notes": "Low sodium — we add our own salt.",
+      "approved": true,
+      "favorite": false,
+      "image": null,
+      "usedIn": ["chicken-and-dumplings"]
+    },
+    {
+      "id": "dukes-mayonnaise",
+      "name": "Duke's Mayonnaise",
+      "category": "Pantry",
+      "store": "Publix",
+      "notes": "The only mayonnaise allowed in this house.",
+      "approved": true,
+      "favorite": true,
+      "image": null,
+      "usedIn": []
+    },
+    {
+      "id": "ritz-crackers",
+      "name": "Ritz Crackers",
+      "category": "Pantry",
+      "store": "Publix",
+      "notes": "For the squash casserole topping.",
+      "approved": true,
+      "favorite": false,
+      "image": null,
+      "usedIn": ["squash-casserole"]
+    }
+  ]
+}

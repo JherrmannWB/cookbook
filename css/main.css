@@ -310,6 +310,200 @@ main {
 }
 
 /* --------------------------------------------------------------------------
+   Badges, ratings, and tags
+   -------------------------------------------------------------------------- */
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin: var(--space-2) 0;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.2em 0.9em;
+  font-size: 0.9em;
+  color: var(--color-text-soft);
+}
+
+.badge-favorite {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.stars {
+  display: inline-block;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+}
+
+.card .stars {
+  margin-top: var(--space-1);
+}
+
+.card-meta {
+  color: var(--color-text-soft);
+  font-size: 0.95em;
+}
+
+/* --------------------------------------------------------------------------
+   Content sections (recipe page, meal plan page)
+   -------------------------------------------------------------------------- */
+
+.content-section {
+  margin-top: var(--space-4);
+}
+
+.content-section h2 {
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--space-1);
+}
+
+/* --------------------------------------------------------------------------
+   Recipe page
+   -------------------------------------------------------------------------- */
+
+.recipe-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: var(--space-2);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin: var(--space-3) 0;
+}
+
+.recipe-meta-item dt {
+  font-size: 0.9em;
+  color: var(--color-text-soft);
+}
+
+.recipe-meta-item dd {
+  margin: 0;
+  font-weight: bold;
+}
+
+.ingredients li,
+.instructions li {
+  padding: 0.35em 0;
+}
+
+.instructions li {
+  padding-left: 0.3em;
+}
+
+.instructions li::marker {
+  font-weight: bold;
+  color: var(--color-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Meal plan page
+   -------------------------------------------------------------------------- */
+
+.week-picker {
+  list-style: none;
+  margin: 0 0 var(--space-2);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.week-picker a {
+  display: block;
+  padding: 0.6em 1.2em;            /* ≥44px touch target */
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.week-picker a[aria-current="page"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  font-weight: bold;
+}
+
+.day-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.day-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  padding: 0.6em 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.day-name {
+  font-weight: bold;
+  flex: 0 0 7.5em;
+}
+
+.day-note {
+  color: var(--color-text-soft);
+}
+
+.grocery-group h3 {
+  margin: var(--space-3) 0 var(--space-1);
+}
+
+.grocery-group ul {
+  margin: 0;
+}
+
+.grocery-group li {
+  padding: 0.2em 0;
+}
+
+/* --------------------------------------------------------------------------
+   Approved products
+   -------------------------------------------------------------------------- */
+
+.product-photo {
+  display: grid;
+  place-items: center;
+  height: 5.5rem;
+  background: var(--color-footer-bg);
+  border-radius: calc(var(--radius) - 4px);
+  margin-bottom: var(--space-2);
+  font-size: var(--text-xl);
+}
+
+.product-photo img {
+  max-height: 100%;
+  border-radius: calc(var(--radius) - 4px);
+}
+
+/* --------------------------------------------------------------------------
+   Family favorites
+   -------------------------------------------------------------------------- */
+
+.favorite-note {
+  margin-top: var(--space-2);
+  font-family: var(--font-heading);
+  font-style: italic;
+}
+
+.favorite-by {
+  color: var(--color-text-soft);
+  font-style: normal;
+  font-family: var(--font-body);
+  font-size: 0.9em;
+}
+
+/* --------------------------------------------------------------------------
    Footer
    -------------------------------------------------------------------------- */
 

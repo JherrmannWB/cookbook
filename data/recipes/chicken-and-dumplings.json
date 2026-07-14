@@ -1,17 +1,15 @@
 {
   "id": "chicken-and-dumplings",
   "title": "Chicken and Dumplings",
-  "story": "The dish that ends every argument at the table. Slow, simple, and worth every minute.",
+  "description": "The dish that ends every argument at the table. Slow, simple, and worth every minute.",
   "category": "main-dishes",
-  "tags": ["dinner", "comfort-food", "chicken"],
-  "seasons": ["fall", "winter"],
-  "familyFavorite": true,
+  "difficulty": "Medium",
+  "prepTime": "20 minutes",
+  "cookTime": "1 hour 10 minutes",
+  "totalTime": "1 hour 30 minutes",
   "servings": "6 servings",
-  "times": {
-    "prep": "20 minutes",
-    "cook": "1 hour 10 minutes",
-    "total": "1 hour 30 minutes"
-  },
+  "estimatedCost": "$14",
+  "budgetFriendly": true,
   "image": null,
   "ingredients": [
     { "item": "whole chicken", "quantity": 1, "unit": "", "note": "about 4 pounds" },
@@ -26,7 +24,7 @@
     { "item": "butter", "quantity": 4, "unit": "tablespoons", "note": "melted" },
     { "item": "black pepper", "quantity": null, "unit": "", "note": "to taste" }
   ],
-  "steps": [
+  "instructions": [
     "Put the chicken, carrots, celery, and onion in a large pot and cover with the broth.",
     "Bring to a boil, then lower the heat and simmer for about 1 hour, until the chicken is cooked through.",
     "Lift the chicken out, let it cool a little, and pull the meat off the bones in big pieces.",
@@ -35,9 +33,17 @@
     "Drop the dough in by big spoonfuls, cover the pot, and cook for 15 minutes without peeking.",
     "Season with pepper and serve hot."
   ],
+  "tags": ["dinner", "comfort-food", "chicken"],
+  "seasons": ["fall", "winter"],
   "notes": [
     "Don't lift the lid while the dumplings cook — the steam is what makes them fluffy."
   ],
-  "approvedProducts": [],
+  "leftovers": "Even better the next day. Keeps 3 days in the refrigerator.",
+  "storage": "Refrigerate in a covered pot. Reheat gently on the stove with a splash of broth or milk.",
+  "familyRating": 5,
+  "mamawApproved": true,
+  "papawApproved": true,
+  "featured": false,
+  "approvedProducts": ["greenwise-chicken-broth"],
   "dateAdded": "2026-07-14"
 }

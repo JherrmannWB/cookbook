@@ -1,6 +1,6 @@
 # Papaw's Kitchen — Architecture
 
-**Status: PROPOSED — awaiting approval before implementation.**
+**Status: IMPLEMENTED** (Sprint 1: foundation · Sprint 2: data-driven content)
 
 A cookbook website for family, built to be maintained for years. Hosted on
 GitHub Pages. No frameworks, no backend, no build tools.
@@ -10,12 +10,13 @@ GitHub Pages. No frameworks, no backend, no build tools.
 ## 1. Guiding principles
 
 1. **Content lives in `/data`, presentation lives in HTML/CSS/JS.** Adding a
-   recipe should never mean touching HTML.
+   recipe never means touching HTML — create a JSON file, add one index
+   entry, and it appears everywhere automatically.
 2. **Boring technology.** Plain files that will still work in 10 years.
 3. **The reader comes first.** Large text, high contrast, simple navigation,
    fast loads, printable pages.
-4. **Grow without rework.** 100+ recipes, search, filters, meal plans, and
-   shopping lists must slot into this structure without restructuring it.
+4. **Grow without rework.** 100+ recipes, 12 rotating meal plans, hundreds of
+   products, search, and filters must slot in without restructuring.
 
 ---
 
@@ -24,14 +25,14 @@ GitHub Pages. No frameworks, no backend, no build tools.
 ```
 cookbook/
 ├── index.html              Home
-├── recipes.html            Browse all recipes (list/cards, later: search + filters)
+├── recipes.html            Browse all recipes (rendered from data)
 ├── recipe.html             Single-recipe template (reads ?id=..., printable)
-├── meal-plans.html         Weekly meal plans
-├── products.html           Approved products (Publix)
-├── shopping-lists.html     Shopping lists
-├── favorites.html          Family favorites
+├── meal-plans.html         Rotating weekly plans (reads ?week=...)
+├── products.html           Approved products, grouped by category
+├── shopping-lists.html     Shopping lists (grocery lists live in meal plans)
+├── favorites.html          Family favorites (curated, rendered from data)
 ├── about.html              About
-├── 404.html                Friendly "page not found"
+├── 404.html                Friendly "page not found" (self-contained)
 │
 ├── css/
 │   ├── main.css            Design tokens + layout + components
@@ -39,24 +40,34 @@ cookbook/
 │
 ├── js/
 │   ├── layout.js           Shared header/nav/footer (single source of truth)
-│   ├── data.js             Small helpers to fetch/cache JSON from /data
-│   └── pages/              One small file per page that needs behavior
+│   ├── data.js             Fetch + cache JSON from /data (PapawData)
+│   ├── render.js           Reusable rendering helpers (PapawRender)
+│   └── pages/              One small script per dynamic page
 │       ├── recipes.js
 │       ├── recipe.js
-│       └── meal-plans.js
+│       ├── meal-plans.js
+│       ├── products.js
+│       └── favorites.js
 │
 ├── data/
 │   ├── recipes/
-│   │   ├── index.json      Summary of every recipe (for browsing/search)
+│   │   ├── index.json      Summary of every recipe (browse/search/filter)
 │   │   └── <recipe-id>.json  One file per recipe (full detail)
 │   ├── meal-plans/
-│   │   ├── index.json      List of available weeks
-│   │   └── <YYYY-MM-DD>.json  One file per week (Monday's date)
-│   ├── products.json       Approved products
-│   └── staples.json        Standing pantry/shopping staples
+│   │   ├── index.json      List of rotating weeks
+│   │   └── week-NN.json    One file per week (grocery list, budget, prep,
+│   │                       lunch + dinner schedules)
+│   ├── approved-products/
+│   │   └── products.json   Every approved product as its own record
+│   ├── family-favorites/
+│   │   └── favorites.json  Curated list of recipe ids + why we love them
+│   └── staples.json        Standing pantry staples (future shopping lists)
 │
 ├── images/
 │   └── recipes/            One photo per recipe, named by recipe id
+│
+├── .github/workflows/
+│   └── pages.yml           Deploys the site to GitHub Pages on push to main
 │
 └── docs/
     └── ARCHITECTURE.md     This document
@@ -68,50 +79,55 @@ GitHub Pages serves static files, and without a build tool, a page per recipe
 would mean copy-pasting HTML 100+ times — a maintenance trap. Instead there is
 **one** `recipe.html` template; `recipe.html?id=buttermilk-biscuits` fetches
 `data/recipes/buttermilk-biscuits.json` and renders it. Fixing the recipe
-layout once fixes it for every recipe, forever.
+layout once fixes it for every recipe, forever. Meal plans work the same way:
+`meal-plans.html?week=week-02`.
 
 ### Shared header/nav/footer
 
-With 8 pages and no build step, duplicated headers drift out of sync the first
-time the nav changes. `js/layout.js` holds the header and footer as one
-template and injects them into every page. Trade-off: navigation requires
-JavaScript. That's acceptable here — the site's core pages already need JS to
-render data, each page's `<main>` content remains readable regardless, and
-this is a family site, not a public one that must survive with JS disabled.
+`js/layout.js` holds the header and footer as one template and injects them
+into every page, so eight pages never drift out of sync. Trade-off:
+navigation requires JavaScript — acceptable because the content pages already
+render from data, and each page's `<main>` remains readable regardless.
+
+### JavaScript layering (separation of concerns)
+
+- **`data.js` (PapawData)** — the only code that knows where JSON lives.
+  Fetches and caches; every page loads content through it.
+- **`render.js` (PapawRender)** — the only code that builds shared UI
+  (recipe cards, badges, star ratings, notices, ingredient formatting).
+  A recipe card looks identical on Recipes and Family Favorites because
+  both pages call the same function.
+- **`js/pages/*.js`** — one small script per page that connects the two:
+  load data, hand it to render functions. Each keeps **loading separate
+  from rendering**, so search/filters later just call `render()` again
+  with a filtered subset — no other changes.
+
+All dynamic content is inserted via `textContent` (never `innerHTML`), so
+nothing typed into a data file can inject markup into the page.
 
 ---
 
 ## 3. Content storage: JSON, and why
 
-**Recipes, meal plans, and products are stored as JSON.** The reasoning:
+**Everything is JSON.** Recipes are structured data, not prose — ingredients
+with quantities, steps, times, tags, ratings. Every roadmap feature (search,
+filters, favorites, seasonal, budget, grocery lists) is a *query over
+structured data*: JSON makes each one a small loop, Markdown would make each
+one a parsing project. Browsers also parse JSON natively — no library needed.
+Free-text warmth lives in schema fields (`description`, `notes`, favorite
+quotes), so nothing is sacrificed to structure.
 
-- **Recipes are structured data, not prose.** A recipe is ingredients (with
-  quantities and units), steps, times, servings, and tags. Markdown is
-  pleasant to write but is just formatted text — a Markdown ingredient list
-  can't be summed into a shopping list, filtered by tag, or scaled.
-  Every feature on the long-term roadmap (search, filters, favorites,
-  seasonal, budget, grocery lists) is a *query over structured data*. JSON
-  makes each one a small loop; Markdown would make each one a parsing project.
-- **No parser needed.** Browsers read JSON natively (`fetch` +
-  `response.json()`). Markdown would require shipping a parsing library —
-  the first crack in "no frameworks."
-- **Free-text still has a home.** Schema fields like `story` and `notes`
-  hold Papaw's headnotes and tips, so warmth isn't sacrificed to structure.
+### Index + detail pattern (the key scaling decision)
 
-### Index + detail pattern (this is the key scaling decision)
+Recipes have a lightweight `index.json` (just enough to render cards, search,
+and filter) plus one detail file per recipe (loaded only when opened).
+Browsing 100+ recipes loads **one small file**; opening a recipe loads one
+more. Editing touches one file, so hand-edits are safe and git diffs stay
+readable.
 
-Each collection has a lightweight `index.json` (just enough to render cards,
-search, and filter) plus one detail file per item (loaded only when opened).
-
-- Browsing/searching 100+ recipes loads **one small file**, not 100.
-- Opening a recipe loads **one more small file**.
-- Editing a recipe touches one file — safe for hand-editing, and git diffs
-  stay readable.
-
-The only cost: when a recipe is added, its summary is also added to
-`index.json`. That's one small entry, documented in the schema, and if it ever
-becomes tedious a 20-line local script can regenerate the index — without
-changing the architecture.
+The cost: adding a recipe means also adding its summary entry to
+`index.json`. If that ever becomes tedious, a 20-line local script can
+regenerate the index without changing the architecture.
 
 ---
 
@@ -119,129 +135,126 @@ changing the architecture.
 
 ### Recipe — `data/recipes/<id>.json`
 
-The `id` is the filename and the URL: lowercase, hyphenated, permanent
-(e.g. `buttermilk-biscuits`).
+The `id` is the filename and the URL: lowercase, hyphenated, permanent.
 
 ```json
 {
-  "id": "buttermilk-biscuits",
-  "title": "Buttermilk Biscuits",
-  "story": "Papaw made these every Sunday morning...",
-  "category": "breads",
-  "tags": ["breakfast", "baking"],
-  "seasons": ["all"],
-  "familyFavorite": true,
-  "servings": "8 biscuits",
-  "times": { "prep": "15 minutes", "cook": "12 minutes", "total": "30 minutes" },
-  "image": "images/recipes/buttermilk-biscuits.jpg",
+  "id": "lemon-garlic-chicken",
+  "title": "Lemon Garlic Chicken",
+  "description": "Juicy chicken thighs roasted with lemon...",
+  "category": "main-dishes",
+  "difficulty": "Easy",
+  "prepTime": "10 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "45 minutes",
+  "servings": "4 servings",
+  "estimatedCost": "$11",
+  "budgetFriendly": true,
+  "image": null,
   "ingredients": [
-    { "item": "all-purpose flour", "quantity": 2, "unit": "cups" },
-    { "item": "buttermilk", "quantity": 0.75, "unit": "cup", "note": "cold" }
+    { "item": "chicken thighs", "quantity": 8, "unit": "", "note": "bone-in" }
   ],
-  "steps": [
-    "Preheat the oven to 450°F.",
-    "Whisk the flour, baking powder, and salt together."
-  ],
-  "notes": ["Handle the dough as little as possible."],
+  "instructions": ["Preheat the oven to 425°F.", "..."],
+  "tags": ["dinner", "chicken", "one-pan"],
+  "seasons": ["all"],
+  "notes": ["Optional kitchen tips."],
+  "leftovers": "Keeps 3 days in the refrigerator.",
+  "storage": "Store covered; reheat at 325°F.",
+  "familyRating": 5,
+  "mamawApproved": true,
+  "papawApproved": true,
+  "featured": false,
   "approvedProducts": ["publix-buttermilk"],
   "dateAdded": "2026-07-14"
 }
 ```
 
-- Structured `ingredients` power future shopping lists and scaling.
-- `tags`, `seasons`, `familyFavorite` power filters, seasonal pages, and the
-  Family Favorites page with zero extra storage.
-- `approvedProducts` cross-references product ids (section below).
+- Structured `ingredients` (`quantity`/`unit`/`item`/`note`) power future
+  shopping-list generation and scaling; the renderer shows quantities as
+  kitchen fractions (0.75 → "3/4").
+- `tags`, `seasons`, `featured`, `budgetFriendly`, `familyRating` power
+  future search, filters, seasonal pages, and a featured section — no new
+  storage needed.
+- `approvedProducts` cross-references product ids.
 
 ### Recipe index — `data/recipes/index.json`
 
-```json
-{
-  "recipes": [
-    {
-      "id": "buttermilk-biscuits",
-      "title": "Buttermilk Biscuits",
-      "category": "breads",
-      "tags": ["breakfast", "baking"],
-      "seasons": ["all"],
-      "familyFavorite": true,
-      "totalTime": "30 minutes",
-      "image": "images/recipes/buttermilk-biscuits.jpg"
-    }
-  ]
-}
-```
+One summary entry per recipe: `id`, `title`, `description`, `category`,
+`difficulty`, `totalTime`, `tags`, `budgetFriendly`, `familyRating`,
+`featured`, `image`. **When adding a recipe, add its entry here too.**
 
-### Weekly meal plan — `data/meal-plans/<YYYY-MM-DD>.json`
+### Meal plan — `data/meal-plans/week-NN.json`
 
-One file per week, named by the **Monday** of that week, so "this week's plan"
-is computable from today's date. Days reference recipes by id; plain-text
-entries (`"Leftovers"`, `"Dinner at Susan's"`) are equally valid.
+Rotating numbered weeks (`week-01` … `week-12`), not calendar dates — the
+family cycles through them in any order. Meals reference recipes **by id
+only** (never duplicated); plain-text entries ("Leftovers", "Fish night")
+are equally valid, and either kind may carry a `note`.
 
 ```json
 {
-  "weekOf": "2026-07-13",
-  "title": "Week of July 13",
+  "id": "week-01",
+  "title": "Week 1 — Comfort Classics",
+  "budget": "$85",
   "notes": "Squash is in season.",
-  "days": [
-    {
-      "day": "Monday",
-      "meals": [
-        { "meal": "Dinner", "recipeId": "chicken-and-dumplings" }
-      ]
-    },
-    {
-      "day": "Tuesday",
-      "meals": [
-        { "meal": "Dinner", "text": "Leftovers" }
-      ]
-    }
+  "sundayPrep": ["Simmer the chicken for Monday.", "..."],
+  "lunches": [
+    { "day": "Monday", "text": "Egg salad sandwiches" },
+    { "day": "Sunday", "recipeId": "buttermilk-biscuits" }
+  ],
+  "dinners": [
+    { "day": "Monday", "recipeId": "chicken-and-dumplings" },
+    { "day": "Tuesday", "recipeId": "squash-casserole", "note": "with sliced tomatoes" }
+  ],
+  "groceryList": [
+    { "section": "Produce", "items": ["2 lbs yellow squash", "3 carrots"] }
   ]
 }
 ```
 
-`data/meal-plans/index.json` lists available weeks (newest first) for a simple
-archive. Because plans reference recipe ids, a future "shopping list for this
-week" button is just: collect the week's recipe ids → merge their structured
-ingredients → done. The storage format already supports it.
+`data/meal-plans/index.json` lists the weeks (`id`, `title`, `budget`).
+Because meals reference recipe ids, a future "build my shopping list"
+feature merges the week's structured ingredients automatically.
 
-### Approved products — `data/products.json`
+### Approved products — `data/approved-products/products.json`
 
-A flat file is right here — even hundreds of products is one small file, and
-products don't have detail pages.
+Every product is its own record. One flat file is right here — even hundreds
+of products is a small file, and products have no detail pages.
 
 ```json
 {
-  "products": [
-    {
-      "id": "publix-buttermilk",
-      "name": "Whole Buttermilk",
-      "brand": "Publix",
-      "store": "Publix",
-      "category": "dairy",
-      "aisle": "Dairy",
-      "notes": "The whole kind, not low-fat.",
-      "usedIn": ["buttermilk-biscuits"]
-    }
+  "id": "publix-buttermilk",
+  "name": "Whole Buttermilk",
+  "category": "Dairy",
+  "store": "Publix",
+  "notes": "The whole kind, not low-fat.",
+  "approved": true,
+  "favorite": true,
+  "image": null,
+  "usedIn": ["buttermilk-biscuits"]
+}
+```
+
+`store` keeps the format honest if shopping ever extends beyond Publix;
+`image` is a placeholder for product photos; `price` can be added later for
+budget tracking without a format change.
+
+### Family favorites — `data/family-favorites/favorites.json`
+
+A curated list referencing recipes by id, with a note on why it's loved:
+
+```json
+{
+  "favorites": [
+    { "recipeId": "chicken-and-dumplings",
+      "note": "The dish that ends every argument at the table.",
+      "addedBy": "Mamaw" }
   ]
 }
 ```
 
-`store` is included so the format survives if shopping ever extends beyond
-Publix. `price` can be added per-product later for budget tracking without a
-format change.
-
-### Staples — `data/staples.json`
-
-Standing pantry items for the Shopping Lists page, grouped by aisle. Future
-generated lists (from meal plans) merge on top of these.
-
-### Favorites
-
-`familyFavorite: true` on the recipe itself — no separate list to keep in
-sync; the Favorites page just filters the index. A future personal
-"my favorites" feature uses `localStorage` (per-device, no backend needed)
-and layers on top without any data change.
+The Favorites page builds its cards from the recipe index — recipe details
+are never duplicated. A future personal "my favorites" feature layers on
+with `localStorage` (per-device, no backend) without touching this data.
 
 ---
 
@@ -249,37 +262,35 @@ and layers on top without any data change.
 
 ### Design tokens (CSS custom properties)
 
-All colors, spacing, and type sizes defined once in `:root` — the whole site's
-look is tuned from ~20 lines:
+All colors, spacing, and type sizes defined once in `:root`:
 
-- **Type:** base font size **20px**, generous line-height (1.6+), a warm
-  serif for headings, a highly readable font for body text.
-- **Color:** warm cream background, deep brown text, one soft accent —
+- **Type:** base font size **20px**, line-height 1.65, warm serif headings,
+  highly readable system font for body text.
+- **Color:** warm cream background, deep brown text, terracotta accent —
   all pairs meeting **WCAG AA (4.5:1)** contrast, most meeting AAA.
-- **Spacing:** a simple scale with lots of air; simple soft-edged cards.
+- **Spacing:** a simple scale with lots of air; soft-edged cards.
 
 ### Accessibility commitments
 
-- Semantic landmarks (`header`, `nav`, `main`, `footer`), one `h1` per page,
-  logical heading order.
-- Skip-to-content link; visible focus outlines; current page marked with
-  `aria-current="page"`.
-- Touch targets ≥ 44px; no hover-only interactions; no time-based UI;
-  `prefers-reduced-motion` respected.
-- Meaningful `alt` text on every image.
+- Semantic landmarks, one `h1` per page, logical heading order.
+- Skip-to-content link; visible focus outlines; current page and current
+  week marked with `aria-current="page"`.
+- Touch targets ≥ 44px; no hover-only interactions; no hidden menus —
+  every page is always one tap away.
+- Star ratings carry spoken labels ("Family rating: 5 out of 5 stars");
+  meaningful `alt` text on every image.
+- `prefers-reduced-motion` respected.
 
 ### Mobile first & performance
 
 Single-column layouts by default, widening to card grids on larger screens.
-System font stack (or at most one hosted font file), no libraries, small
-JSON payloads via the index pattern — pages should stay well under 100KB
-before photos.
+System fonts, no libraries, small JSON payloads via the index pattern.
 
 ### Print
 
-`css/print.css` makes any recipe print as a clean card: navigation, footer,
-and buttons hidden; black on white; ingredients and steps only. "Print this
-recipe" is a visible button (many folks don't know Ctrl+P).
+`css/print.css` strips navigation, footer, and controls from any page;
+recipe pages print as clean black-on-white cards via a visible
+"Print this recipe" button.
 
 ---
 
@@ -287,26 +298,29 @@ recipe" is a visible button (many folks don't know Ctrl+P).
 
 | Future feature | What it takes |
 |---|---|
-| Search | Filter `recipes/index.json` in JS as the user types — no new data |
-| Filters (category/tag/season) | Same index, same page |
-| Family favorites | Already a flag; page filters the index |
-| Seasonal recipes | Already a field; filter or featured section on Home |
-| Printable recipe cards | `print.css`, in from day one |
-| Shopping list from a meal plan | Merge structured ingredients of the week's recipes |
+| Search | Filter the recipe index in JS; pages already separate load from render |
+| Filters (category/tag/season/difficulty) | Same index, same `render()` call |
+| Featured recipes on Home | `featured` flag already exists; filter the index |
+| Seasonal recipes | `seasons` field already exists |
+| Shopping list from a meal plan | Merge structured ingredients of the week's recipe ids |
 | Budget tracking | Add `price` to products; sum over a list |
 | Personal favorites | `localStorage`; no data change |
-| Photos | Drop image in `images/recipes/`, reference from recipe JSON |
-| 500+ recipes someday | Optional 20-line script to regenerate the index; structure unchanged |
+| Photos | Drop image in `images/recipes/`, set the recipe's `image` field |
+| 500+ recipes someday | Optional 20-line script to regenerate the index |
 
 ---
 
-## 7. Implementation phases (after approval)
+## 7. Adding content (quick reference)
 
-1. **Foundation** — folder structure, design tokens, `layout.js`
-   (header/nav/footer), Home page, all placeholder pages, 404, responsive +
-   print CSS, sample data files establishing the schemas.
-2. **Recipes** — browse page rendering from the index; `recipe.html`
-   rendering full recipes; print styling verified.
-3. **Meal plans & products** — render current week + archive; products page.
-4. **Search & filters** — on the recipes page.
-5. **Shopping lists** — staples first, then generated-from-meal-plan.
+**A recipe:** copy an existing `data/recipes/*.json`, edit, save as
+`<recipe-id>.json`, add a summary entry to `data/recipes/index.json`.
+It appears automatically in Recipes, and can be referenced by meal plans
+and favorites immediately.
+
+**A meal plan week:** copy an existing `week-NN.json`, edit, add the week to
+`data/meal-plans/index.json`.
+
+**A product:** add one record to `data/approved-products/products.json`.
+
+**A favorite:** add `{ recipeId, note, addedBy }` to
+`data/family-favorites/favorites.json`.

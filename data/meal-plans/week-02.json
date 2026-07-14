@@ -1,0 +1,47 @@
+{
+  "id": "week-02",
+  "title": "Week 2 — Easy Does It",
+  "budget": "$75",
+  "notes": "A lighter week — mostly quick suppers and leftovers.",
+  "sundayPrep": [
+    "Roast the lemon garlic chicken for Monday and Tuesday.",
+    "Wash lettuce and chop salad vegetables for the week.",
+    "Bake biscuits for breakfasts."
+  ],
+  "lunches": [
+    { "day": "Monday", "text": "Chicken salad from Sunday's chicken" },
+    { "day": "Tuesday", "text": "Tomato sandwiches" },
+    { "day": "Wednesday", "text": "Leftover squash casserole" },
+    { "day": "Thursday", "text": "Soup and biscuits" },
+    { "day": "Friday", "text": "Pimento cheese sandwiches" },
+    { "day": "Saturday", "text": "Out to lunch after errands" },
+    { "day": "Sunday", "recipeId": "buttermilk-biscuits" }
+  ],
+  "dinners": [
+    { "day": "Monday", "recipeId": "lemon-garlic-chicken", "note": "made Sunday, just reheat" },
+    { "day": "Tuesday", "text": "Big salads with Monday's chicken" },
+    { "day": "Wednesday", "recipeId": "squash-casserole" },
+    { "day": "Thursday", "text": "Breakfast for dinner" },
+    { "day": "Friday", "text": "Fish night" },
+    { "day": "Saturday", "text": "Burgers on the grill" },
+    { "day": "Sunday", "recipeId": "chicken-and-dumplings" }
+  ],
+  "groceryList": [
+    {
+      "section": "Meat",
+      "items": ["8 bone-in chicken thighs", "1 whole chicken (about 4 lbs)", "Ground beef for burgers", "Fish for Friday"]
+    },
+    {
+      "section": "Produce",
+      "items": ["2 lbs yellow squash", "Lettuce", "Tomatoes", "2 lemons", "1 head garlic", "2 yellow onions", "3 carrots", "1 bunch celery"]
+    },
+    {
+      "section": "Dairy",
+      "items": ["Butter", "1 dozen eggs", "Buttermilk", "Sour cream", "Sharp cheddar cheese", "Pimento cheese"]
+    },
+    {
+      "section": "Pantry",
+      "items": ["All-purpose flour", "Baking powder", "Chicken broth (8 cups)", "Buttery round crackers", "Hamburger buns"]
+    }
+  ]
+}
