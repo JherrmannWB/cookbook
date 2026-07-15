@@ -2,6 +2,7 @@
   "id": "week-01",
   "title": "Week 1 — Comfort Classics",
   "budget": "$85",
+  "estimatedTotal": "$62",
   "notes": "Squash is in season — keep an eye out at Publix.",
   "sundayPrep": [
     "Simmer the chicken and pull the meat for Monday's chicken and dumplings.",
@@ -20,8 +21,8 @@
   ],
   "dinners": [
     { "day": "Monday", "recipeId": "chicken-and-dumplings" },
-    { "day": "Tuesday", "recipeId": "squash-casserole", "note": "with sliced tomatoes" },
-    { "day": "Wednesday", "text": "Leftovers" },
+    { "day": "Tuesday", "text": "Leftovers" },
+    { "day": "Wednesday", "recipeId": "squash-casserole", "note": "with sliced tomatoes" },
     { "day": "Thursday", "recipeId": "lemon-garlic-chicken" },
     { "day": "Friday", "text": "Fish night" },
     { "day": "Saturday", "text": "Dinner at Susan's" },

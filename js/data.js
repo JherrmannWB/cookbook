@@ -47,6 +47,11 @@ window.PapawData = (function () {
     return getJSON('data/family-favorites/favorites.json');
   }
 
+  /* Kitchen tips + quick lunch ideas for the dashboard. */
+  function getTips() {
+    return getJSON('data/tips.json');
+  }
+
   function getStaples() {
     return getJSON('data/staples.json');
   }
@@ -59,6 +64,7 @@ window.PapawData = (function () {
     getMealPlan: getMealPlan,
     getProducts: getProducts,
     getFavorites: getFavorites,
+    getTips: getTips,
     getStaples: getStaples
   };
 })();

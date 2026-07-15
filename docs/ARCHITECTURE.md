@@ -1,6 +1,7 @@
 # Papaw's Kitchen — Architecture
 
-**Status: IMPLEMENTED** (Sprint 1: foundation · Sprint 2: data-driven content)
+**Status: IMPLEMENTED** (Sprint 1: foundation · Sprint 2: data-driven
+content · Sprint 3: kitchen dashboard)
 
 A cookbook website for family, built to be maintained for years. Hosted on
 GitHub Pages. No frameworks, no backend, no build tools.
@@ -42,7 +43,9 @@ cookbook/
 │   ├── layout.js           Shared header/nav/footer (single source of truth)
 │   ├── data.js             Fetch + cache JSON from /data (PapawData)
 │   ├── render.js           Reusable rendering helpers (PapawRender)
+│   ├── schedule.js         Week rotation + day/money helpers (PapawSchedule)
 │   └── pages/              One small script per dynamic page
+│       ├── home.js         Kitchen dashboard
 │       ├── recipes.js
 │       ├── recipe.js
 │       ├── meal-plans.js
@@ -61,6 +64,7 @@ cookbook/
 │   │   └── products.json   Every approved product as its own record
 │   ├── family-favorites/
 │   │   └── favorites.json  Curated list of recipe ids + why we love them
+│   ├── tips.json           Kitchen tips + quick lunch ideas (dashboard)
 │   └── staples.json        Standing pantry staples (future shopping lists)
 │
 ├── images/
@@ -94,9 +98,13 @@ render from data, and each page's `<main>` remains readable regardless.
 - **`data.js` (PapawData)** — the only code that knows where JSON lives.
   Fetches and caches; every page loads content through it.
 - **`render.js` (PapawRender)** — the only code that builds shared UI
-  (recipe cards, badges, star ratings, notices, ingredient formatting).
-  A recipe card looks identical on Recipes and Family Favorites because
-  both pages call the same function.
+  (recipe cards, badges, star ratings, meta grids, notices, ingredient
+  formatting). A recipe card looks identical on Recipes and Family
+  Favorites, and the recipe meta grid is the same on the recipe page and
+  the dashboard hero, because they call the same functions.
+- **`schedule.js` (PapawSchedule)** — domain logic for the rotating weeks:
+  which week is active today, day names, money parsing/formatting. Used by
+  the dashboard and by Meal Plans (which defaults to the current week).
 - **`js/pages/*.js`** — one small script per page that connects the two:
   load data, hand it to render functions. Each keeps **loading separate
   from rendering**, so search/filters later just call `render()` again
@@ -180,15 +188,23 @@ The `id` is the filename and the URL: lowercase, hyphenated, permanent.
 ### Recipe index — `data/recipes/index.json`
 
 One summary entry per recipe: `id`, `title`, `description`, `category`,
-`difficulty`, `totalTime`, `tags`, `budgetFriendly`, `familyRating`,
-`featured`, `image`. **When adding a recipe, add its entry here too.**
+`difficulty`, `prepTime`, `totalTime`, `tags`, `budgetFriendly`,
+`familyRating`, `featured`, `image`. **When adding a recipe, add its entry
+here too.**
 
 ### Meal plan — `data/meal-plans/week-NN.json`
 
-Rotating numbered weeks (`week-01` … `week-12`), not calendar dates — the
-family cycles through them in any order. Meals reference recipes **by id
-only** (never duplicated); plain-text entries ("Leftovers", "Fish night")
-are equally valid, and either kind may carry a `note`.
+Rotating numbered weeks (`week-01` … `week-12`), not calendar dates. Meals
+reference recipes **by id only** (never duplicated); plain-text entries
+("Leftovers", "Fish night") are equally valid, and either kind may carry a
+`note`.
+
+**Which week is "now"?** `data/meal-plans/index.json` holds
+`rotationStart` — the Monday the rotation began. `schedule.js` computes
+today's week from it (weeks cycle in index order forever), so the dashboard
+and the Meal Plans page always know the current week with zero upkeep.
+Weeks also carry `budget` and `estimatedTotal` for the dashboard's budget
+card.
 
 ```json
 {
@@ -255,6 +271,20 @@ A curated list referencing recipes by id, with a note on why it's loved:
 The Favorites page builds its cards from the recipe index — recipe details
 are never duplicated. A future personal "my favorites" feature layers on
 with `localStorage` (per-device, no backend) without touching this data.
+
+### Tips — `data/tips.json`
+
+Two lists the dashboard draws from at random: `tips` (one kitchen tip per
+page load) and `quickLunches` (the fallback suggestion when tomorrow has no
+planned lunch).
+
+### The dashboard (home page)
+
+`js/pages/home.js` composes everything above and hardcodes nothing:
+tonight's dinner hero (full recipe details + Start Cooking button, or the
+plan's plain-text entry), the week's dinner cards with today highlighted,
+tomorrow's lunch (looked up across the week boundary on Sunday nights),
+the budget card with progress bar, one `featured` recipe, and a random tip.
 
 ---
 

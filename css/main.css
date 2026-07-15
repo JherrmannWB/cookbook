@@ -310,6 +310,167 @@ main {
 }
 
 /* --------------------------------------------------------------------------
+   Dashboard (home page)
+   -------------------------------------------------------------------------- */
+
+.eyebrow {
+  color: var(--color-accent);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.95em;
+  margin-bottom: var(--space-1);
+}
+
+.hero {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-4) var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.hero h2 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-1);
+}
+
+.hero .recipe-meta {
+  background: var(--color-bg);
+}
+
+.hero-photo {
+  display: grid;
+  place-items: center;
+  height: 7rem;
+  background: var(--color-footer-bg);
+  border-radius: calc(var(--radius) - 4px);
+  margin-bottom: var(--space-2);
+  font-size: 3.2rem;
+}
+
+.button-large {
+  font-size: var(--text-lg);
+  padding: 0.7em 1.6em;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 62em) {
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.dashboard-grid .card h2 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-1);
+}
+
+.dashboard-answer {
+  font-size: var(--text-lg);
+  font-weight: bold;
+  margin: var(--space-1) 0;
+}
+
+.tip-text {
+  font-size: var(--text-lg);
+  font-family: var(--font-heading);
+  font-style: italic;
+}
+
+/* Weekly overview: one small card per dinner */
+.meal-week {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: var(--space-2);
+}
+
+.meal-card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-2);
+}
+
+.meal-card.today {
+  border: 2px solid var(--color-accent);
+}
+
+.meal-card a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Make the whole meal card tappable via its link */
+.meal-card a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.meal-card a:hover {
+  text-decoration: underline;
+}
+
+.meal-day {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;              /* "Today" badge wraps instead of clipping */
+  gap: 0.5em;
+  font-weight: bold;
+  font-size: 0.95em;
+  color: var(--color-text-soft);
+}
+
+.today-badge {
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.05em 0.7em;
+  font-size: 0.85em;
+}
+
+.meal-icon {
+  display: block;
+  font-size: var(--text-xl);
+  margin: var(--space-1) 0;
+}
+
+.meal-card .card-meta,
+.meal-card .day-note {
+  margin: 0.3em 0 0;
+  font-size: 0.9em;
+}
+
+/* Budget progress bar */
+.progress {
+  height: 1.1rem;
+  background: var(--color-footer-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: var(--space-2);
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 999px;
+}
+
+/* --------------------------------------------------------------------------
    Badges, ratings, and tags
    -------------------------------------------------------------------------- */
 

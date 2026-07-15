@@ -118,7 +118,10 @@
 
       var requested = new URLSearchParams(window.location.search).get('week');
       var known = weeks.some(function (w) { return w.id === requested; });
-      var weekId = known ? requested : weeks[0].id;
+      /* Default to the week that's active in the rotation right now. */
+      var weekId = known
+        ? requested
+        : (PapawSchedule.currentWeekId(results[0], new Date()) || weeks[0].id);
 
       return PapawData.getMealPlan(weekId).then(function (week) {
         renderWeek(week, weeks, recipesById);

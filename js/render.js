@@ -79,6 +79,28 @@ window.PapawRender = (function () {
     return text;
   }
 
+  /* Prep/cook/total/servings facts as a definition grid. Used by the recipe
+     page and the dashboard's "tonight's dinner" hero. */
+  function metaGrid(recipe) {
+    var facts = [
+      ['Prep', recipe.prepTime],
+      ['Cook', recipe.cookTime],
+      ['Total', recipe.totalTime],
+      ['Serves', recipe.servings],
+      ['Difficulty', recipe.difficulty],
+      ['Est. cost', recipe.estimatedCost]
+    ].filter(function (f) { return f[1]; });
+
+    var dl = el('dl', 'recipe-meta');
+    facts.forEach(function (fact) {
+      var group = el('div', 'recipe-meta-item');
+      group.appendChild(el('dt', null, fact[0]));
+      group.appendChild(el('dd', null, fact[1]));
+      dl.appendChild(group);
+    });
+    return dl;
+  }
+
   /* One recipe card, built from an index summary. Used by the Recipes page
      and the Family Favorites page (which adds a note underneath). */
   function recipeCard(summary) {
@@ -137,6 +159,7 @@ window.PapawRender = (function () {
     badgeRow: badgeRow,
     formatQuantity: formatQuantity,
     formatIngredient: formatIngredient,
+    metaGrid: metaGrid,
     recipeCard: recipeCard,
     renderRecipeCards: renderRecipeCards,
     recipeLookup: recipeLookup

@@ -15,27 +15,6 @@
     return wrap;
   }
 
-  /* Prep/cook/total/servings/etc. as a simple definition grid. */
-  function metaGrid(recipe) {
-    var facts = [
-      ['Prep', recipe.prepTime],
-      ['Cook', recipe.cookTime],
-      ['Total', recipe.totalTime],
-      ['Serves', recipe.servings],
-      ['Difficulty', recipe.difficulty],
-      ['Est. cost', recipe.estimatedCost]
-    ].filter(function (f) { return f[1]; });
-
-    var dl = R.el('dl', 'recipe-meta');
-    facts.forEach(function (fact) {
-      var group = R.el('div', 'recipe-meta-item');
-      group.appendChild(R.el('dt', null, fact[0]));
-      group.appendChild(R.el('dd', null, fact[1]));
-      dl.appendChild(group);
-    });
-    return dl;
-  }
-
   function approvalBadges(recipe) {
     var badges = [];
     if (recipe.mamawApproved) badges.push(R.badge('Mamaw approved ✓'));
@@ -61,7 +40,7 @@
     var badges = approvalBadges(recipe);
     if (badges.length) container.appendChild(R.badgeRow(badges));
 
-    container.appendChild(metaGrid(recipe));
+    container.appendChild(R.metaGrid(recipe));
 
     var printWrap = R.el('p', 'no-print');
     var printButton = R.el('button', 'button', 'Print this recipe');
