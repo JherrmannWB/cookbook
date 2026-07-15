@@ -4,6 +4,11 @@
   "budget": "$75",
   "estimatedTotal": "$58",
   "notes": "A lighter week — mostly quick suppers and leftovers.",
+  "leftoverStrategy": [
+    "Sunday's roast chicken carries Monday dinner and Tuesday's salads.",
+    "Wednesday's squash casserole reheats for a lunch later in the week.",
+    "Burger night extras become Sunday sandwiches."
+  ],
   "sundayPrep": [
     "Roast the lemon garlic chicken for Monday and Tuesday.",
     "Wash lettuce and chop salad vegetables for the week.",

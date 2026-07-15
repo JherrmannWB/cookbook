@@ -12,7 +12,6 @@
   Promise.all([PapawData.getFavorites(), PapawData.getRecipeIndex()])
     .then(function (results) {
       var favorites = results[0].favorites;
-      var recipesById = R.recipeLookup(results[1]);
 
       /* Notes keyed by recipe id, so each card can say why it's a favorite. */
       var notesById = {};
@@ -20,9 +19,11 @@
         notesById[fav.recipeId] = fav;
       });
 
-      var summaries = favorites
-        .map(function (fav) { return recipesById[fav.recipeId]; })
-        .filter(Boolean);
+      /* The familyFavorite flag on the recipe is the source of truth;
+         favorites.json adds the family's words when it has them. */
+      var summaries = results[1].recipes.filter(function (r) {
+        return r.familyFavorite;
+      });
 
       R.renderRecipeCards(container, summaries, function (card, summary) {
         var fav = notesById[summary.id];

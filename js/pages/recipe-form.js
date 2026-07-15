@@ -158,6 +158,7 @@
       title: title,
       description: byId('f-description').value.trim(),
       category: byId('f-category').value,
+      mealType: byId('f-mealtype').value,
       difficulty: byId('f-difficulty').value,
       prepTime: byId('f-prep').value.trim(),
       cookTime: byId('f-cook').value.trim(),
@@ -170,12 +171,15 @@
       instructions: instructions,
       tags: splitTags(byId('f-tags').value),
       seasons: ['all'],
+      whyWeChoseThis: splitLines(byId('f-why').value),
       notes: splitLines(byId('f-notes').value),
       leftovers: byId('f-leftovers').value.trim(),
       storage: byId('f-storage').value.trim(),
       familyRating: Number(byId('f-rating').value),
       mamawApproved: byId('f-mamaw').checked,
-      papawApproved: byId('f-papaw').checked,
+      familyFavorite: byId('f-favorite').checked,
+      greatLeftovers: byId('f-leftovers-flag').checked,
+      papawEasy: byId('f-easy').checked,
       featured: byId('f-featured').checked,
       approvedProducts: [],
       dateAdded: state.dateAdded || new Date().toISOString().slice(0, 10)
@@ -255,6 +259,13 @@
     var badges = R.recipeBadges(recipe);
     if (badges.length) article.appendChild(R.badgeRow(badges));
     article.appendChild(R.metaGrid(recipe));
+
+    if (recipe.whyWeChoseThis.length) {
+      article.appendChild(R.el('h4', null, 'Why We Chose This'));
+      var whyList = R.el('ul', 'why-list');
+      recipe.whyWeChoseThis.forEach(function (w) { whyList.appendChild(R.el('li', null, w)); });
+      article.appendChild(whyList);
+    }
 
     article.appendChild(R.el('h4', null, 'Ingredients'));
     article.appendChild(R.ingredientsList(recipe));
@@ -348,6 +359,7 @@
     if (recipe.category) byId('f-category').value = recipe.category;
     if (byId('f-category').value !== recipe.category) byId('f-category').value = 'other';
     if (recipe.difficulty) byId('f-difficulty').value = recipe.difficulty;
+    if (recipe.mealType) byId('f-mealtype').value = recipe.mealType;
     byId('f-prep').value = recipe.prepTime || '';
     byId('f-cook').value = recipe.cookTime || '';
     byId('f-total').value = recipe.totalTime || '';
@@ -355,12 +367,15 @@
     byId('f-cost').value = recipe.estimatedCost || '';
     byId('f-budget').checked = !!recipe.budgetFriendly;
     byId('f-tags').value = (recipe.tags || []).join(', ');
+    byId('f-why').value = (recipe.whyWeChoseThis || []).join('\n');
     byId('f-notes').value = (recipe.notes || []).join('\n');
     byId('f-leftovers').value = recipe.leftovers || '';
     byId('f-storage').value = recipe.storage || '';
     byId('f-rating').value = String(recipe.familyRating || 5);
     byId('f-mamaw').checked = !!recipe.mamawApproved;
-    byId('f-papaw').checked = !!recipe.papawApproved;
+    byId('f-favorite').checked = !!recipe.familyFavorite;
+    byId('f-leftovers-flag').checked = !!recipe.greatLeftovers;
+    byId('f-easy').checked = !!recipe.papawEasy;
     byId('f-featured').checked = !!recipe.featured;
 
     R.clear(byId('ingredient-rows'));

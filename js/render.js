@@ -108,7 +108,8 @@ window.PapawRender = (function () {
       ['Total', recipe.totalTime],
       ['Serves', recipe.servings],
       ['Difficulty', recipe.difficulty],
-      ['Est. cost', recipe.estimatedCost]
+      ['Est. cost', recipe.estimatedCost],
+      ['Meal', recipe.mealType]
     ].filter(function (f) { return f[1]; });
 
     var dl = el('dl', 'recipe-meta');
@@ -123,11 +124,16 @@ window.PapawRender = (function () {
 
   /* Approval/budget badges for a full recipe. Used by the recipe page and
      the Add-a-Recipe preview, so both always match. */
-  function recipeBadges(recipe) {
+  /* THE badge system. One function renders the five standard badges for
+     anything that carries the flags — recipe summaries, full recipes, and
+     approved products — so badges look identical everywhere. */
+  function recipeBadges(item) {
     var badges = [];
-    if (recipe.mamawApproved) badges.push(badge('Mamaw approved ✓', 'badge-sage'));
-    if (recipe.papawApproved) badges.push(badge('Papaw approved ✓', 'badge-sage'));
-    if (recipe.budgetFriendly) badges.push(badge('Budget friendly'));
+    if (item.mamawApproved) badges.push(badge('🟢 Mamaw Approved', 'badge-sage'));
+    if (item.familyFavorite) badges.push(badge('❤️ Family Favorite', 'badge-favorite'));
+    if (item.budgetFriendly) badges.push(badge('💰 Budget Friendly'));
+    if (item.greatLeftovers) badges.push(badge('♻️ Great Leftovers'));
+    if (item.papawEasy) badges.push(badge('👨‍🍳 Papaw Easy'));
     return badges;
   }
 
@@ -159,11 +165,14 @@ window.PapawRender = (function () {
     card.appendChild(heading);
 
     var metaBits = [summary.difficulty, summary.totalTime].filter(Boolean);
-    if (summary.budgetFriendly) metaBits.push('Budget friendly');
     if (metaBits.length) card.appendChild(el('p', 'card-meta', metaBits.join(' · ')));
 
     if (summary.description) card.appendChild(el('p', null, summary.description));
     if (summary.familyRating) card.appendChild(stars(summary.familyRating));
+
+    /* The standard badges ride along on every card */
+    var badges = recipeBadges(summary);
+    if (badges.length) card.appendChild(badgeRow(badges));
 
     return card;
   }

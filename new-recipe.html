@@ -60,6 +60,17 @@
               <option>Hard</option>
             </select>
           </div>
+          <div class="field">
+            <label for="f-mealtype">Which meal?</label>
+            <select id="f-mealtype" name="mealType">
+              <option value="dinner">Dinner</option>
+              <option value="lunch">Lunch</option>
+              <option value="breakfast">Breakfast</option>
+              <option value="side">Side</option>
+              <option value="dessert">Dessert</option>
+              <option value="snack">Snack</option>
+            </select>
+          </div>
         </div>
       </fieldset>
 
@@ -117,6 +128,11 @@
       <fieldset>
         <legend>Kitchen wisdom (all optional)</legend>
         <div class="field">
+          <label for="f-why">Why we chose this <span class="hint-inline">(one reason per line)</span></label>
+          <textarea id="f-why" name="whyWeChoseThis" rows="3"
+                    placeholder="Uses simple ingredients.&#10;Great leftovers.&#10;One of Mamaw’s favorites."></textarea>
+        </div>
+        <div class="field">
           <label for="f-notes">Tips &amp; notes <span class="hint-inline">(one per line)</span></label>
           <textarea id="f-notes" name="notes" rows="3"
                     placeholder="Don’t lift the lid while it simmers."></textarea>
@@ -150,8 +166,10 @@
           </select>
         </div>
         <div class="field">
-          <label class="check-label"><input type="checkbox" id="f-mamaw" name="mamawApproved" checked> Mamaw approved</label>
-          <label class="check-label"><input type="checkbox" id="f-papaw" name="papawApproved" checked> Papaw approved</label>
+          <label class="check-label"><input type="checkbox" id="f-mamaw" name="mamawApproved" checked> 🟢 Mamaw Approved</label>
+          <label class="check-label"><input type="checkbox" id="f-favorite" name="familyFavorite"> ❤️ Family Favorite</label>
+          <label class="check-label"><input type="checkbox" id="f-leftovers-flag" name="greatLeftovers"> ♻️ Great Leftovers</label>
+          <label class="check-label"><input type="checkbox" id="f-easy" name="papawEasy"> 👨‍🍳 Papaw Easy</label>
           <label class="check-label"><input type="checkbox" id="f-featured" name="featured"> Feature it on the home page</label>
         </div>
       </fieldset>

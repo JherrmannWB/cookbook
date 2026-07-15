@@ -34,11 +34,16 @@ window.PapawData = (function () {
       title: recipe.title,
       description: recipe.description,
       category: recipe.category,
+      mealType: recipe.mealType,
       difficulty: recipe.difficulty,
       prepTime: recipe.prepTime,
       totalTime: recipe.totalTime,
       tags: recipe.tags || [],
       budgetFriendly: !!recipe.budgetFriendly,
+      mamawApproved: !!recipe.mamawApproved,
+      familyFavorite: !!recipe.familyFavorite,
+      greatLeftovers: !!recipe.greatLeftovers,
+      papawEasy: !!recipe.papawEasy,
       familyRating: recipe.familyRating,
       featured: !!recipe.featured,
       image: recipe.image || null,
@@ -96,9 +101,14 @@ window.PapawData = (function () {
     return getJSON('data/family-favorites/favorites.json');
   }
 
-  /* Kitchen tips + quick lunch ideas for the dashboard. */
+  /* Kitchen tips + quick lunch ideas for the dashboard and tips page. */
   function getTips() {
     return getJSON('data/tips.json');
+  }
+
+  /* Cooking basics: the little how-tos every kitchen relies on. */
+  function getBasics() {
+    return getJSON('data/basics.json');
   }
 
   function getStaples() {
@@ -114,6 +124,7 @@ window.PapawData = (function () {
     getProducts: getProducts,
     getFavorites: getFavorites,
     getTips: getTips,
+    getBasics: getBasics,
     getStaples: getStaples
   };
 })();

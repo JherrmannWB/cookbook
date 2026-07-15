@@ -12,6 +12,8 @@
     { file: 'new-recipe.html', label: 'Add a Recipe' },
     { file: 'products.html', label: 'Approved Products' },
     { file: 'shopping-lists.html', label: 'Shopping Lists' },
+    { file: 'tips.html', label: 'Kitchen Tips' },
+    { file: 'basics.html', label: 'Cooking Basics' },
     { file: 'favorites.html', label: 'Family Favorites' },
     { file: 'about.html', label: 'About' }
   ];

@@ -4,6 +4,11 @@
   "budget": "$85",
   "estimatedTotal": "$62",
   "notes": "Squash is in season — keep an eye out at Publix.",
+  "leftoverStrategy": [
+    "Monday's chicken and dumplings covers Tuesday's supper and Wednesday's lunch.",
+    "Thursday's lemon garlic chicken becomes Friday's chicken salad lunch.",
+    "Sunday's biscuits freeze — pull two out for any breakfast this week."
+  ],
   "sundayPrep": [
     "Simmer the chicken and pull the meat for Monday's chicken and dumplings.",
     "Wash and slice the squash for Tuesday's casserole.",

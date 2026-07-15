@@ -41,6 +41,16 @@
     printWrap.appendChild(printButton);
     container.appendChild(printWrap);
 
+    if (recipe.whyWeChoseThis && recipe.whyWeChoseThis.length) {
+      var why = R.section('Why We Chose This');
+      var whyList = R.el('ul', 'why-list');
+      recipe.whyWeChoseThis.forEach(function (reason) {
+        whyList.appendChild(R.el('li', null, reason));
+      });
+      why.appendChild(whyList);
+      container.appendChild(why);
+    }
+
     var ingredients = R.section('Ingredients');
     ingredients.appendChild(R.ingredientsList(recipe));
     container.appendChild(ingredients);

@@ -28,6 +28,7 @@
     "Serve warm with butter."
   ],
   "tags": ["breakfast", "baking"],
+  "mealType": "breakfast",
   "seasons": ["all"],
   "notes": [
     "Handle the dough as little as possible — that keeps the biscuits tender.",
@@ -37,7 +38,14 @@
   "storage": "Cool completely, then store in a sealed bag on the counter. Freeze extras up to a month.",
   "familyRating": 5,
   "mamawApproved": true,
-  "papawApproved": true,
+  "familyFavorite": true,
+  "greatLeftovers": false,
+  "papawEasy": true,
+  "whyWeChoseThis": [
+    "Only five ingredients, all pantry staples.",
+    "Papaw can make them from memory.",
+    "Cheaper than the canned kind and twice as good."
+  ],
   "featured": true,
   "approvedProducts": ["publix-buttermilk", "white-lily-flour"],
   "dateAdded": "2026-07-14"

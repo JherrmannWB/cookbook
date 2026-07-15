@@ -31,6 +31,7 @@
     "Bake for 30 to 35 minutes, until golden and bubbly at the edges."
   ],
   "tags": ["side-dish", "vegetables", "casserole"],
+  "mealType": "side",
   "seasons": ["summer", "fall"],
   "notes": [
     "Drain the squash well or the casserole turns watery — press it gently in a colander."
@@ -39,7 +40,14 @@
   "storage": "Cover the dish with foil and refrigerate. Reheat at 325°F until warm in the middle.",
   "familyRating": 4,
   "mamawApproved": true,
-  "papawApproved": true,
+  "familyFavorite": false,
+  "greatLeftovers": true,
+  "papawEasy": true,
+  "whyWeChoseThis": [
+    "Uses up summer squash before it turns.",
+    "Fits the weekly budget at about $9.",
+    "Reheats beautifully for a second night."
+  ],
   "featured": false,
   "approvedProducts": [],
   "dateAdded": "2026-07-14"

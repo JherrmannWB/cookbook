@@ -27,13 +27,39 @@
     card.appendChild(photo);
 
     card.appendChild(R.el('h3', null, product.name));
-    if (product.store) card.appendChild(R.el('p', 'card-meta', product.store));
-    if (product.notes) card.appendChild(R.el('p', null, product.notes));
+    var metaBits = [product.brand, product.store, product.price].filter(Boolean)
+      .filter(function (bit, i, all) { return all.indexOf(bit) === i; }); /* "Publix · Publix" -> "Publix" */
+    if (metaBits.length) card.appendChild(R.el('p', 'card-meta', metaBits.join(' · ')));
 
-    var badges = [];
-    if (product.approved) badges.push(R.badge('Approved ✓', 'badge-sage'));
-    if (product.favorite) badges.push(R.badge('★ Favorite', 'badge-favorite'));
+    /* Same standard badges as recipes — one system everywhere */
+    var badges = R.recipeBadges(product);
     if (badges.length) card.appendChild(R.badgeRow(badges));
+
+    if (product.whyWeChoseThis && product.whyWeChoseThis.length) {
+      var why = R.el('div', 'product-why');
+      why.appendChild(R.el('h4', null, 'Why we chose this'));
+      var whyList = R.el('ul', 'why-list');
+      product.whyWeChoseThis.forEach(function (reason) {
+        whyList.appendChild(R.el('li', null, reason));
+      });
+      why.appendChild(whyList);
+      card.appendChild(why);
+    }
+
+    if (product.ingredientList && product.ingredientList.length) {
+      var ing = R.el('p', 'product-detail');
+      ing.appendChild(R.el('strong', null, 'What’s in it: '));
+      ing.appendChild(document.createTextNode(product.ingredientList.join(', ')));
+      card.appendChild(ing);
+    }
+
+    /* Never invent a health score — Jake verifies them by hand */
+    var yuka = R.el('p', 'product-detail');
+    yuka.appendChild(R.el('strong', null, 'Yuka score: '));
+    yuka.appendChild(document.createTextNode(product.yukaScore || 'Ask Jake to verify'));
+    card.appendChild(yuka);
+
+    if (product.notes) card.appendChild(R.el('p', 'product-detail product-notes', product.notes));
 
     return card;
   }

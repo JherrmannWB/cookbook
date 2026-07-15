@@ -34,6 +34,7 @@
     "Season with pepper and serve hot."
   ],
   "tags": ["dinner", "comfort-food", "chicken"],
+  "mealType": "dinner",
   "seasons": ["fall", "winter"],
   "notes": [
     "Don't lift the lid while the dumplings cook — the steam is what makes them fluffy."
@@ -42,7 +43,14 @@
   "storage": "Refrigerate in a covered pot. Reheat gently on the stove with a splash of broth or milk.",
   "familyRating": 5,
   "mamawApproved": true,
-  "papawApproved": true,
+  "familyFavorite": true,
+  "greatLeftovers": true,
+  "papawEasy": false,
+  "whyWeChoseThis": [
+    "One pot feeds the family for two days.",
+    "Uses the whole chicken — nothing wasted.",
+    "Mamaw's most-requested supper."
+  ],
   "featured": false,
   "approvedProducts": ["greenwise-chicken-broth"],
   "dateAdded": "2026-07-14"

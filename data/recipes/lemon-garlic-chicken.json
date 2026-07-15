@@ -29,6 +29,7 @@
     "Rest for 5 minutes, then spoon the pan juices over the top and serve."
   ],
   "tags": ["dinner", "chicken", "one-pan"],
+  "mealType": "dinner",
   "seasons": ["all"],
   "notes": [
     "Spoon the pan juices over rice or bread — that's the best part."
@@ -37,7 +38,14 @@
   "storage": "Store in a covered dish in the refrigerator. Reheat covered in a 325°F oven until warm.",
   "familyRating": 5,
   "mamawApproved": true,
-  "papawApproved": true,
+  "familyFavorite": true,
+  "greatLeftovers": true,
+  "papawEasy": true,
+  "whyWeChoseThis": [
+    "One pan and 45 minutes, start to finish.",
+    "Simple ingredients from a single Publix trip.",
+    "Tonight's dinner becomes tomorrow's lunch."
+  ],
   "featured": true,
   "approvedProducts": [],
   "dateAdded": "2026-07-14"

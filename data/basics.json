@@ -1,0 +1,55 @@
+{
+  "basics": [
+    {
+      "id": "reading-a-recipe",
+      "title": "How to Read a Recipe",
+      "intro": "Two minutes of reading saves a ruined supper. Before anything touches a pan:",
+      "steps": [
+        "Read the whole recipe once, start to finish.",
+        "Check you have every ingredient — the grocery list is your friend.",
+        "Set out the pans and tools it mentions.",
+        "Note the times: when it says 'preheat', that's your starting gun."
+      ],
+      "tip": "Recipes here always list ingredients in the order you'll use them."
+    },
+    {
+      "id": "measuring",
+      "title": "Measuring: Cups, Sticks, and Spoons",
+      "intro": "American recipes measure by volume. The ones worth knowing by heart:",
+      "points": [
+        "1 stick of butter = 8 tablespoons = 1/2 cup",
+        "3 teaspoons = 1 tablespoon",
+        "4 tablespoons = 1/4 cup",
+        "1 cup = 16 tablespoons",
+        "Flour: spoon it into the cup and level it off — don't scoop or pack it."
+      ],
+      "tip": "Dry measuring cups get leveled with a knife; liquid cups get read at eye level."
+    },
+    {
+      "id": "substitutions",
+      "title": "Easy Substitutions",
+      "intro": "Out of something? Before driving to Publix, try these:",
+      "points": [
+        "No buttermilk: 1 cup milk + 1 tablespoon vinegar, wait 5 minutes.",
+        "No baking powder: 1/4 teaspoon baking soda + 1/2 teaspoon vinegar per teaspoon needed.",
+        "No fresh garlic: 1/4 teaspoon garlic powder per clove.",
+        "No broth: water plus a little extra butter and salt gets you close.",
+        "No sour cream: plain yogurt, one for one."
+      ],
+      "tip": "Write the substitution on a sticky note in the cookbook so you remember it worked."
+    },
+    {
+      "id": "food-safety",
+      "title": "Keeping Food Safe",
+      "intro": "The rules Mamaw already knows, written down anyway:",
+      "points": [
+        "Chicken is done at 165°F — when in doubt, use the thermometer.",
+        "Leftovers go in the refrigerator within 2 hours of cooking.",
+        "Most leftovers keep 3 days in the refrigerator; label the container with the day.",
+        "When reheating, make it steaming hot all the way through.",
+        "If it smells wrong, it is wrong. Out it goes."
+      ],
+      "tip": "A roll of masking tape and a marker by the refrigerator ends the mystery-container problem."
+    }
+  ]
+}

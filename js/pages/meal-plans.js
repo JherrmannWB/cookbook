@@ -95,8 +95,39 @@
     if (week.dinners && week.dinners.length) {
       container.appendChild(daySchedule('Dinners', week.dinners, recipesById));
     }
+    if (week.leftoverStrategy && week.leftoverStrategy.length) {
+      var strategy = R.section('Leftover Strategy');
+      var strategyList = R.el('ul', null);
+      week.leftoverStrategy.forEach(function (line) {
+        strategyList.appendChild(R.el('li', null, line));
+      });
+      strategy.appendChild(strategyList);
+      container.appendChild(strategy);
+    }
     if (week.groceryList && week.groceryList.length) {
       container.appendChild(groceryList(week.groceryList));
+    }
+
+    /* Derived, never duplicated: every recipe this week references */
+    var referenced = [];
+    var seen = {};
+    (week.lunches || []).concat(week.dinners || []).forEach(function (meal) {
+      if (meal.recipeId && !seen[meal.recipeId]) {
+        seen[meal.recipeId] = true;
+        referenced.push(meal.recipeId);
+      }
+    });
+    if (referenced.length) {
+      var recipesUsed = R.section('Recipes This Week');
+      var usedList = R.el('ul', null);
+      referenced.forEach(function (id) {
+        var li = R.el('li', null);
+        var summary = recipesById[id];
+        li.appendChild(R.recipeLink(id, summary && summary.title));
+        usedList.appendChild(li);
+      });
+      recipesUsed.appendChild(usedList);
+      container.appendChild(recipesUsed);
     }
   }
 

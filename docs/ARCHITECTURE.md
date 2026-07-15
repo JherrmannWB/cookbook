@@ -2,7 +2,24 @@
 
 **Status: IMPLEMENTED** (Sprint 1: foundation · Sprint 2: data-driven
 content · Sprint 3: kitchen dashboard · Sprint 4: polish & UX ·
-Sprint 5: recipe management)
+Sprint 5: recipe management · Sprint 6: content foundation)
+
+## The badge system
+
+Five standard badges, rendered by ONE function (`PapawRender.recipeBadges`)
+for anything carrying the flags — recipe summaries, full recipes, and
+approved products — so they look identical everywhere:
+
+🟢 Mamaw Approved (`mamawApproved`) · ❤️ Family Favorite (`familyFavorite`)
+· 💰 Budget Friendly (`budgetFriendly`) · ♻️ Great Leftovers
+(`greatLeftovers`) · 👨‍🍳 Papaw Easy (`papawEasy`)
+
+Recipes and products also carry `whyWeChoseThis` (an array of short
+reasons) explaining why they belong in Papaw's Kitchen. Products carry
+`yukaScore`, which defaults to the string **"Ask Jake to verify"** —
+never an invented number; Jake replaces it by hand once verified.
+The Family Favorites page is driven by the `familyFavorite` flag, with
+`data/family-favorites/favorites.json` contributing the family's quotes.
 
 A cookbook website for family, built to be maintained for years. Hosted on
 GitHub Pages. No frameworks, no backend, no build tools.
@@ -32,6 +49,8 @@ cookbook/
 ├── new-recipe.html         Add/edit recipes in the browser (?id= to edit)
 ├── meal-plans.html         Rotating weekly plans (reads ?week=...)
 ├── products.html           Approved products, grouped by category
+├── tips.html               Kitchen Tips (all of data/tips.json)
+├── basics.html             Cooking Basics (from data/basics.json)
 ├── shopping-lists.html     Shopping lists (grocery lists live in meal plans)
 ├── favorites.html          Family favorites (curated, rendered from data)
 ├── about.html              About
@@ -68,7 +87,8 @@ cookbook/
 │   │   └── products.json   Every approved product as its own record
 │   ├── family-favorites/
 │   │   └── favorites.json  Curated list of recipe ids + why we love them
-│   ├── tips.json           Kitchen tips + quick lunch ideas (dashboard)
+│   ├── tips.json           Kitchen tips + quick lunch ideas
+│   ├── basics.json         Cooking basics (how-tos, conversions, safety)
 │   └── staples.json        Standing pantry staples (future shopping lists)
 │
 ├── images/
