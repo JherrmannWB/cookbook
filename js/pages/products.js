@@ -17,6 +17,8 @@
       var img = R.el('img', null);
       img.src = product.image;
       img.alt = product.name;
+      img.loading = 'lazy';       /* below-the-fold photos load on scroll */
+      img.decoding = 'async';
       photo.appendChild(img);
     } else {
       photo.appendChild(R.el('span', null, '🛒'));
@@ -29,7 +31,7 @@
     if (product.notes) card.appendChild(R.el('p', null, product.notes));
 
     var badges = [];
-    if (product.approved) badges.push(R.badge('Approved ✓'));
+    if (product.approved) badges.push(R.badge('Approved ✓', 'badge-sage'));
     if (product.favorite) badges.push(R.badge('★ Favorite', 'badge-favorite'));
     if (badges.length) card.appendChild(R.badgeRow(badges));
 
@@ -61,8 +63,7 @@
       return;
     }
     groupByCategory(products).forEach(function (group) {
-      var wrap = R.el('section', 'content-section');
-      wrap.appendChild(R.el('h2', null, group.category));
+      var wrap = R.section(group.category);
       var grid = R.el('ul', 'card-grid');
       group.products.forEach(function (product) {
         grid.appendChild(productCard(product));

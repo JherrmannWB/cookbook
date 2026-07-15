@@ -13,7 +13,10 @@
   var state = { recipes: [] };
 
   function render(recipes) {
-    PapawRender.renderRecipeCards(container, recipes);
+    PapawRender.renderRecipeCards(container, recipes, null, {
+      title: 'The recipe box is empty.',
+      message: 'Add the first family recipe and it will appear here automatically.'
+    });
   }
 
   PapawData.getRecipeIndex()

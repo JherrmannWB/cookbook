@@ -1,7 +1,7 @@
 # Papaw's Kitchen — Architecture
 
 **Status: IMPLEMENTED** (Sprint 1: foundation · Sprint 2: data-driven
-content · Sprint 3: kitchen dashboard)
+content · Sprint 3: kitchen dashboard · Sprint 4: polish & UX)
 
 A cookbook website for family, built to be maintained for years. Hosted on
 GitHub Pages. No frameworks, no backend, no build tools.

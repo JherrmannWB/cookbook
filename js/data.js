@@ -7,15 +7,22 @@ window.PapawData = (function () {
 
   var cache = {};
 
-  /* getJSON('data/recipes/index.json') -> Promise resolving to parsed JSON */
+  /* getJSON('data/recipes/index.json') -> Promise resolving to parsed JSON.
+     Successes are cached for the session; failures are NOT cached, so a
+     hiccup (spotty Wi-Fi, mid-deploy fetch) recovers on the next try. */
   function getJSON(path) {
     if (!cache[path]) {
-      cache[path] = fetch(path).then(function (response) {
-        if (!response.ok) {
-          throw new Error('Could not load ' + path + ' (' + response.status + ')');
-        }
-        return response.json();
-      });
+      cache[path] = fetch(path)
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error('Could not load ' + path + ' (' + response.status + ')');
+          }
+          return response.json();
+        })
+        .catch(function (error) {
+          delete cache[path];
+          throw error;
+        });
     }
     return cache[path];
   }

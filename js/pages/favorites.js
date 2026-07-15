@@ -31,6 +31,9 @@
           if (fav.addedBy) note.appendChild(R.el('span', 'favorite-by', ' — ' + fav.addedBy));
           card.appendChild(note);
         }
+      }, {
+        title: 'No favorite recipes yet.',
+        message: 'Start cooking and build your family cookbook.'
       });
     })
     .catch(function () {

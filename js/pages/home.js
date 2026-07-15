@@ -32,12 +32,6 @@
     return list && list.length ? list[Math.floor(Math.random() * list.length)] : null;
   }
 
-  function section(title) {
-    var wrap = R.el('section', 'content-section');
-    wrap.appendChild(R.el('h2', null, title));
-    return wrap;
-  }
-
   /* ---- Hero: tonight's dinner ------------------------------------------ */
 
   function heroSection(dinner, recipe, todayName) {
@@ -54,24 +48,17 @@
       if (dinner.note) hero.appendChild(R.el('p', 'card-meta', dinner.note));
       if (recipe.description) hero.appendChild(R.el('p', null, recipe.description));
       hero.appendChild(R.metaGrid(recipe));
-
-      var button = R.el('a', 'button button-large', 'Start Cooking');
-      button.href = 'recipe.html?id=' + encodeURIComponent(recipe.id);
-      hero.appendChild(button);
+      hero.appendChild(R.recipeLink(recipe.id, 'Start Cooking', 'button button-large'));
     } else if (dinner) {
       /* Plain-text plan entry: "Fish night", "Dinner at Susan's"... */
       hero.appendChild(R.el('h2', null, dinner.text));
       if (dinner.note) hero.appendChild(R.el('p', 'card-meta', dinner.note));
       hero.appendChild(R.el('p', null, 'Straight from this week’s plan — no recipe needed tonight.'));
-      var planLink = R.el('a', 'button button-large', 'See the Week’s Plan');
-      planLink.href = 'meal-plans.html';
-      hero.appendChild(planLink);
+      hero.appendChild(R.link('See the Week’s Plan', 'meal-plans.html', 'button button-large'));
     } else {
       hero.appendChild(R.el('h2', null, 'Nothing on the calendar tonight'));
       hero.appendChild(R.el('p', null, 'Pick something good from the recipe box.'));
-      var browse = R.el('a', 'button button-large', 'Browse Recipes');
-      browse.href = 'recipes.html';
-      hero.appendChild(browse);
+      hero.appendChild(R.link('Browse Recipes', 'recipes.html', 'button button-large'));
     }
     return hero;
   }
@@ -79,7 +66,7 @@
   /* ---- Weekly overview: one small card per dinner ---------------------- */
 
   function weekOverview(week, recipesById, todayName) {
-    var wrap = section('This Week’s Dinners');
+    var wrap = R.section('This Week’s Dinners');
     if (week.title) wrap.appendChild(R.el('p', 'card-meta', week.title));
 
     var list = R.el('ul', 'meal-week');
@@ -97,9 +84,7 @@
         .setAttribute('aria-hidden', 'true');
 
       if (meal.recipeId) {
-        var link = R.el('a', null, summary ? summary.title : meal.recipeId);
-        link.href = 'recipe.html?id=' + encodeURIComponent(meal.recipeId);
-        li.appendChild(link);
+        li.appendChild(R.recipeLink(meal.recipeId, summary && summary.title));
         if (summary && summary.prepTime) {
           li.appendChild(R.el('p', 'card-meta', summary.prepTime + ' prep'));
         }
@@ -126,9 +111,7 @@
     if (lunch && lunch.recipeId) {
       var summary = recipesById[lunch.recipeId];
       var p = R.el('p', 'dashboard-answer');
-      var link = R.el('a', null, summary ? summary.title : lunch.recipeId);
-      link.href = 'recipe.html?id=' + encodeURIComponent(lunch.recipeId);
-      p.appendChild(link);
+      p.appendChild(R.recipeLink(lunch.recipeId, summary && summary.title));
       card.appendChild(p);
       card.appendChild(R.el('p', 'card-meta', 'Planned in this week’s meal plan.'));
     } else if (lunch && lunch.text) {
@@ -198,7 +181,7 @@
     var pick = pickRandom(pool.length ? pool : featured);
     if (!pick) return null;
 
-    var wrap = section('Featured Recipe');
+    var wrap = R.section('Featured Recipe');
     var grid = R.el('ul', 'card-grid');
     grid.appendChild(R.recipeCard(pick));
     wrap.appendChild(grid);

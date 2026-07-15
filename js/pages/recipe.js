@@ -9,16 +9,10 @@
   var container = document.getElementById('recipe-container');
   if (!container) return;
 
-  function section(title) {
-    var wrap = R.el('section', 'content-section');
-    wrap.appendChild(R.el('h2', null, title));
-    return wrap;
-  }
-
   function approvalBadges(recipe) {
     var badges = [];
-    if (recipe.mamawApproved) badges.push(R.badge('Mamaw approved ✓'));
-    if (recipe.papawApproved) badges.push(R.badge('Papaw approved ✓'));
+    if (recipe.mamawApproved) badges.push(R.badge('Mamaw approved ✓', 'badge-sage'));
+    if (recipe.papawApproved) badges.push(R.badge('Papaw approved ✓', 'badge-sage'));
     if (recipe.budgetFriendly) badges.push(R.badge('Budget friendly'));
     return badges;
   }
@@ -28,9 +22,7 @@
     document.title = recipe.title + ' — Papaw’s Kitchen';
 
     var back = R.el('p', 'no-print');
-    var backLink = R.el('a', null, '← Back to all recipes');
-    backLink.href = 'recipes.html';
-    back.appendChild(backLink);
+    back.appendChild(R.link('← Back to all recipes', 'recipes.html'));
     container.appendChild(back);
 
     container.appendChild(R.el('h1', null, recipe.title));
@@ -49,7 +41,7 @@
     printWrap.appendChild(printButton);
     container.appendChild(printWrap);
 
-    var ingredients = section('Ingredients');
+    var ingredients = R.section('Ingredients');
     var ingList = R.el('ul', 'ingredients');
     (recipe.ingredients || []).forEach(function (ing) {
       ingList.appendChild(R.el('li', null, R.formatIngredient(ing)));
@@ -57,7 +49,7 @@
     ingredients.appendChild(ingList);
     container.appendChild(ingredients);
 
-    var instructions = section('Instructions');
+    var instructions = R.section('Instructions');
     var steps = R.el('ol', 'instructions');
     (recipe.instructions || []).forEach(function (step) {
       steps.appendChild(R.el('li', null, step));
@@ -66,7 +58,7 @@
     container.appendChild(instructions);
 
     if (recipe.notes && recipe.notes.length) {
-      var notes = section('Kitchen notes');
+      var notes = R.section('Kitchen notes');
       var noteList = R.el('ul', null);
       recipe.notes.forEach(function (note) {
         noteList.appendChild(R.el('li', null, note));
@@ -76,7 +68,7 @@
     }
 
     if (recipe.leftovers || recipe.storage) {
-      var keeping = section('Leftovers & storage');
+      var keeping = R.section('Leftovers & storage');
       if (recipe.leftovers) keeping.appendChild(R.el('p', null, recipe.leftovers));
       if (recipe.storage) keeping.appendChild(R.el('p', null, recipe.storage));
       container.appendChild(keeping);
@@ -90,9 +82,7 @@
       R.notice('We couldn’t find that recipe.', 'It may have been renamed. Try the recipe list instead.')
     );
     var back = R.el('p', null);
-    var link = R.el('a', null, '← Back to all recipes');
-    link.href = 'recipes.html';
-    back.appendChild(link);
+    back.appendChild(R.link('← Back to all recipes', 'recipes.html'));
     container.appendChild(back);
   }
 

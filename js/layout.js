@@ -49,7 +49,13 @@
     tagline.className = 'site-tagline';
     tagline.textContent = 'Family recipes, made with love';
 
+    header.appendChild(title);
+    header.appendChild(tagline);
+
+    /* The nav lives OUTSIDE the header so it can stick to the top of the
+       screen on larger displays while the banner scrolls away. */
     var nav = document.createElement('nav');
+    nav.className = 'site-nav-bar';
     nav.setAttribute('aria-label', 'Main menu');
     var list = document.createElement('ul');
     list.className = 'site-nav';
@@ -65,13 +71,10 @@
       li.appendChild(a);
       list.appendChild(li);
     });
-
     nav.appendChild(list);
-    header.appendChild(title);
-    header.appendChild(tagline);
-    header.appendChild(nav);
 
     document.body.insertBefore(header, document.body.firstChild);
+    document.body.insertBefore(nav, header.nextSibling);
     document.body.insertBefore(skip, header);
   }
 

@@ -19,6 +19,26 @@ window.PapawRender = (function () {
     while (node.firstChild) node.removeChild(node.firstChild);
   }
 
+  /* link('Start Cooking', 'recipe.html?id=x', 'button') -> styled <a>. */
+  function link(text, href, className) {
+    var a = el('a', className, text);
+    a.href = href;
+    return a;
+  }
+
+  /* Every reference to a recipe page goes through here, so the URL scheme
+     lives in exactly one place. */
+  function recipeLink(id, title, className) {
+    return link(title || id, 'recipe.html?id=' + encodeURIComponent(id), className);
+  }
+
+  /* A titled page section: <section class="content-section"><h2>…</h2>. */
+  function section(title) {
+    var wrap = el('section', 'content-section');
+    wrap.appendChild(el('h2', null, title));
+    return wrap;
+  }
+
   /* Friendly boxed message, used for "nothing here yet" and load errors. */
   function notice(title, message) {
     var box = el('div', 'notice');
@@ -107,9 +127,7 @@ window.PapawRender = (function () {
     var card = el('li', 'card recipe-card');
 
     var heading = el('h2', null);
-    var link = el('a', null, summary.title);
-    link.href = 'recipe.html?id=' + encodeURIComponent(summary.id);
-    heading.appendChild(link);
+    heading.appendChild(recipeLink(summary.id, summary.title));
     card.appendChild(heading);
 
     var metaBits = [summary.difficulty, summary.totalTime].filter(Boolean);
@@ -123,11 +141,16 @@ window.PapawRender = (function () {
   }
 
   /* Renders a list of recipe summaries into a container.
-     `decorate(card, summary)` optionally adds page-specific extras to each card. */
-  function renderRecipeCards(container, summaries, decorate) {
+     `decorate(card, summary)` optionally adds page-specific extras to each
+     card; `empty` ({title, message}) customizes the friendly empty state. */
+  function renderRecipeCards(container, summaries, decorate, empty) {
     clear(container);
     if (!summaries.length) {
-      container.appendChild(notice('Nothing here yet.', 'Check back soon — the kitchen is always cooking.'));
+      empty = empty || {};
+      container.appendChild(notice(
+        empty.title || 'Nothing here yet.',
+        empty.message || 'Check back soon — the kitchen is always cooking.'
+      ));
       return;
     }
     var grid = el('ul', 'card-grid');
@@ -152,6 +175,9 @@ window.PapawRender = (function () {
   return {
     el: el,
     clear: clear,
+    link: link,
+    recipeLink: recipeLink,
+    section: section,
     notice: notice,
     showError: showError,
     stars: stars,

@@ -18,8 +18,7 @@
     var list = R.el('ul', 'week-picker');
     weeks.forEach(function (week) {
       var li = R.el('li', null);
-      var link = R.el('a', null, week.title);
-      link.href = 'meal-plans.html?week=' + encodeURIComponent(week.id);
+      var link = R.link(week.title, 'meal-plans.html?week=' + encodeURIComponent(week.id));
       if (week.id === activeId) link.setAttribute('aria-current', 'page');
       li.appendChild(link);
       list.appendChild(li);
@@ -34,9 +33,7 @@
     var wrap = R.el('span', 'day-meal');
     if (meal.recipeId) {
       var summary = recipesById[meal.recipeId];
-      var link = R.el('a', null, summary ? summary.title : meal.recipeId);
-      link.href = 'recipe.html?id=' + encodeURIComponent(meal.recipeId);
-      wrap.appendChild(link);
+      wrap.appendChild(R.recipeLink(meal.recipeId, summary && summary.title));
     } else {
       wrap.appendChild(document.createTextNode(meal.text || '—'));
     }
@@ -45,8 +42,7 @@
   }
 
   function daySchedule(title, meals, recipesById) {
-    var wrap = R.el('section', 'content-section');
-    wrap.appendChild(R.el('h2', null, title));
+    var wrap = R.section(title);
     var list = R.el('ul', 'day-list');
     meals.forEach(function (meal) {
       var li = R.el('li', null);
@@ -59,8 +55,7 @@
   }
 
   function groceryList(groups) {
-    var wrap = R.el('section', 'content-section');
-    wrap.appendChild(R.el('h2', null, 'Grocery List'));
+    var wrap = R.section('Grocery List');
     groups.forEach(function (group) {
       var block = R.el('div', 'grocery-group');
       block.appendChild(R.el('h3', null, group.section));
@@ -85,8 +80,7 @@
     container.appendChild(heading);
 
     if (week.sundayPrep && week.sundayPrep.length) {
-      var prep = R.el('section', 'content-section');
-      prep.appendChild(R.el('h2', null, 'Sunday Prep'));
+      var prep = R.section('Sunday Prep');
       var prepList = R.el('ul', null);
       week.sundayPrep.forEach(function (task) {
         prepList.appendChild(R.el('li', null, task));
