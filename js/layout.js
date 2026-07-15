@@ -9,6 +9,7 @@
     { file: 'index.html', label: 'Home' },
     { file: 'meal-plans.html', label: 'Meal Plans' },
     { file: 'recipes.html', label: 'Recipes' },
+    { file: 'new-recipe.html', label: 'Add a Recipe' },
     { file: 'products.html', label: 'Approved Products' },
     { file: 'shopping-lists.html', label: 'Shopping Lists' },
     { file: 'favorites.html', label: 'Family Favorites' },

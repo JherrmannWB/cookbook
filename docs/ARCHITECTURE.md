@@ -1,7 +1,8 @@
 # Papaw's Kitchen — Architecture
 
 **Status: IMPLEMENTED** (Sprint 1: foundation · Sprint 2: data-driven
-content · Sprint 3: kitchen dashboard · Sprint 4: polish & UX)
+content · Sprint 3: kitchen dashboard · Sprint 4: polish & UX ·
+Sprint 5: recipe management)
 
 A cookbook website for family, built to be maintained for years. Hosted on
 GitHub Pages. No frameworks, no backend, no build tools.
@@ -28,6 +29,7 @@ cookbook/
 ├── index.html              Home
 ├── recipes.html            Browse all recipes (rendered from data)
 ├── recipe.html             Single-recipe template (reads ?id=..., printable)
+├── new-recipe.html         Add/edit recipes in the browser (?id= to edit)
 ├── meal-plans.html         Rotating weekly plans (reads ?week=...)
 ├── products.html           Approved products, grouped by category
 ├── shopping-lists.html     Shopping lists (grocery lists live in meal plans)
@@ -41,6 +43,7 @@ cookbook/
 │
 ├── js/
 │   ├── layout.js           Shared header/nav/footer (single source of truth)
+│   ├── storage.js          Local recipe box in localStorage (PapawStorage)
 │   ├── data.js             Fetch + cache JSON from /data (PapawData)
 │   ├── render.js           Reusable rendering helpers (PapawRender)
 │   ├── schedule.js         Week rotation + day/money helpers (PapawSchedule)
@@ -48,6 +51,7 @@ cookbook/
 │       ├── home.js         Kitchen dashboard
 │       ├── recipes.js
 │       ├── recipe.js
+│       ├── recipe-form.js  Add-a-Recipe authoring form
 │       ├── meal-plans.js
 │       ├── products.js
 │       └── favorites.js
@@ -277,6 +281,31 @@ with `localStorage` (per-device, no backend) without touching this data.
 Two lists the dashboard draws from at random: `tips` (one kitchen tip per
 page load) and `quickLunches` (the fallback suggestion when tomorrow has no
 planned lunch).
+
+### The local recipe box (recipe management)
+
+GitHub Pages has no server, so the browser cannot write into `data/`.
+The Add-a-Recipe page (`new-recipe.html`) therefore works in two stages:
+
+1. **Save to This Device** stores the recipe in localStorage
+   (`storage.js`). `data.js` merges local recipes into every recipe read,
+   so they instantly appear on Recipes, the dashboard, favorites-by-id,
+   and meal plans — indistinguishable from cookbook recipes except for a
+   quiet "Saved on this device" badge. A local recipe that shares an id
+   with a cookbook recipe **shadows** it on that device (that's how
+   "editing" a cookbook recipe works without a server).
+2. **Download Recipe File** exports the exact JSON for
+   `data/recipes/<id>.json` — same schema, `local` flag stripped. Commit
+   it (plus an index entry) and the recipe joins the cookbook for
+   everyone; the device copy can then be deleted.
+
+`new-recipe.html?id=<recipe-id>` opens any recipe for editing: local ones
+in place, cookbook ones as a device copy. Validation requires only a
+title, one ingredient, and one step; quantities accept kitchen fractions
+("1 1/2" → 1.5). The preview is built from the same shared render
+functions as the real recipe page, so it is never a lie. If localStorage
+is blocked (some private-browsing modes), the form still works for the
+session and steers the author toward Download.
 
 ### The dashboard (home page)
 

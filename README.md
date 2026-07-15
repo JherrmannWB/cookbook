@@ -19,7 +19,13 @@ won't load the JSON data — browsers block `fetch` on `file://` URLs.)
 
 All content lives under `data/` as JSON — you never need to touch HTML.
 
-**A recipe** (two steps):
+**A recipe** — the easy way: open the **Add a Recipe** page on the site,
+fill out the recipe card, and press **Download Recipe File**. Drop the
+downloaded file into `data/recipes/` and add a summary entry to
+`data/recipes/index.json`. (Recipes saved on a device with "Save to This
+Device" live in that browser's localStorage until they're exported.)
+
+Or by hand (two steps):
 
 1. Create `data/recipes/<recipe-id>.json` (copy an existing recipe as a
    starting point).

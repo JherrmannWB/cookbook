@@ -121,6 +121,34 @@ window.PapawRender = (function () {
     return dl;
   }
 
+  /* Approval/budget badges for a full recipe. Used by the recipe page and
+     the Add-a-Recipe preview, so both always match. */
+  function recipeBadges(recipe) {
+    var badges = [];
+    if (recipe.mamawApproved) badges.push(badge('Mamaw approved ✓', 'badge-sage'));
+    if (recipe.papawApproved) badges.push(badge('Papaw approved ✓', 'badge-sage'));
+    if (recipe.budgetFriendly) badges.push(badge('Budget friendly'));
+    return badges;
+  }
+
+  /* <ul class="ingredients"> from a recipe's structured ingredients. */
+  function ingredientsList(recipe) {
+    var list = el('ul', 'ingredients');
+    (recipe.ingredients || []).forEach(function (ing) {
+      list.appendChild(el('li', null, formatIngredient(ing)));
+    });
+    return list;
+  }
+
+  /* <ol class="instructions"> from a recipe's steps. */
+  function instructionsList(recipe) {
+    var steps = el('ol', 'instructions');
+    (recipe.instructions || []).forEach(function (step) {
+      steps.appendChild(el('li', null, step));
+    });
+    return steps;
+  }
+
   /* One recipe card, built from an index summary. Used by the Recipes page
      and the Family Favorites page (which adds a note underneath). */
   function recipeCard(summary) {
@@ -186,6 +214,9 @@ window.PapawRender = (function () {
     formatQuantity: formatQuantity,
     formatIngredient: formatIngredient,
     metaGrid: metaGrid,
+    recipeBadges: recipeBadges,
+    ingredientsList: ingredientsList,
+    instructionsList: instructionsList,
     recipeCard: recipeCard,
     renderRecipeCards: renderRecipeCards,
     recipeLookup: recipeLookup

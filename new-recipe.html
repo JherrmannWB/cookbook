@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add a Recipe — Papaw’s Kitchen</title>
+  <meta name="description" content="Write a new recipe for the family cookbook — as simple as filling out a recipe card.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+  <script src="js/layout.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/render.js" defer></script>
+  <script src="js/pages/recipe-form.js" defer></script>
+</head>
+<body>
+  <main id="main-content">
+    <h1 id="form-title">Add a Recipe</h1>
+    <p class="lead">
+      Just like filling out a recipe card. Only three things are required:
+      a name, the ingredients, and the steps — everything else can wait.
+    </p>
+
+    <div id="form-messages"></div>
+
+    <form id="recipe-form" class="recipe-form no-print" novalidate>
+      <fieldset>
+        <legend>The basics</legend>
+
+        <div class="field">
+          <label for="f-title">Recipe name <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="f-title" name="title" required autocomplete="off"
+                 placeholder="Grandma’s Chicken Pot Pie">
+          <p class="field-error" id="err-title" hidden>Please give the recipe a name.</p>
+        </div>
+
+        <div class="field">
+          <label for="f-description">A few words about it</label>
+          <textarea id="f-description" name="description" rows="2"
+                    placeholder="The story, the occasion, or why the family loves it."></textarea>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-category">Kind of dish</label>
+            <select id="f-category" name="category">
+              <option value="main-dishes">Main dish</option>
+              <option value="sides">Side dish</option>
+              <option value="breads">Bread</option>
+              <option value="desserts">Dessert</option>
+              <option value="breakfast">Breakfast</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-difficulty">How hard is it?</label>
+            <select id="f-difficulty" name="difficulty">
+              <option>Easy</option>
+              <option>Medium</option>
+              <option>Hard</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Times, servings &amp; cost</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-prep">Prep time</label>
+            <input type="text" id="f-prep" name="prepTime" placeholder="15 minutes">
+          </div>
+          <div class="field">
+            <label for="f-cook">Cook time</label>
+            <input type="text" id="f-cook" name="cookTime" placeholder="45 minutes">
+          </div>
+          <div class="field">
+            <label for="f-total">Total time</label>
+            <input type="text" id="f-total" name="totalTime" placeholder="1 hour">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-servings">Makes</label>
+            <input type="text" id="f-servings" name="servings" placeholder="6 servings">
+          </div>
+          <div class="field">
+            <label for="f-cost">Costs about</label>
+            <input type="text" id="f-cost" name="estimatedCost" placeholder="$12">
+          </div>
+        </div>
+        <div class="field">
+          <label class="check-label">
+            <input type="checkbox" id="f-budget" name="budgetFriendly">
+            Budget friendly
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Ingredients <span class="req" aria-hidden="true">*</span></legend>
+        <p class="hint">Amounts can be numbers like <strong>2</strong>, <strong>3/4</strong>,
+           or <strong>1 1/2</strong> — or leave the amount blank for things like
+           “salt to taste.”</p>
+        <p class="field-error" id="err-ingredients" hidden>Please add at least one ingredient.</p>
+        <div id="ingredient-rows"></div>
+        <button type="button" class="button button-secondary" id="add-ingredient">+ Add another ingredient</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Steps <span class="req" aria-hidden="true">*</span></legend>
+        <p class="field-error" id="err-instructions" hidden>Please write at least one step.</p>
+        <div id="instruction-rows"></div>
+        <button type="button" class="button button-secondary" id="add-instruction">+ Add another step</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Kitchen wisdom (all optional)</legend>
+        <div class="field">
+          <label for="f-notes">Tips &amp; notes <span class="hint-inline">(one per line)</span></label>
+          <textarea id="f-notes" name="notes" rows="3"
+                    placeholder="Don’t lift the lid while it simmers."></textarea>
+        </div>
+        <div class="field">
+          <label for="f-leftovers">Leftovers</label>
+          <textarea id="f-leftovers" name="leftovers" rows="2"
+                    placeholder="Even better the next day. Keeps 3 days in the refrigerator."></textarea>
+        </div>
+        <div class="field">
+          <label for="f-storage">How to store it</label>
+          <textarea id="f-storage" name="storage" rows="2"
+                    placeholder="Cover and refrigerate. Reheat gently on the stove."></textarea>
+        </div>
+        <div class="field">
+          <label for="f-tags">Tags <span class="hint-inline">(separated by commas)</span></label>
+          <input type="text" id="f-tags" name="tags" placeholder="dinner, chicken, comfort-food">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>The family verdict</legend>
+        <div class="field">
+          <label for="f-rating">Family rating</label>
+          <select id="f-rating" name="familyRating">
+            <option value="5">★★★★★ — everyone asks for seconds</option>
+            <option value="4">★★★★ — a keeper</option>
+            <option value="3">★★★ — good</option>
+            <option value="2">★★ — needs work</option>
+            <option value="1">★ — we don’t talk about it</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="check-label"><input type="checkbox" id="f-mamaw" name="mamawApproved" checked> Mamaw approved</label>
+          <label class="check-label"><input type="checkbox" id="f-papaw" name="papawApproved" checked> Papaw approved</label>
+          <label class="check-label"><input type="checkbox" id="f-featured" name="featured"> Feature it on the home page</label>
+        </div>
+      </fieldset>
+
+      <div class="form-actions">
+        <button type="button" class="button" id="btn-save">Save to This Device</button>
+        <button type="button" class="button button-secondary" id="btn-preview">Preview</button>
+        <button type="button" class="button button-secondary" id="btn-download">Download Recipe File</button>
+      </div>
+      <p class="hint">
+        <strong>Save</strong> keeps the recipe in the recipe box on this device —
+        it shows up on the Recipes page right away.
+        <strong>Download</strong> makes a file you can send to the family
+        webmaster so the recipe joins the cookbook for everyone.
+      </p>
+    </form>
+
+    <div id="save-status" role="status"></div>
+
+    <section id="preview-area" hidden aria-labelledby="preview-heading">
+      <h2 id="preview-heading">Preview — how it will look</h2>
+      <div id="preview" class="preview-box"></div>
+    </section>
+
+    <section id="local-recipes" class="no-print" hidden aria-labelledby="local-heading">
+      <h2 id="local-heading">Recipes saved on this device</h2>
+      <ul id="local-list" class="local-list"></ul>
+    </section>
+  </main>
+</body>
+</html>

@@ -9,14 +9,6 @@
   var container = document.getElementById('recipe-container');
   if (!container) return;
 
-  function approvalBadges(recipe) {
-    var badges = [];
-    if (recipe.mamawApproved) badges.push(R.badge('Mamaw approved ✓', 'badge-sage'));
-    if (recipe.papawApproved) badges.push(R.badge('Papaw approved ✓', 'badge-sage'));
-    if (recipe.budgetFriendly) badges.push(R.badge('Budget friendly'));
-    return badges;
-  }
-
   function render(recipe) {
     R.clear(container);
     document.title = recipe.title + ' — Papaw’s Kitchen';
@@ -29,10 +21,18 @@
     if (recipe.description) container.appendChild(R.el('p', 'lead', recipe.description));
 
     if (recipe.familyRating) container.appendChild(R.stars(recipe.familyRating));
-    var badges = approvalBadges(recipe);
+    var badges = R.recipeBadges(recipe);
+    if (recipe.local) badges.push(R.badge('Saved on this device'));
     if (badges.length) container.appendChild(R.badgeRow(badges));
 
     container.appendChild(R.metaGrid(recipe));
+
+    /* Local recipes can be edited right from here */
+    if (recipe.local) {
+      var editRow = R.el('p', 'no-print');
+      editRow.appendChild(R.link('Edit this recipe', 'new-recipe.html?id=' + encodeURIComponent(recipe.id)));
+      container.appendChild(editRow);
+    }
 
     var printWrap = R.el('p', 'no-print');
     var printButton = R.el('button', 'button', 'Print this recipe');
@@ -42,19 +42,11 @@
     container.appendChild(printWrap);
 
     var ingredients = R.section('Ingredients');
-    var ingList = R.el('ul', 'ingredients');
-    (recipe.ingredients || []).forEach(function (ing) {
-      ingList.appendChild(R.el('li', null, R.formatIngredient(ing)));
-    });
-    ingredients.appendChild(ingList);
+    ingredients.appendChild(R.ingredientsList(recipe));
     container.appendChild(ingredients);
 
     var instructions = R.section('Instructions');
-    var steps = R.el('ol', 'instructions');
-    (recipe.instructions || []).forEach(function (step) {
-      steps.appendChild(R.el('li', null, step));
-    });
-    instructions.appendChild(steps);
+    instructions.appendChild(R.instructionsList(recipe));
     container.appendChild(instructions);
 
     if (recipe.notes && recipe.notes.length) {

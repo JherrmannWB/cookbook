@@ -27,13 +27,55 @@ window.PapawData = (function () {
     return cache[path];
   }
 
-  /* Recipe summaries for browsing, searching, and filtering (one small file). */
-  function getRecipeIndex() {
-    return getJSON('data/recipes/index.json');
+  /* Summary entry for a full recipe — same shape as data/recipes/index.json */
+  function toSummary(recipe) {
+    return {
+      id: recipe.id,
+      title: recipe.title,
+      description: recipe.description,
+      category: recipe.category,
+      difficulty: recipe.difficulty,
+      prepTime: recipe.prepTime,
+      totalTime: recipe.totalTime,
+      tags: recipe.tags || [],
+      budgetFriendly: !!recipe.budgetFriendly,
+      familyRating: recipe.familyRating,
+      featured: !!recipe.featured,
+      image: recipe.image || null,
+      local: true
+    };
   }
 
-  /* One full recipe, loaded only when it's opened. */
+  function localRecipes() {
+    return typeof PapawStorage !== 'undefined' ? PapawStorage.list() : [];
+  }
+
+  /* Recipe summaries for browsing, searching, and filtering.
+     Recipes saved on this device (the local recipe box) are merged in and,
+     when one shares an id with a cookbook recipe, the local copy wins —
+     so an edited copy shadows the original on this device. */
+  function getRecipeIndex() {
+    return getJSON('data/recipes/index.json').then(function (index) {
+      var local = localRecipes();
+      if (!local.length) return index;
+
+      var localIds = {};
+      var summaries = local.map(function (recipe) {
+        localIds[recipe.id] = true;
+        return toSummary(recipe);
+      });
+      var site = index.recipes.filter(function (r) { return !localIds[r.id]; });
+      return { recipes: site.concat(summaries) };
+    });
+  }
+
+  /* One full recipe, loaded only when it's opened. Local copies win here
+     too, so links to an edited recipe open the edited version. */
   function getRecipe(id) {
+    if (typeof PapawStorage !== 'undefined') {
+      var local = PapawStorage.get(id);
+      if (local) return Promise.resolve(local);
+    }
     return getJSON('data/recipes/' + encodeURIComponent(id) + '.json');
   }
 

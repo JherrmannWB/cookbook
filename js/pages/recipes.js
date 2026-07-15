@@ -13,7 +13,12 @@
   var state = { recipes: [] };
 
   function render(recipes) {
-    PapawRender.renderRecipeCards(container, recipes, null, {
+    PapawRender.renderRecipeCards(container, recipes, function (card, summary) {
+      /* Recipes from this device's recipe box get a quiet label */
+      if (summary.local) {
+        card.appendChild(PapawRender.badgeRow([PapawRender.badge('Saved on this device')]));
+      }
+    }, {
       title: 'The recipe box is empty.',
       message: 'Add the first family recipe and it will appear here automatically.'
     });
