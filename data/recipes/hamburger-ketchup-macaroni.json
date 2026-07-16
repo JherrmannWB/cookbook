@@ -1,0 +1,69 @@
+{
+  "id": "hamburger-ketchup-macaroni",
+  "title": "Hamburger Ketchup Macaroni with Peas",
+  "description": "The classic sweet-and-savory ketchup skillet many families grew up with. One pot, pantry ingredients, and dinner's on the table.",
+  "category": "main-dishes",
+  "mealType": "dinner",
+  "difficulty": "Easy",
+  "prepTime": "10 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "30 minutes",
+  "servings": "6 servings",
+  "estimatedCost": "$10",
+  "budgetFriendly": true,
+  "image": null,
+  "ingredients": [
+    { "item": "ground beef", "quantity": 1, "unit": "lb" },
+    { "item": "onion", "quantity": 1, "unit": "", "note": "small, diced (optional)" },
+    { "item": "elbow macaroni", "quantity": 2, "unit": "cups" },
+    { "item": "frozen peas", "quantity": 2, "unit": "cups" },
+    { "item": "ketchup", "quantity": 0.5, "unit": "cup" },
+    { "item": "butter", "quantity": 2, "unit": "tablespoons" },
+    { "item": "beef broth", "quantity": 2, "unit": "cups", "note": "or water" },
+    { "item": "salt", "quantity": 1, "unit": "teaspoon" },
+    { "item": "black pepper", "quantity": 0.5, "unit": "teaspoon" },
+    { "item": "garlic powder", "quantity": 1, "unit": "teaspoon", "note": "optional" }
+  ],
+  "instructions": [
+    "Brown the ground beef in a large skillet or Dutch oven. Drain excess grease if needed.",
+    "Add the onion and cook until softened, about 3 to 5 minutes.",
+    "Stir in the ketchup, butter, salt, pepper, and garlic powder.",
+    "Add the beef broth (or water) and bring to a simmer.",
+    "Stir in the uncooked macaroni, cover, and cook until the pasta is tender, about 10 to 12 minutes, stirring occasionally and adding a splash of water if it gets too thick.",
+    "Stir in the frozen peas during the last 3 to 5 minutes so they heat through without becoming mushy.",
+    "Taste and add a little more ketchup, salt, or pepper if desired."
+  ],
+  "tags": ["dinner", "beef", "one-pot", "pasta", "comfort-food"],
+  "protein": "beef",
+  "cuisine": "american",
+  "budgetTier": "$",
+  "cookingMethod": "one-pot",
+  "seasons": ["all"],
+  "notes": [
+    "A splash of Worcestershire sauce adds a richer flavor.",
+    "Serve with buttered bread or saltine crackers.",
+    "This has the classic sweet-and-savory ketchup flavor that many families grew up with."
+  ],
+  "leftovers": "Leftovers reheat well with a splash of water. Keeps 3 days in the refrigerator.",
+  "storage": "Cool, then store covered in the refrigerator. Reheat gently on the stove with a splash of water or broth.",
+  "whyWeChoseThis": [
+    "One pot, start to finish — easy for Papaw and easy to clean up.",
+    "Everything comes from the pantry and freezer.",
+    "Budget-friendly and feeds six."
+  ],
+  "familyRating": 4,
+  "mamawApproved": true,
+  "familyFavorite": false,
+  "greatLeftovers": true,
+  "papawEasy": true,
+  "featured": false,
+  "approvedProducts": [],
+  "status": "published",
+  "origin": "Family Recipe",
+  "version": "1.0",
+  "dateAdded": "2026-07-16",
+  "lastUpdated": "2026-07-16",
+  "editorialNotes": [
+    { "date": "2026-07", "note": "Added to the cookbook — the sweet-and-savory skillet Papaw grew up on." }
+  ]
+}
