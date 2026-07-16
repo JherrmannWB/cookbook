@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Submit Ingredients — Papaw’s Kitchen</title>
+  <meta name="description" content="Build a batch of new ingredients and export them to add to the family library.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+  <script src="js/layout.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/render.js" defer></script>
+  <script src="js/image-util.js" defer></script>
+  <script src="js/ingredients.js" defer></script>
+  <script src="js/pages/submit-ingredients.js" defer></script>
+</head>
+<body>
+  <main id="main-content">
+    <h1>Submit New Ingredients</h1>
+    <p class="lead">
+      Add ingredients one at a time — a name, what kind it is, and a photo if
+      you have one. When your list is ready, press <strong>Export Submission</strong>
+      and send the file to Jake.
+    </p>
+
+    <form id="ingredient-form" class="recipe-form no-print" novalidate>
+      <fieldset>
+        <legend>Add an ingredient</legend>
+
+        <div class="field">
+          <label for="f-submitter">Your name</label>
+          <input type="text" id="f-submitter" name="submitter" value="Papaw" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="f-name">Ingredient name <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="f-name" name="name" autocomplete="off" placeholder="Chicken Breast">
+          <p class="field-error" id="form-error" hidden>Please give the ingredient a name.</p>
+        </div>
+
+        <div class="field">
+          <label for="f-category">Category</label>
+          <select id="f-category" name="category">
+            <option>Produce</option>
+            <option>Meat</option>
+            <option>Seafood</option>
+            <option>Dairy</option>
+            <option>Bakery</option>
+            <option>Baking</option>
+            <option>Pantry</option>
+            <option>Frozen</option>
+            <option>Spices</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-notes">Notes <span class="hint-inline">(optional)</span></label>
+          <textarea id="f-notes" name="notes" rows="2" placeholder="Boneless, skinless."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="f-image">Photo <span class="hint-inline">(optional)</span></label>
+          <input type="file" id="f-image" name="image" accept="image/*">
+          <p class="hint" id="image-status" role="status"></p>
+          <div id="image-preview" class="image-preview"></div>
+        </div>
+
+        <button type="button" class="button" id="btn-add">Add to Batch</button>
+      </fieldset>
+    </form>
+
+    <section class="no-print" aria-labelledby="batch-heading">
+      <h2 id="batch-heading">Your batch (<span id="batch-count">0</span>)</h2>
+      <div id="batch-list"></div>
+      <div class="form-actions">
+        <button type="button" class="button" id="btn-export" disabled>Export Submission</button>
+      </div>
+      <div id="export-status" role="status"></div>
+    </section>
+  </main>
+</body>
+</html>

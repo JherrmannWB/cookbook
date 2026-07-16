@@ -96,6 +96,35 @@ window.PapawRender = (function () {
     return el('span', 'badge' + (extraClass ? ' ' + extraClass : ''), text);
   }
 
+  /* Fallback icons for ingredients that have no photo yet, by category. */
+  var CATEGORY_ICONS = {
+    'Produce': '🥕', 'Meat': '🥩', 'Dairy': '🥛', 'Bakery': '🥖',
+    'Baking': '🥣', 'Pantry': '🥫', 'Frozen': '🧊', 'Spices': '🧂',
+    'Seafood': '🐟', 'Other': '🥄'
+  };
+
+  function categoryIcon(category) {
+    return CATEGORY_ICONS[category] || '🥄';
+  }
+
+  /* An ingredient's photo, or its category icon as a fallback. Used wherever
+     an ingredient is shown, so the image-or-icon rule lives in one place. */
+  function ingredientMedia(ingredient) {
+    var box = el('div', 'ingredient-photo');
+    if (ingredient.image) {
+      var img = el('img', null);
+      img.src = ingredient.image;
+      img.alt = ingredient.name || 'Ingredient photo';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      box.appendChild(img);
+    } else {
+      box.appendChild(el('span', null, categoryIcon(ingredient.category)));
+      box.setAttribute('aria-hidden', 'true');
+    }
+    return box;
+  }
+
   /* Row of small pills: approvals, "Budget friendly", etc. */
   function badgeRow(badges) {
     var row = el('p', 'badges');
@@ -245,6 +274,8 @@ window.PapawRender = (function () {
     notice: notice,
     statusBadge: statusBadge,
     formatDate: formatDate,
+    categoryIcon: categoryIcon,
+    ingredientMedia: ingredientMedia,
     showError: showError,
     stars: stars,
     badge: badge,

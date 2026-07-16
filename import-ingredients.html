@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Import Submission — Papaw’s Kitchen</title>
+  <meta name="description" content="Review submitted ingredients and add the approved ones to the library.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+  <script src="js/layout.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/render.js" defer></script>
+  <script src="js/ingredients.js" defer></script>
+  <script src="js/pages/import-ingredients.js" defer></script>
+</head>
+<body>
+  <main id="main-content">
+    <h1>Import a Submission</h1>
+    <p class="lead">
+      Choose a submission file, look over the ingredients, and keep the ones
+      that belong in the library. Approved ingredients are added here on this
+      device — download the library file afterward to share them with everyone.
+    </p>
+
+    <div class="field no-print">
+      <label for="submission-file">Submission file</label>
+      <input type="file" id="submission-file" name="submission" accept="application/json,.json">
+    </div>
+
+    <div id="import-status" role="status"></div>
+
+    <section id="review-area" hidden></section>
+  </main>
+</body>
+</html>

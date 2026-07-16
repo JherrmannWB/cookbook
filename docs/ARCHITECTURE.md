@@ -3,7 +3,36 @@
 **Status: IMPLEMENTED** (Sprint 1: foundation · Sprint 2: data-driven
 content · Sprint 3: kitchen dashboard · Sprint 4: polish & UX ·
 Sprint 5: recipe management · Sprint 6: content foundation ·
-Publishing Cycle 1: editorial workflow)
+Publishing Cycle 1: editorial workflow · Ingredient management)
+
+## Ingredient library + submission workflow
+
+A master **ingredient library** (distinct from the free-text ingredients
+inside recipes): a catalog of ingredients each with a name, category,
+notes, photo, and provenance (`createdBy` / `createdDate`).
+
+- **Storage**: committed `data/ingredients/index.json` merged with
+  device-approved ingredients in localStorage (same index+local pattern
+  as the recipe box). `js/ingredients.js` (`PapawIngredients`) owns it.
+- **Images travel as data URIs.** With no backend, a portable file must be
+  self-contained, so photos are embedded (base64) rather than referenced.
+  `js/image-util.js` (`PapawImage`) scales a chosen photo to a bounded
+  size (longest edge 1600px, JPEG q0.85) — big enough for future AI
+  ingredient recognition, small enough that a batch fits in localStorage
+  and in an email-able file. `PapawRender.ingredientMedia` shows the photo
+  or, when absent, the category emoji as a fallback.
+- **Submission (non-admin, `submit-ingredients.html`)**: build a batch in
+  localStorage (name, category, notes, optional photo), then **Export
+  Submission** → one portable JSON file.
+- **Import (admin, `import-ingredients.html`)**: read the file, review each
+  ingredient with its photo, **Approve/Reject** individually, add approved
+  ones to the device library, then **Download Library File** (`index.json`)
+  to commit.
+- **Forward-compatible format**: the submission file is an envelope —
+  `{format: "papaws-kitchen-ingredient-submission", version, submittedBy,
+  submittedDate, ingredients[]}`. The importer checks the `format` tag and
+  preserves unknown fields on each ingredient, so new fields can be added
+  later without breaking older importers.
 
 ## Editorial workflow
 
@@ -84,6 +113,9 @@ cookbook/
 ├── products.html           Approved products, grouped by category
 ├── tips.html               Kitchen Tips (all of data/tips.json)
 ├── basics.html             Cooking Basics (from data/basics.json)
+├── ingredients.html        Ingredient library (browse; hub for the two below)
+├── submit-ingredients.html Build + export an ingredient submission batch
+├── import-ingredients.html Admin: review + approve a submission
 ├── shopping-lists.html     Shopping lists (grocery lists live in meal plans)
 ├── favorites.html          Family favorites (curated, rendered from data)
 ├── about.html              About

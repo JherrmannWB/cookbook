@@ -117,6 +117,11 @@ window.PapawData = (function () {
     return getJSON('data/basics.json');
   }
 
+  /* The master ingredient library. */
+  function getIngredients() {
+    return getJSON('data/ingredients/index.json');
+  }
+
   function getStaples() {
     return getJSON('data/staples.json');
   }
@@ -131,6 +136,7 @@ window.PapawData = (function () {
     getFavorites: getFavorites,
     getTips: getTips,
     getBasics: getBasics,
+    getIngredients: getIngredients,
     getStaples: getStaples
   };
 })();

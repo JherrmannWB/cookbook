@@ -11,6 +11,7 @@
     { file: 'recipes.html', label: 'Recipes' },
     { file: 'new-recipe.html', label: 'Add a Recipe' },
     { file: 'products.html', label: 'Approved Products' },
+    { file: 'ingredients.html', label: 'Ingredients' },
     { file: 'shopping-lists.html', label: 'Shopping Lists' },
     { file: 'tips.html', label: 'Kitchen Tips' },
     { file: 'basics.html', label: 'Cooking Basics' },
@@ -27,6 +28,11 @@
   function isCurrent(navFile, pageFile) {
     if (navFile === pageFile) return true;
     if (navFile === 'recipes.html' && pageFile === 'recipe.html') return true;
+    /* The ingredient submission + import pages live under Ingredients */
+    if (navFile === 'ingredients.html' &&
+        (pageFile === 'submit-ingredients.html' || pageFile === 'import-ingredients.html')) {
+      return true;
+    }
     return false;
   }
 

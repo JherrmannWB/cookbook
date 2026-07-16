@@ -1,0 +1,58 @@
+{
+  "ingredients": [
+    {
+      "id": "chicken-breast",
+      "name": "Chicken Breast",
+      "category": "Meat",
+      "notes": "Boneless, skinless. The everyday workhorse.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-14"
+    },
+    {
+      "id": "butter",
+      "name": "Butter",
+      "category": "Dairy",
+      "notes": "Salted sticks for cooking and baking.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-14"
+    },
+    {
+      "id": "chicken-broth",
+      "name": "Chicken Broth",
+      "category": "Pantry",
+      "notes": "Low sodium — season the pot yourself.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-14"
+    },
+    {
+      "id": "heavy-cream",
+      "name": "Heavy Cream",
+      "category": "Dairy",
+      "notes": "For gravies, sauces, and biscuits.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-14"
+    },
+    {
+      "id": "all-purpose-flour",
+      "name": "All-Purpose Flour",
+      "category": "Baking",
+      "notes": "White Lily is the family favorite.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-14"
+    },
+    {
+      "id": "yellow-squash",
+      "name": "Yellow Squash",
+      "category": "Produce",
+      "notes": "In season through the summer.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-14"
+    }
+  ]
+}
