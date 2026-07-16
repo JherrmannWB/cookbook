@@ -19,13 +19,18 @@
     <h1>Import a Submission</h1>
     <p class="lead">
       Choose a submission file, look over the ingredients, and keep the ones
-      that belong in the library. Approved ingredients are added here on this
-      device — download the library file afterward to share them with everyone.
+      that belong in the library. Approved ingredients are saved here on this
+      device — to publish them for everyone, hand the file to whoever
+      maintains the cookbook.
     </p>
 
     <div class="field no-print">
-      <label for="submission-file">Submission file</label>
-      <input type="file" id="submission-file" name="submission" accept="application/json,.json">
+      <span class="field-label">Submission file</span>
+      <label class="file-pick">
+        <span aria-hidden="true">📄</span>
+        <span>Choose Submission File</span>
+        <input type="file" id="submission-file" name="submission" accept="application/json,.json">
+      </label>
     </div>
 
     <div id="import-status" role="status"></div>

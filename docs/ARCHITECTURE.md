@@ -14,13 +14,25 @@ notes, photo, and provenance (`createdBy` / `createdDate`).
 - **Storage**: committed `data/ingredients/index.json` merged with
   device-approved ingredients in localStorage (same index+local pattern
   as the recipe box). `js/ingredients.js` (`PapawIngredients`) owns it.
-- **Images travel as data URIs.** With no backend, a portable file must be
-  self-contained, so photos are embedded (base64) rather than referenced.
+- **Images travel as data URIs in submissions, as files in the repo.**
+  With no backend, a portable submission file must be self-contained, so
+  photos are embedded (base64) for the phone-to-phone trip.
   `js/image-util.js` (`PapawImage`) scales a chosen photo to a bounded
   size (longest edge 1600px, JPEG q0.85) — big enough for future AI
-  ingredient recognition, small enough that a batch fits in localStorage
-  and in an email-able file. `PapawRender.ingredientMedia` shows the photo
-  or, when absent, the category emoji as a fallback.
+  recognition, small enough that a batch fits in localStorage and in an
+  email-able file. But the **committed** library stores each photo as a
+  real file (`images/ingredients/<id>.<ext>`) with just a path in
+  `index.json`, keeping the repo clean. `scripts/import-submission.js`
+  does that extraction at publish time (see below). Either form — a
+  `data:` URI or a path — works in `PapawRender.ingredientMedia`, which
+  shows the photo or the category emoji as a fallback.
+
+- **Publishing a submission** (repo side, run by whoever commits):
+  `node scripts/import-submission.js <submission.json> [--skip="Name,…"]`
+  assigns ids, writes photos to `images/ingredients/`, and appends
+  path-based entries to `data/ingredients/index.json`. The browser Import
+  page remains for on-device review; the script is the clean path when the
+  maintainer publishes on the family's behalf.
 - **Submission (non-admin, `submit-ingredients.html`)**: build a batch in
   localStorage (name, category, notes, optional photo), then **Export
   Submission** → one portable JSON file.

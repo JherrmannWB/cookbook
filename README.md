@@ -45,6 +45,17 @@ recipes by id — never copy recipe details into a plan.
 **A family favorite:** add `{ recipeId, note, addedBy }` to
 `data/family-favorites/favorites.json`.
 
+**Ingredients from a submission file:** when someone sends an ingredient
+submission exported from the site, publish it with:
+
+```
+node scripts/import-submission.js path/to/ingredient-submission-YYYY-MM-DD.json
+```
+
+This saves each photo to `images/ingredients/` and adds the ingredients to
+`data/ingredients/index.json` (add `--skip="Name1,Name2"` to leave some
+out). Then commit the changes.
+
 ## Architecture
 
 The full design — folder structure, data schemas, and how future features

@@ -119,7 +119,8 @@
     var box = R.el('div', 'notice save-notice');
     box.appendChild(R.el('p', null,
       added.length + ' ingredient' + (added.length === 1 ? '' : 's') +
-      ' added to the library on this device. Download the library file and commit it to share with everyone.'));
+      ' added to the library on this device. To publish for everyone, hand the ' +
+      'submission file (or the library file below) to whoever maintains the cookbook.'));
 
     var download = R.el('button', 'button', 'Download Library File');
     download.type = 'button';

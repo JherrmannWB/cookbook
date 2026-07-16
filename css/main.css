@@ -965,7 +965,8 @@ main {
   flex: 1 1 12rem;
 }
 
-.field label {
+.field label,
+.field-label {
   display: block;
   font-weight: bold;
   margin-bottom: 0.3em;
@@ -1226,6 +1227,12 @@ main {
   min-width: 0;
 }
 
+/* Remove button hugs the right edge; goes full width when the row wraps */
+.submission-row .row-remove {
+  margin-left: auto;
+  align-self: center;
+}
+
 .submission-name {
   font-weight: bold;
   font-size: var(--text-lg);
@@ -1241,9 +1248,44 @@ main {
   border: 1px solid var(--color-border);
 }
 
-.recipe-form input[type="file"] {
-  font: inherit;
-  padding: 0.4em 0;
+/* A big, obvious file picker replacing the tiny native "Choose File".
+   The real input is visually hidden but still focusable; clicking the
+   label opens the device's photo library / file chooser. */
+.file-pick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  width: 100%;
+  max-width: 22rem;
+  padding: 0.8em 1.2em;          /* comfortably tall tap target */
+  border-radius: 999px;
+  border: 1px solid var(--color-accent);
+  background: var(--color-surface);
+  color: var(--color-accent);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.file-pick:hover {
+  background: #f7ebe4;
+}
+
+.file-pick:focus-within {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.file-pick input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* Approve / reject controls in the review list */
@@ -1292,6 +1334,14 @@ main {
   }
   .decision-btn {
     flex: 1 1 auto;
+  }
+  /* Full-width Remove under the wrapped ingredient — easy to tap */
+  .submission-row .row-remove {
+    width: 100%;
+    margin: var(--space-1) 0 0;
+  }
+  .file-pick {
+    max-width: none;
   }
 }
 
