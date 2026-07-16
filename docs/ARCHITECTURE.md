@@ -2,7 +2,40 @@
 
 **Status: IMPLEMENTED** (Sprint 1: foundation · Sprint 2: data-driven
 content · Sprint 3: kitchen dashboard · Sprint 4: polish & UX ·
-Sprint 5: recipe management · Sprint 6: content foundation)
+Sprint 5: recipe management · Sprint 6: content foundation ·
+Publishing Cycle 1: editorial workflow)
+
+## Editorial workflow
+
+Recipes carry a publishing lifecycle and a colophon:
+
+- **`status`**: `draft` → `under-review` → `tested` → `published`
+  (→ `archived`). A small status chip renders in the recipe's colophon.
+  Archived recipes leave the Recipes list (their pages stay reachable);
+  the dashboard features and "recently published" count only published
+  recipes. Recipes without a status predate the workflow and are treated
+  as published.
+- **Colophon**: `origin` (Family Recipe / YouTube / Cookbook / Friend /
+  Website / Original), `version` (semantic, e.g. `2.0`), `lastUpdated` —
+  displayed under the title and included in print.
+- **Editorial checklist**: shown (collapsed) on any non-published recipe.
+  Seven of the ten items are DERIVED from the recipe data itself
+  (ingredients present, cost/storage/leftovers/why entered, Mamaw
+  Approved, photo added); only true judgment calls are stored, in
+  `checklist`: `instructionsReviewed`, `ingredientReviewCompleted`,
+  `yukaReviewed`. Derived items can never drift out of sync.
+- **`editorialNotes`**: dated entries (`{date: "2026-07", note}`)
+  rendered as the "Recipe Journal" — the living-cookbook record.
+  Screen-only; it doesn't print.
+- **Search metadata** (for the future search sprint): `protein`,
+  `cuisine`, `mealType`, `seasons`, `budgetTier`, `difficulty`,
+  `cookingMethod` — on every recipe and in the index.
+- **Products**: `dateReviewed`, `reviewedBy`, and `yukaVerified`; the
+  Yuka score displays only when `yukaVerified` is true, otherwise always
+  "Ask Jake to verify".
+- The Add-a-Recipe form covers status/origin/version and the search
+  metadata, stamps `lastUpdated` on save, and carries through the fields
+  it doesn't edit (journal, checklist, photo, product links) untouched.
 
 ## The badge system
 

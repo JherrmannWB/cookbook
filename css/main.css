@@ -598,6 +598,132 @@ main {
   color: var(--color-sage);
 }
 
+/* Editorial status chips */
+.status-badge {
+  font-size: 0.8em;
+  vertical-align: 0.1em;
+}
+
+.status-published {
+  background: var(--color-sage-soft);
+  border-color: var(--color-sage);
+  color: var(--color-sage);
+}
+
+.status-tested {
+  border-color: var(--color-sage);
+  color: var(--color-sage);
+}
+
+.status-draft,
+.status-archived {
+  color: var(--color-text-soft);
+  font-style: italic;
+}
+
+.status-under-review {
+  border-color: var(--color-border-strong);
+  color: var(--color-text-soft);
+}
+
+/* --------------------------------------------------------------------------
+   Editorial: colophon, checklist, journal (recipe pages)
+   -------------------------------------------------------------------------- */
+
+.recipe-colophon {
+  color: var(--color-text-soft);
+  font-size: 0.92em;
+  margin: calc(-1 * var(--space-1)) 0 var(--space-2);
+}
+
+.editorial-panel {
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  margin: var(--space-3) 0;
+}
+
+.editorial-panel summary {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.3em 0;          /* comfortable tap target */
+}
+
+.checklist {
+  list-style: none;
+  margin: var(--space-2) 0;
+  padding: 0;
+}
+
+.checklist li {
+  padding: 0.25em 0;
+}
+
+.check-mark {
+  display: inline-block;
+  width: 1.4em;
+  font-weight: bold;
+}
+
+.check-done .check-mark {
+  color: var(--color-sage);
+}
+
+.check-open {
+  color: var(--color-text-soft);
+}
+
+.journal {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.journal li {
+  padding: 0.4em 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.journal-date {
+  color: var(--color-accent);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Dashboard "New in the Cookbook" lists */
+.dashboard-grid-2 {
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 62em) {
+  .dashboard-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.mini-list {
+  list-style: none;
+  margin: 0 0 var(--space-2);
+  padding: 0;
+}
+
+.mini-list li {
+  padding: 0.35em 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mini-list li:last-child {
+  border-bottom: none;
+}
+
 .stars {
   display: inline-block;
   color: var(--color-accent);

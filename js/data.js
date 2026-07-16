@@ -44,8 +44,14 @@ window.PapawData = (function () {
       familyFavorite: !!recipe.familyFavorite,
       greatLeftovers: !!recipe.greatLeftovers,
       papawEasy: !!recipe.papawEasy,
+      protein: recipe.protein,
+      cuisine: recipe.cuisine,
+      budgetTier: recipe.budgetTier,
+      cookingMethod: recipe.cookingMethod,
       familyRating: recipe.familyRating,
       featured: !!recipe.featured,
+      status: recipe.status,
+      dateAdded: recipe.dateAdded,
       image: recipe.image || null,
       local: true
     };

@@ -53,11 +53,20 @@
       card.appendChild(ing);
     }
 
-    /* Never invent a health score — Jake verifies them by hand */
+    /* Never invent a health score — the score shows only once Jake has
+       verified it; until then it always reads "Ask Jake to verify". */
     var yuka = R.el('p', 'product-detail');
     yuka.appendChild(R.el('strong', null, 'Yuka score: '));
-    yuka.appendChild(document.createTextNode(product.yukaScore || 'Ask Jake to verify'));
+    yuka.appendChild(document.createTextNode(
+      product.yukaVerified && product.yukaScore ? product.yukaScore : 'Ask Jake to verify'
+    ));
     card.appendChild(yuka);
+
+    if (product.dateReviewed) {
+      var reviewed = 'Reviewed ' + R.formatDate(product.dateReviewed) +
+        (product.reviewedBy ? ' by ' + product.reviewedBy : '');
+      card.appendChild(R.el('p', 'product-detail', reviewed));
+    }
 
     if (product.notes) card.appendChild(R.el('p', 'product-detail product-notes', product.notes));
 

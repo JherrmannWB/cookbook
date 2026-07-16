@@ -48,5 +48,16 @@
   ],
   "featured": true,
   "approvedProducts": [],
-  "dateAdded": "2026-07-14"
+  "protein": "chicken",
+  "cuisine": "american",
+  "budgetTier": "$",
+  "cookingMethod": "oven",
+  "status": "published",
+  "origin": "Original",
+  "version": "1.1",
+  "dateAdded": "2026-07-14",
+  "lastUpdated": "2026-07-15",
+  "editorialNotes": [
+    { "date": "2026-07", "note": "Added the lemon-slice trick — roasting slices alongside is less bitter than juice alone." }
+  ]
 }

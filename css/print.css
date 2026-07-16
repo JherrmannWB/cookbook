@@ -25,8 +25,29 @@ body {
 .product-photo,
 .meal-icon,
 .card-icon,
+.status-badge,
+.editorial-panel,
 .no-print {
   display: none !important;
+}
+
+/* Attractive page breaks: no widowed lines, no orphaned headings,
+   and the facts box never splits across pages. */
+p,
+li {
+  orphans: 3;
+  widows: 3;
+}
+
+.recipe-meta {
+  page-break-inside: avoid;
+}
+
+/* The colophon prints — origin and version belong in a real cookbook */
+.recipe-colophon {
+  color: #000;
+  font-style: italic;
+  font-size: 10.5pt;
 }
 
 main {

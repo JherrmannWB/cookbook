@@ -26,7 +26,10 @@
 
   PapawData.getRecipeIndex()
     .then(function (index) {
-      state.recipes = index.recipes;
+      /* Archived recipes leave the shelf but keep their page reachable */
+      state.recipes = index.recipes.filter(function (r) {
+        return r.status !== 'archived';
+      });
       render(state.recipes);
     })
     .catch(function () {

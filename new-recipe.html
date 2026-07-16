@@ -154,6 +154,78 @@
       </fieldset>
 
       <fieldset>
+        <legend>Where it came from &amp; filing details</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-origin">Recipe origin</label>
+            <select id="f-origin" name="origin">
+              <option>Family Recipe</option>
+              <option>YouTube</option>
+              <option>Cookbook</option>
+              <option>Friend</option>
+              <option>Website</option>
+              <option>Original</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-status">Publishing status</label>
+            <select id="f-status" name="status">
+              <option value="draft">Draft</option>
+              <option value="under-review">Under Review</option>
+              <option value="tested">Tested</option>
+              <option value="published">Published</option>
+              <option value="archived">Archived</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-version">Version</label>
+            <input type="text" id="f-version" name="version" value="1.0">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-protein">Main protein</label>
+            <select id="f-protein" name="protein">
+              <option value="chicken">Chicken</option>
+              <option value="beef">Beef</option>
+              <option value="pork">Pork</option>
+              <option value="fish">Fish</option>
+              <option value="none" selected>None / vegetable</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-cuisine">Cuisine</label>
+            <select id="f-cuisine" name="cuisine">
+              <option value="southern" selected>Southern</option>
+              <option value="american">American</option>
+              <option value="italian">Italian</option>
+              <option value="mexican">Mexican</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-method">Cooking method</label>
+            <select id="f-method" name="cookingMethod">
+              <option value="oven">Oven</option>
+              <option value="stovetop">Stovetop</option>
+              <option value="one-pot">One pot</option>
+              <option value="slow-cooker">Slow cooker</option>
+              <option value="grill">Grill</option>
+              <option value="no-cook">No cooking</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-tier">Budget tier</label>
+            <select id="f-tier" name="budgetTier">
+              <option value="$" selected>$ — thrifty</option>
+              <option value="$$">$$ — moderate</option>
+              <option value="$$$">$$$ — special occasion</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
         <legend>The family verdict</legend>
         <div class="field">
           <label for="f-rating">Family rating</label>

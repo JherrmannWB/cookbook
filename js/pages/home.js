@@ -172,8 +172,68 @@
 
   /* ---- Featured recipe --------------------------------------------------- */
 
+  function isPublished(summary) {
+    /* Recipes without a status predate the workflow — treat as published */
+    return !summary.status || summary.status === 'published';
+  }
+
+  /* "Recently Published Recipes" + "Newest Approved Products" — the
+     cookbook feels alive as content grows. */
+  function whatsNewSection(recipeIndex, products) {
+    var recent = recipeIndex.recipes
+      .filter(isPublished)
+      .slice()
+      .sort(function (a, b) { return String(b.dateAdded || '').localeCompare(String(a.dateAdded || '')); })
+      .slice(0, 3);
+
+    var newest = (products || [])
+      .slice()
+      .sort(function (a, b) { return String(b.dateReviewed || '').localeCompare(String(a.dateReviewed || '')); })
+      .slice(0, 3);
+
+    if (!recent.length && !newest.length) return null;
+
+    var wrap = R.section('New in the Cookbook');
+    var grid = R.el('div', 'dashboard-grid dashboard-grid-2');
+
+    if (recent.length) {
+      var recipesCard = R.el('div', 'card');
+      recipesCard.appendChild(R.el('h3', null, 'Recently Published Recipes'));
+      var recipeList = R.el('ul', 'mini-list');
+      recent.forEach(function (summary) {
+        var li = R.el('li', null);
+        li.appendChild(R.recipeLink(summary.id, summary.title));
+        if (summary.dateAdded) li.appendChild(R.el('span', 'card-meta', ' — ' + R.formatDate(summary.dateAdded)));
+        recipeList.appendChild(li);
+      });
+      recipesCard.appendChild(recipeList);
+      grid.appendChild(recipesCard);
+    }
+
+    if (newest.length) {
+      var productsCard = R.el('div', 'card');
+      productsCard.appendChild(R.el('h3', null, 'Newest Approved Products'));
+      var productList = R.el('ul', 'mini-list');
+      newest.forEach(function (product) {
+        var li = R.el('li', null, product.name + (product.brand ? ' (' + product.brand + ')' : ''));
+        if (product.dateReviewed) li.appendChild(R.el('span', 'card-meta', ' — reviewed ' + R.formatDate(product.dateReviewed)));
+        productList.appendChild(li);
+      });
+      productsCard.appendChild(productList);
+      var allLink = R.el('p', null, '');
+      allLink.appendChild(R.link('See all approved products', 'products.html'));
+      productsCard.appendChild(allLink);
+      grid.appendChild(productsCard);
+    }
+
+    wrap.appendChild(grid);
+    return wrap;
+  }
+
   function featuredSection(recipeIndex, tonightRecipe) {
-    var featured = recipeIndex.recipes.filter(function (r) { return r.featured; });
+    var featured = recipeIndex.recipes.filter(function (r) {
+      return r.featured && isPublished(r);
+    });
     /* Prefer not to feature the same recipe that's already in the hero. */
     var pool = featured.filter(function (r) {
       return !tonightRecipe || r.id !== tonightRecipe.id;
@@ -190,11 +250,19 @@
 
   /* ---- Load everything, then render ------------------------------------ */
 
-  Promise.all([PapawData.getMealPlanIndex(), PapawData.getRecipeIndex(), PapawData.getTips()])
+  Promise.all([
+    PapawData.getMealPlanIndex(),
+    PapawData.getRecipeIndex(),
+    PapawData.getTips(),
+    /* Products power "Newest Approved Products" — a miss shouldn't sink
+       the whole dashboard. */
+    PapawData.getProducts().catch(function () { return { products: [] }; })
+  ])
     .then(function (results) {
       var planIndex = results[0];
       var recipeIndex = results[1];
       var tips = results[2];
+      var products = results[3].products;
       var recipesById = R.recipeLookup(recipeIndex);
 
       var now = new Date();
@@ -231,6 +299,9 @@
 
           var featured = featuredSection(recipeIndex, tonightRecipe);
           if (featured) container.appendChild(featured);
+
+          var whatsNew = whatsNewSection(recipeIndex, products);
+          if (whatsNew) container.appendChild(whatsNew);
         });
       });
     })

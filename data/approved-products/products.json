@@ -6,7 +6,10 @@
       "brand": "Publix",
       "store": "Publix",
       "category": "Dairy",
-      "ingredientList": ["Cultured whole milk", "Salt"],
+      "ingredientList": [
+        "Cultured whole milk",
+        "Salt"
+      ],
       "whyWeChoseThis": [
         "Short ingredient list — just milk and cultures.",
         "The whole kind bakes taller biscuits than low-fat."
@@ -17,7 +20,12 @@
       "price": "$3.49",
       "image": null,
       "notes": "The whole kind, not low-fat.",
-      "usedIn": ["buttermilk-biscuits"]
+      "usedIn": [
+        "buttermilk-biscuits"
+      ],
+      "dateReviewed": "2026-07-15",
+      "reviewedBy": "Jake",
+      "yukaVerified": false
     },
     {
       "id": "land-o-lakes-butter",
@@ -25,7 +33,10 @@
       "brand": "Land O'Lakes",
       "store": "Publix",
       "category": "Dairy",
-      "ingredientList": ["Sweet cream", "Salt"],
+      "ingredientList": [
+        "Sweet cream",
+        "Salt"
+      ],
       "whyWeChoseThis": [
         "Two ingredients, nothing else.",
         "Sticks measure right for baking — the tub won't work."
@@ -36,7 +47,10 @@
       "price": "$5.99",
       "image": null,
       "notes": "Sticks, not the tub.",
-      "usedIn": []
+      "usedIn": [],
+      "dateReviewed": "2026-07-15",
+      "reviewedBy": "Jake",
+      "yukaVerified": false
     },
     {
       "id": "white-lily-flour",
@@ -44,7 +58,14 @@
       "brand": "White Lily",
       "store": "Publix",
       "category": "Baking",
-      "ingredientList": ["Bleached soft wheat flour", "Niacin", "Iron", "Thiamine", "Riboflavin", "Folic acid"],
+      "ingredientList": [
+        "Bleached soft wheat flour",
+        "Niacin",
+        "Iron",
+        "Thiamine",
+        "Riboflavin",
+        "Folic acid"
+      ],
       "whyWeChoseThis": [
         "Soft winter wheat makes the lightest biscuits.",
         "The brand Mamaw's mother used."
@@ -54,7 +75,12 @@
       "yukaScore": "Ask Jake to verify",
       "image": null,
       "notes": "Worth the extra dollar for baking.",
-      "usedIn": ["buttermilk-biscuits"]
+      "usedIn": [
+        "buttermilk-biscuits"
+      ],
+      "dateReviewed": "2026-07-15",
+      "reviewedBy": "Jake",
+      "yukaVerified": false
     },
     {
       "id": "clabber-girl-baking-powder",
@@ -62,7 +88,12 @@
       "brand": "Clabber Girl",
       "store": "Publix",
       "category": "Baking",
-      "ingredientList": ["Cornstarch", "Sodium bicarbonate", "Sodium aluminum sulfate", "Monocalcium phosphate"],
+      "ingredientList": [
+        "Cornstarch",
+        "Sodium bicarbonate",
+        "Sodium aluminum sulfate",
+        "Monocalcium phosphate"
+      ],
       "whyWeChoseThis": [
         "Double-acting, so dough can rest without falling flat."
       ],
@@ -71,7 +102,10 @@
       "yukaScore": "Ask Jake to verify",
       "image": null,
       "notes": "Check the date on the bottom — old baking powder means flat biscuits.",
-      "usedIn": []
+      "usedIn": [],
+      "dateReviewed": "2026-07-15",
+      "reviewedBy": "Jake",
+      "yukaVerified": false
     },
     {
       "id": "greenwise-chicken-broth",
@@ -79,7 +113,12 @@
       "brand": "Publix GreenWise",
       "store": "Publix",
       "category": "Pantry",
-      "ingredientList": ["Organic chicken broth", "Sea salt", "Organic onion powder", "Organic turmeric"],
+      "ingredientList": [
+        "Organic chicken broth",
+        "Sea salt",
+        "Organic onion powder",
+        "Organic turmeric"
+      ],
       "whyWeChoseThis": [
         "Low sodium — we season our own pots.",
         "Recognizable ingredients, nothing mysterious."
@@ -90,7 +129,12 @@
       "price": "$2.79",
       "image": null,
       "notes": "Low sodium — we add our own salt.",
-      "usedIn": ["chicken-and-dumplings"]
+      "usedIn": [
+        "chicken-and-dumplings"
+      ],
+      "dateReviewed": "2026-07-15",
+      "reviewedBy": "Jake",
+      "yukaVerified": false
     },
     {
       "id": "dukes-mayonnaise",
@@ -98,7 +142,15 @@
       "brand": "Duke's",
       "store": "Publix",
       "category": "Pantry",
-      "ingredientList": ["Soybean oil", "Eggs", "Water", "Distilled vinegar", "Salt", "Paprika", "Natural flavors"],
+      "ingredientList": [
+        "Soybean oil",
+        "Eggs",
+        "Water",
+        "Distilled vinegar",
+        "Salt",
+        "Paprika",
+        "Natural flavors"
+      ],
       "whyWeChoseThis": [
         "No added sugar, unlike the other brands.",
         "The only mayonnaise allowed in this house."
@@ -108,7 +160,10 @@
       "yukaScore": "Ask Jake to verify",
       "image": null,
       "notes": "Accept no substitutes.",
-      "usedIn": []
+      "usedIn": [],
+      "dateReviewed": "2026-07-15",
+      "reviewedBy": "Jake",
+      "yukaVerified": false
     },
     {
       "id": "ritz-crackers",
@@ -116,7 +171,14 @@
       "brand": "Ritz",
       "store": "Publix",
       "category": "Pantry",
-      "ingredientList": ["Enriched flour", "Vegetable oil", "Sugar", "Salt", "Leavening", "High fructose corn syrup"],
+      "ingredientList": [
+        "Enriched flour",
+        "Vegetable oil",
+        "Sugar",
+        "Salt",
+        "Leavening",
+        "High fructose corn syrup"
+      ],
       "whyWeChoseThis": [
         "The buttery topping the squash casserole is known for."
       ],
@@ -125,7 +187,12 @@
       "yukaScore": "Ask Jake to verify",
       "image": null,
       "notes": "For the casserole topping.",
-      "usedIn": ["squash-casserole"]
+      "usedIn": [
+        "squash-casserole"
+      ],
+      "dateReviewed": "2026-07-15",
+      "reviewedBy": "Jake",
+      "yukaVerified": false
     }
   ]
 }

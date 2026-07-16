@@ -54,6 +54,33 @@ window.PapawRender = (function () {
     );
   }
 
+  var STATUS_LABELS = {
+    'draft': 'Draft',
+    'under-review': 'Under Review',
+    'tested': 'Tested',
+    'published': 'Published',
+    'archived': 'Archived'
+  };
+
+  /* Small editorial-status chip: Draft / Under Review / Tested / Published /
+     Archived. Unknown or missing statuses render nothing. */
+  function statusBadge(status) {
+    var label = STATUS_LABELS[status];
+    return label ? el('span', 'badge status-badge status-' + status, label) : null;
+  }
+
+  var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+    'August', 'September', 'October', 'November', 'December'];
+
+  /* '2026-07' -> 'July 2026'; '2026-07-15' -> 'July 15, 2026'.
+     Anything unparseable is shown as written. */
+  function formatDate(text) {
+    var m = String(text || '').match(/^(\d{4})-(\d{2})(?:-(\d{2}))?$/);
+    if (!m) return text || '';
+    var month = MONTHS[Number(m[2]) - 1] || m[2];
+    return m[3] ? month + ' ' + Number(m[3]) + ', ' + m[1] : month + ' ' + m[1];
+  }
+
   /* '★★★★☆' with a spoken label for screen readers. */
   function stars(rating) {
     var out = el('span', 'stars');
@@ -216,6 +243,8 @@ window.PapawRender = (function () {
     recipeLink: recipeLink,
     section: section,
     notice: notice,
+    statusBadge: statusBadge,
+    formatDate: formatDate,
     showError: showError,
     stars: stars,
     badge: badge,

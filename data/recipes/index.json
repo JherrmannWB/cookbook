@@ -10,6 +10,10 @@
       "prepTime": "10 minutes",
       "totalTime": "45 minutes",
       "tags": ["dinner", "chicken", "one-pan"],
+      "protein": "chicken",
+      "cuisine": "american",
+      "budgetTier": "$",
+      "cookingMethod": "oven",
       "budgetFriendly": true,
       "mamawApproved": true,
       "familyFavorite": true,
@@ -17,6 +21,8 @@
       "papawEasy": true,
       "familyRating": 5,
       "featured": true,
+      "status": "published",
+      "dateAdded": "2026-07-14",
       "image": null
     },
     {
@@ -29,6 +35,10 @@
       "prepTime": "20 minutes",
       "totalTime": "1 hour 30 minutes",
       "tags": ["dinner", "comfort-food", "chicken"],
+      "protein": "chicken",
+      "cuisine": "southern",
+      "budgetTier": "$",
+      "cookingMethod": "one-pot",
       "budgetFriendly": true,
       "mamawApproved": true,
       "familyFavorite": true,
@@ -36,6 +46,8 @@
       "papawEasy": false,
       "familyRating": 5,
       "featured": false,
+      "status": "published",
+      "dateAdded": "2026-07-14",
       "image": null
     },
     {
@@ -48,6 +60,10 @@
       "prepTime": "20 minutes",
       "totalTime": "55 minutes",
       "tags": ["side-dish", "vegetables", "casserole"],
+      "protein": "none",
+      "cuisine": "southern",
+      "budgetTier": "$",
+      "cookingMethod": "oven",
       "budgetFriendly": true,
       "mamawApproved": true,
       "familyFavorite": false,
@@ -55,6 +71,8 @@
       "papawEasy": true,
       "familyRating": 4,
       "featured": false,
+      "status": "tested",
+      "dateAdded": "2026-07-14",
       "image": null
     },
     {
@@ -67,6 +85,10 @@
       "prepTime": "15 minutes",
       "totalTime": "30 minutes",
       "tags": ["breakfast", "baking"],
+      "protein": "none",
+      "cuisine": "southern",
+      "budgetTier": "$",
+      "cookingMethod": "oven",
       "budgetFriendly": true,
       "mamawApproved": true,
       "familyFavorite": true,
@@ -74,6 +96,8 @@
       "papawEasy": true,
       "familyRating": 5,
       "featured": true,
+      "status": "published",
+      "dateAdded": "2026-07-14",
       "image": null
     }
   ]

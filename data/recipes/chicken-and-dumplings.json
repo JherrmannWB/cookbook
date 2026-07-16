@@ -53,5 +53,17 @@
   ],
   "featured": false,
   "approvedProducts": ["greenwise-chicken-broth"],
-  "dateAdded": "2026-07-14"
+  "protein": "chicken",
+  "cuisine": "southern",
+  "budgetTier": "$",
+  "cookingMethod": "one-pot",
+  "status": "published",
+  "origin": "Family Recipe",
+  "version": "2.0",
+  "dateAdded": "2026-07-14",
+  "lastUpdated": "2026-07-15",
+  "editorialNotes": [
+    { "date": "2026-07", "note": "Family preferred thicker gravy — cut the broth by one cup." },
+    { "date": "2026-07", "note": "Finally wrote down Mamaw's version. Fifty years overdue." }
+  ]
 }

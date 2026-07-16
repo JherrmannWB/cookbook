@@ -50,5 +50,21 @@
   ],
   "featured": false,
   "approvedProducts": [],
-  "dateAdded": "2026-07-14"
+  "protein": "none",
+  "cuisine": "southern",
+  "budgetTier": "$",
+  "cookingMethod": "oven",
+  "status": "tested",
+  "origin": "Cookbook",
+  "version": "1.0",
+  "dateAdded": "2026-07-14",
+  "lastUpdated": "2026-07-15",
+  "checklist": {
+    "instructionsReviewed": true,
+    "ingredientReviewCompleted": false,
+    "yukaReviewed": false
+  },
+  "editorialNotes": [
+    { "date": "2026-07", "note": "Tested twice — trying a little less butter in the topping next round." }
+  ]
 }

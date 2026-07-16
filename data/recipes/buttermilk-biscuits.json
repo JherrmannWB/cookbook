@@ -48,5 +48,16 @@
   ],
   "featured": true,
   "approvedProducts": ["publix-buttermilk", "white-lily-flour"],
-  "dateAdded": "2026-07-14"
+  "protein": "none",
+  "cuisine": "southern",
+  "budgetTier": "$",
+  "cookingMethod": "oven",
+  "status": "published",
+  "origin": "Family Recipe",
+  "version": "1.0",
+  "dateAdded": "2026-07-14",
+  "lastUpdated": "2026-07-14",
+  "editorialNotes": [
+    { "date": "2026-07", "note": "First written edition of Papaw's Sunday biscuits." }
+  ]
 }

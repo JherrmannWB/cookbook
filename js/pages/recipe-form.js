@@ -18,8 +18,13 @@
   var state = {
     editingId: null,   /* keep this id when saving an edit */
     takenIds: {},      /* every id in the cookbook + local box (for new ids) */
-    dateAdded: null    /* preserved across edits */
+    dateAdded: null,   /* preserved across edits */
+    carry: {}          /* fields the form doesn't edit (journal, checklist,
+                          photo, product links) — carried through a save
+                          untouched instead of being wiped */
   };
+
+  var CARRY_FIELDS = ['image', 'seasons', 'approvedProducts', 'checklist', 'editorialNotes'];
 
   /* ---- Dynamic ingredient + step rows ----------------------------------- */
 
@@ -175,6 +180,14 @@
       notes: splitLines(byId('f-notes').value),
       leftovers: byId('f-leftovers').value.trim(),
       storage: byId('f-storage').value.trim(),
+      protein: byId('f-protein').value,
+      cuisine: byId('f-cuisine').value,
+      budgetTier: byId('f-tier').value,
+      cookingMethod: byId('f-method').value,
+      origin: byId('f-origin').value,
+      status: byId('f-status').value,
+      version: byId('f-version').value.trim() || '1.0',
+      lastUpdated: new Date().toISOString().slice(0, 10),
       familyRating: Number(byId('f-rating').value),
       mamawApproved: byId('f-mamaw').checked,
       familyFavorite: byId('f-favorite').checked,
@@ -184,6 +197,10 @@
       approvedProducts: [],
       dateAdded: state.dateAdded || new Date().toISOString().slice(0, 10)
     };
+
+    CARRY_FIELDS.forEach(function (key) {
+      if (state.carry[key] !== undefined) recipe[key] = state.carry[key];
+    });
 
     return { recipe: recipe, errors: errors };
   }
@@ -371,6 +388,13 @@
     byId('f-notes').value = (recipe.notes || []).join('\n');
     byId('f-leftovers').value = recipe.leftovers || '';
     byId('f-storage').value = recipe.storage || '';
+    if (recipe.protein) byId('f-protein').value = recipe.protein;
+    if (recipe.cuisine) byId('f-cuisine').value = recipe.cuisine;
+    if (recipe.budgetTier) byId('f-tier').value = recipe.budgetTier;
+    if (recipe.cookingMethod) byId('f-method').value = recipe.cookingMethod;
+    if (recipe.origin) byId('f-origin').value = recipe.origin;
+    if (recipe.status) byId('f-status').value = recipe.status;
+    byId('f-version').value = recipe.version || '1.0';
     byId('f-rating').value = String(recipe.familyRating || 5);
     byId('f-mamaw').checked = !!recipe.mamawApproved;
     byId('f-favorite').checked = !!recipe.familyFavorite;
@@ -389,6 +413,10 @@
   function startEditing(recipe, isLocal) {
     state.editingId = recipe.id;
     state.dateAdded = recipe.dateAdded || null;
+    state.carry = {};
+    CARRY_FIELDS.forEach(function (key) {
+      if (recipe[key] !== undefined && recipe[key] !== null) state.carry[key] = recipe[key];
+    });
     fillForm(recipe);
     byId('form-title').textContent = 'Edit Recipe';
     document.title = 'Edit Recipe — Papaw’s Kitchen';
