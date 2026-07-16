@@ -6,7 +6,7 @@
   "notes": "A lighter week — mostly quick suppers and leftovers.",
   "leftoverStrategy": [
     "Sunday's roast chicken carries Monday dinner and Tuesday's salads.",
-    "Wednesday's squash casserole reheats for a lunch later in the week.",
+    "Wednesday's hamburger macaroni reheats for a lunch later in the week.",
     "Burger night extras become Sunday sandwiches."
   ],
   "sundayPrep": [
@@ -17,7 +17,7 @@
   "lunches": [
     { "day": "Monday", "text": "Chicken salad from Sunday's chicken" },
     { "day": "Tuesday", "text": "Tomato sandwiches" },
-    { "day": "Wednesday", "text": "Leftover squash casserole" },
+    { "day": "Wednesday", "text": "Leftover hamburger macaroni" },
     { "day": "Thursday", "text": "Soup and biscuits" },
     { "day": "Friday", "text": "Pimento cheese sandwiches" },
     { "day": "Saturday", "text": "Out to lunch after errands" },
@@ -26,7 +26,7 @@
   "dinners": [
     { "day": "Monday", "recipeId": "lemon-garlic-chicken", "note": "made Sunday, just reheat" },
     { "day": "Tuesday", "text": "Big salads with Monday's chicken" },
-    { "day": "Wednesday", "recipeId": "squash-casserole" },
+    { "day": "Wednesday", "recipeId": "hamburger-ketchup-macaroni" },
     { "day": "Thursday", "text": "Breakfast for dinner" },
     { "day": "Friday", "text": "Fish night" },
     { "day": "Saturday", "text": "Burgers on the grill" },
@@ -35,11 +35,11 @@
   "groceryList": [
     {
       "section": "Meat",
-      "items": ["8 bone-in chicken thighs", "1 whole chicken (about 4 lbs)", "Ground beef for burgers", "Fish for Friday"]
+      "items": ["8 bone-in chicken thighs", "1 whole chicken (about 4 lbs)", "Ground beef (burgers and macaroni)", "Fish for Friday"]
     },
     {
       "section": "Produce",
-      "items": ["2 lbs yellow squash", "Lettuce", "Tomatoes", "2 lemons", "1 head garlic", "2 yellow onions", "3 carrots", "1 bunch celery"]
+      "items": ["Lettuce", "Tomatoes", "2 lemons", "1 head garlic", "2 yellow onions", "3 carrots", "1 bunch celery"]
     },
     {
       "section": "Dairy",
@@ -47,7 +47,7 @@
     },
     {
       "section": "Pantry",
-      "items": ["All-purpose flour", "Baking powder", "Chicken broth (8 cups)", "Buttery round crackers", "Hamburger buns"]
+      "items": ["All-purpose flour", "Baking powder", "Chicken broth (8 cups)", "Elbow macaroni", "Ketchup", "Beef broth (2 cups)", "Frozen peas", "Hamburger buns"]
     }
   ]
 }

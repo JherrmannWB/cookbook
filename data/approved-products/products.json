@@ -180,16 +180,14 @@
         "High fructose corn syrup"
       ],
       "whyWeChoseThis": [
-        "The buttery topping the squash casserole is known for."
+        "Buttery, crumbly crackers — good for casserole toppings and snacking."
       ],
       "mamawApproved": true,
       "familyFavorite": false,
       "yukaScore": "Ask Jake to verify",
       "image": null,
-      "notes": "For the casserole topping.",
-      "usedIn": [
-        "squash-casserole"
-      ],
+      "notes": "Good for casserole toppings and snacking.",
+      "usedIn": [],
       "dateReviewed": "2026-07-15",
       "reviewedBy": "Jake",
       "yukaVerified": false

@@ -320,10 +320,10 @@ card.
   ],
   "dinners": [
     { "day": "Monday", "recipeId": "chicken-and-dumplings" },
-    { "day": "Tuesday", "recipeId": "squash-casserole", "note": "with sliced tomatoes" }
+    { "day": "Tuesday", "text": "Leftovers" }
   ],
   "groceryList": [
-    { "section": "Produce", "items": ["2 lbs yellow squash", "3 carrots"] }
+    { "section": "Produce", "items": ["3 carrots", "2 yellow onions"] }
   ]
 }
 ```
