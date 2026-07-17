@@ -170,6 +170,69 @@
       "image": null,
       "createdBy": "Jake",
       "createdDate": "2026-07-16"
+    },
+    {
+      "id": "onion",
+      "name": "Onion",
+      "category": "Produce",
+      "notes": "Yellow onion, our everyday cooking onion.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "carrots",
+      "name": "Carrots",
+      "category": "Produce",
+      "notes": "Fresh, for dicing into soups and pot pies.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "rosemary",
+      "name": "Rosemary",
+      "category": "Produce",
+      "notes": "Fresh — strip the leaves from the woody stem before chopping.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "parsley",
+      "name": "Parsley",
+      "category": "Produce",
+      "notes": "Fresh flat-leaf, for stirring in at the end.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "frozen-peas",
+      "name": "Frozen Peas",
+      "category": "Frozen",
+      "notes": "Stir in near the end so they stay bright and don't go mushy.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "pie-crust",
+      "name": "Pie Crust",
+      "category": "Bakery",
+      "notes": "Refrigerated, two crusts to a package.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "eggs",
+      "name": "Eggs",
+      "category": "Dairy",
+      "notes": "Large. One beaten egg makes an egg wash for golden crusts.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
     }
   ]
 }
