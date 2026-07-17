@@ -40,6 +40,7 @@ window.PapawData = (function () {
       totalTime: recipe.totalTime,
       tags: recipe.tags || [],
       budgetFriendly: !!recipe.budgetFriendly,
+      freezerFriendly: !!recipe.freezerFriendly,
       mamawApproved: !!recipe.mamawApproved,
       familyFavorite: !!recipe.familyFavorite,
       greatLeftovers: !!recipe.greatLeftovers,

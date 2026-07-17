@@ -171,6 +171,7 @@
       servings: byId('f-servings').value.trim(),
       estimatedCost: byId('f-cost').value.trim(),
       budgetFriendly: byId('f-budget').checked,
+      freezerFriendly: byId('f-freezer').checked,
       image: null,
       ingredients: ingredients,
       instructions: instructions,
@@ -383,6 +384,7 @@
     byId('f-servings').value = recipe.servings || '';
     byId('f-cost').value = recipe.estimatedCost || '';
     byId('f-budget').checked = !!recipe.budgetFriendly;
+    byId('f-freezer').checked = !!recipe.freezerFriendly;
     byId('f-tags').value = (recipe.tags || []).join(', ');
     byId('f-why').value = (recipe.whyWeChoseThis || []).join('\n');
     byId('f-notes').value = (recipe.notes || []).join('\n');

@@ -165,7 +165,8 @@ window.PapawRender = (function () {
       ['Serves', recipe.servings],
       ['Difficulty', recipe.difficulty],
       ['Est. cost', recipe.estimatedCost],
-      ['Meal', recipe.mealType]
+      ['Meal', recipe.mealType],
+      ['Freezer', recipe.freezerFriendly ? 'Yes' : null]
     ].filter(function (f) { return f[1]; });
 
     var dl = el('dl', 'recipe-meta');

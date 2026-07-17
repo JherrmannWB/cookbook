@@ -53,6 +53,123 @@
       "image": null,
       "createdBy": "Jake",
       "createdDate": "2026-07-14"
+    },
+    {
+      "id": "cooked-chicken",
+      "name": "Cooked Chicken",
+      "category": "Meat",
+      "notes": "Leftover or rotisserie chicken, shredded or diced.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "rice",
+      "name": "Rice",
+      "category": "Pantry",
+      "notes": "Long-grain white rice, cooked.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "broccoli",
+      "name": "Broccoli",
+      "category": "Produce",
+      "notes": "Fresh or frozen florets; thaw and drain frozen well.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "garlic",
+      "name": "Garlic",
+      "category": "Produce",
+      "notes": "Fresh cloves.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "milk",
+      "name": "Milk",
+      "category": "Dairy",
+      "notes": "Whole milk for the creamiest sauces.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "sharp-cheddar-cheese",
+      "name": "Sharp Cheddar Cheese",
+      "category": "Dairy",
+      "notes": "Shred it fresh — it melts smoother than pre-shredded.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "parmesan-cheese",
+      "name": "Parmesan Cheese",
+      "category": "Dairy",
+      "notes": "Grated, for depth of flavor.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "onion-powder",
+      "name": "Onion Powder",
+      "category": "Spices",
+      "notes": null,
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "garlic-powder",
+      "name": "Garlic Powder",
+      "category": "Spices",
+      "notes": null,
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "paprika",
+      "name": "Paprika",
+      "category": "Spices",
+      "notes": "Sweet paprika, for color and mild flavor.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "dried-mustard",
+      "name": "Dried Mustard",
+      "category": "Spices",
+      "notes": "A little adds a savory tang to cheese sauces.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "salt",
+      "name": "Salt",
+      "category": "Spices",
+      "notes": null,
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
+    },
+    {
+      "id": "black-pepper",
+      "name": "Black Pepper",
+      "category": "Spices",
+      "notes": "Freshly ground is best.",
+      "image": null,
+      "createdBy": "Jake",
+      "createdDate": "2026-07-16"
     }
   ]
 }
