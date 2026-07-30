@@ -18,6 +18,16 @@ window.PapawSchedule = (function () {
     return new Date(date.getTime() + days * MS_PER_DAY);
   }
 
+  /* The calendar date for `dayName` (e.g. "Wednesday") within the same
+     Sun–Sat week as `referenceDate`. Meal-plan days are matched by name
+     only, so this assumes the plan's week aligns to the real calendar
+     week containing referenceDate — same assumption currentWeekId makes. */
+  function dateForDay(referenceDate, dayName) {
+    var index = DAY_NAMES.indexOf(dayName);
+    if (index < 0) return null;
+    return addDays(referenceDate, index - referenceDate.getDay());
+  }
+
   /* Which rotating week is active on `date`? Weeks cycle in index order
      forever, starting from rotationStart. Falls back to the first week if
      rotationStart is missing or the date is before the rotation began. */
@@ -51,6 +61,7 @@ window.PapawSchedule = (function () {
   return {
     dayName: dayName,
     addDays: addDays,
+    dateForDay: dateForDay,
     currentWeekId: currentWeekId,
     parseMoney: parseMoney,
     formatMoney: formatMoney

@@ -81,6 +81,12 @@ window.PapawRender = (function () {
     return m[3] ? month + ' ' + Number(m[3]) + ', ' + m[1] : month + ' ' + m[1];
   }
 
+  /* Formats a real Date object (not a data-file date string — see
+     formatDate above) as 'Jul 27', for the dashboard's day-by-day dates. */
+  function formatShortDate(date) {
+    return MONTHS[date.getMonth()].slice(0, 3) + ' ' + date.getDate();
+  }
+
   /* '★★★★☆' with a spoken label for screen readers. */
   function stars(rating) {
     var out = el('span', 'stars');
@@ -275,6 +281,7 @@ window.PapawRender = (function () {
     notice: notice,
     statusBadge: statusBadge,
     formatDate: formatDate,
+    formatShortDate: formatShortDate,
     categoryIcon: categoryIcon,
     ingredientMedia: ingredientMedia,
     showError: showError,
