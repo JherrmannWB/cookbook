@@ -137,6 +137,11 @@ cookbook/
 │   ├── main.css            Design tokens + layout + components
 │   └── print.css           Print stylesheet (recipe cards)
 │
+├── images/
+│   ├── ornaments/          Decorative botanical + printer's marks (SVG)
+│   ├── recipes/            Recipe photos, named by recipe id
+│   └── ingredients/        Ingredient photos
+│
 ├── js/
 │   ├── layout.js           Shared header/nav/footer (single source of truth)
 │   ├── storage.js          Local recipe box in localStorage (PapawStorage)
@@ -418,13 +423,25 @@ the budget card with progress bar, one `featured` recipe, and a random tip.
 
 ### Design tokens (CSS custom properties)
 
-All colors, spacing, and type sizes defined once in `:root`:
+All colors, spacing, type sizes, and textures defined once in `:root`.
+The theme is an heirloom frontier cookbook — parchment pages, a distressed
+leather binding at head and foot, weathered board where the food sits.
 
-- **Type:** base font size **20px**, line-height 1.65, warm serif headings,
-  highly readable system font for body text.
-- **Color:** warm cream background, deep brown text, terracotta accent —
-  all pairs meeting **WCAG AA (4.5:1)** contrast, most meeting AAA.
-- **Spacing:** a simple scale with lots of air; soft-edged cards.
+- **Type:** base font size **20px**, line-height 1.7, old-style serifs
+  throughout — *Sorts Mill Goudy* for display, *Lora* for reading. Both
+  fall back to Georgia/Palatino, so the page reads correctly if the
+  webfonts never arrive.
+- **Color:** warm parchment background, walnut-ink text, burnt-orange
+  accent, sage green and antique brass — every text pairing meets
+  **WCAG AA (4.5:1)**, most well beyond.
+- **Texture:** paper grain and leather grain are inline SVG turbulence in
+  `--texture-paper` / `--texture-leather`; the board is a CSS gradient in
+  `--texture-wood`. No image requests, no third-party assets.
+- **Ornament:** three botanical/printer's marks in `images/ornaments/`
+  (wheat sprig, sage sprig, flourish rule), used as backgrounds only —
+  purely decorative, never load-bearing. The brass diamond before section
+  headings and ingredient lines is drawn in CSS.
+- **Spacing:** a simple scale with lots of air; shallow letterpress corners.
 
 ### Accessibility commitments
 
@@ -440,13 +457,16 @@ All colors, spacing, and type sizes defined once in `:root`:
 ### Mobile first & performance
 
 Single-column layouts by default, widening to card grids on larger screens.
-System fonts, no libraries, small JSON payloads via the index pattern.
+Two webfonts with a solid serif fallback, no libraries, textures generated
+in CSS rather than downloaded, small JSON payloads via the index pattern.
 
 ### Print
 
 `css/print.css` strips navigation, footer, and controls from any page;
 recipe pages print as clean black-on-white cards via a visible
-"Print this recipe" button.
+"Print this recipe" button. Nothing in the printed page depends on
+background graphics — the ingredient list swaps its painted brass
+diamonds back to real list markers, which printers always render.
 
 ---
 

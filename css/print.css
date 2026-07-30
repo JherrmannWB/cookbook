@@ -1,7 +1,8 @@
 /* ==========================================================================
    Papaw's Kitchen — print stylesheet
-   Recipes print like pages from a family cookbook: black on white,
-   no site chrome, no controls, a warm sign-off at the bottom.
+   Recipes print like pages torn from the family cookbook: black ink on
+   white paper, no site chrome, no controls, a warm sign-off at the bottom.
+   Nothing here relies on background graphics, which most printers drop.
    ========================================================================== */
 
 @page {
@@ -62,13 +63,14 @@ h1 {
   margin-bottom: 0.3em;
 }
 
-/* .content-section h2 matches the screen stylesheet's specificity,
+/* .content-section > h2 matches the screen stylesheet's specificity,
    so the ink-black underline wins over the screen's tan one. */
 h2,
-.content-section h2 {
+.content-section > h2 {
   font-size: 16pt;
   border-bottom: 1pt solid #000;
   padding-bottom: 0.15em;
+  margin-bottom: 0.6em;
 }
 
 h1,
@@ -76,6 +78,13 @@ h2,
 h3 {
   color: #000;
   page-break-after: avoid;
+}
+
+/* The brass diamond and the second hairline are screen decoration, painted
+   with background colour — printers drop that. Drop them cleanly instead. */
+.content-section > h2::before,
+.content-section > h2::after {
+  display: none;
 }
 
 .lead {
@@ -101,7 +110,9 @@ h3 {
 
 .stars,
 .card-meta,
-.recipe-meta-item dt {
+.recipe-meta-item dt,
+.day-note,
+.favorite-by {
   color: #000;
 }
 
@@ -114,9 +125,40 @@ li {
   page-break-inside: avoid;
 }
 
+/* On screen the ingredient bullets are painted brass diamonds; on paper
+   they would vanish with background graphics off, so hand the job back
+   to real list markers. */
+.ingredients,
+.why-list {
+  list-style: disc;
+  padding-left: 1.3em;
+  max-width: none;
+}
+
 .ingredients li,
+.why-list li {
+  padding: 0.15em 0;
+  border-bottom: none;
+}
+
+.ingredients li::before,
+.why-list li::before {
+  display: none;
+}
+
 .instructions li {
   padding: 0.15em 0;
+}
+
+.instructions li::marker {
+  color: #000;
+}
+
+/* Margin notes and pull quotes keep their rule, in ink */
+.tip-text,
+.favorite-note {
+  border-left: 2pt solid #000;
+  color: #000;
 }
 
 /* Keep ingredients and their heading together at page breaks */

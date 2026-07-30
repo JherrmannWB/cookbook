@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 170" role="presentation">
+  <!-- Antique botanical: a sprig of wheat, drawn as an engraver would have.
+       Used as a quiet decoration in the site header. -->
+  <g fill="none" stroke="#6b4423" stroke-width="1.6" stroke-linecap="round">
+    <path d="M32 168 C31 148 33 120 32 58"/>
+    <path d="M32 132 C25 126 21 118 20 108"/>
+    <path d="M32 120 C39 114 43 106 44 96"/>
+  </g>
+
+  <g stroke="#6b4423" stroke-linecap="round">
+    <g transform="translate(31 98) rotate(-34)">
+      <path d="M0 0 C-6.5 -7 -6.5 -18 0 -25 C6.5 -18 6.5 -7 0 0 Z" fill="#6b4423" fill-opacity="0.14" stroke-width="1.4"/>
+      <path d="M0 -25 L0 -40" stroke-width="1.1" stroke-opacity="0.55" fill="none"/>
+    </g>
+    <g transform="translate(33 98) rotate(34)">
+      <path d="M0 0 C-6.5 -7 -6.5 -18 0 -25 C6.5 -18 6.5 -7 0 0 Z" fill="#6b4423" fill-opacity="0.14" stroke-width="1.4"/>
+      <path d="M0 -25 L0 -40" stroke-width="1.1" stroke-opacity="0.55" fill="none"/>
+    </g>
+    <g transform="translate(31 84) rotate(-28)">
+      <path d="M0 0 C-6.5 -7 -6.5 -18 0 -25 C6.5 -18 6.5 -7 0 0 Z" fill="#6b4423" fill-opacity="0.14" stroke-width="1.4"/>
+      <path d="M0 -25 L0 -40" stroke-width="1.1" stroke-opacity="0.55" fill="none"/>
+    </g>
+    <g transform="translate(33 84) rotate(28)">
+      <path d="M0 0 C-6.5 -7 -6.5 -18 0 -25 C6.5 -18 6.5 -7 0 0 Z" fill="#6b4423" fill-opacity="0.14" stroke-width="1.4"/>
+      <path d="M0 -25 L0 -40" stroke-width="1.1" stroke-opacity="0.55" fill="none"/>
+    </g>
+    <g transform="translate(31 70) rotate(-21)">
+      <path d="M0 0 C-6.5 -7 -6.5 -18 0 -25 C6.5 -18 6.5 -7 0 0 Z" fill="#6b4423" fill-opacity="0.14" stroke-width="1.4"/>
+      <path d="M0 -25 L0 -40" stroke-width="1.1" stroke-opacity="0.55" fill="none"/>
+    </g>
+    <g transform="translate(33 70) rotate(21)">
+      <path d="M0 0 C-6.5 -7 -6.5 -18 0 -25 C6.5 -18 6.5 -7 0 0 Z" fill="#6b4423" fill-opacity="0.14" stroke-width="1.4"/>
+      <path d="M0 -25 L0 -40" stroke-width="1.1" stroke-opacity="0.55" fill="none"/>
+    </g>
+    <g transform="translate(32 56)">
+      <path d="M0 0 C-6.5 -7 -6.5 -18 0 -25 C6.5 -18 6.5 -7 0 0 Z" fill="#6b4423" fill-opacity="0.14" stroke-width="1.4"/>
+      <path d="M0 -25 L0 -42" stroke-width="1.1" stroke-opacity="0.55" fill="none"/>
+    </g>
+  </g>
+</svg>

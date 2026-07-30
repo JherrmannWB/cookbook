@@ -1,38 +1,44 @@
 /* ==========================================================================
    Papaw's Kitchen — main stylesheet
-   Theme: an old Western picture-show — sun-baked parchment, saddle
-   leather, rust and sagebrush, brass tin-star gold, dusk at the footer.
+   Theme: an heirloom frontier cookbook. Warm parchment pages, a distressed
+   leather binding at the head and foot, weathered wood where the food sits,
+   brass rules, sage and burnt orange, and a few botanical sprigs in the
+   margins. Handcrafted and welcoming — never a costume.
    Design tokens first: the whole site's look is tuned from this block.
    ========================================================================== */
 
 :root {
-  /* Color — sun-bleached, high contrast (all pairings meet WCAG AA or better) */
-  --color-bg: #f0e1bd;            /* sun-bleached parchment page background */
-  --color-surface: #f8ecc9;       /* card background — pale desert paper */
-  --color-text: #2a1a0f;          /* saddle-leather near-black (≈12.9:1 on bg) */
-  --color-text-soft: #5c4326;     /* secondary text, weathered brown (≈7.1:1) */
-  --color-accent: #9c3418;        /* rust / wanted-poster red — links, buttons (≈5.6:1) */
-  --color-accent-dark: #7a2812;   /* hover/active (≈7.6:1) */
-  --color-accent-soft: #f3ddd1;   /* rust-tinted background — errors, pressed/hover states */
-  --color-sage: #5d5c34;          /* sagebrush olive — approvals, budget (≈5.3:1) */
-  --color-sage-soft: #e8e6cd;     /* sage-tinted background */
-  --color-gold: #a8790a;          /* brass / tin-star gold — decorative borders, icons */
-  --color-gold-soft: #f6e8c4;     /* gold-tinted background (favorites) */
-  --color-border: #d9c79c;        /* weathered-wood card borders */
-  --color-border-strong: #b89b66; /* card borders on hover */
-  --color-tile-bg: #e8d7a8;       /* weathered-plank tile — photo placeholders, progress track */
-  --color-footer-bg: #241811;     /* dusk brown — the closing credits of the page */
-  --color-footer-text: #d9c6a0;   /* warm lamp-lit tan on dusk (≈10.3:1) */
-  --color-footer-text-soft: #b8a077; /* dimmer dusk text (≈6.9:1) */
+  /* Color — earthy and low-glare (all text pairings meet WCAG AA or better) */
+  --color-bg: #efe3cb;            /* warm parchment page */
+  --color-bg-deep: #e7d9bb;       /* the same paper, one shade weathered */
+  --color-surface: #faf2e0;       /* recipe-card paper — the freshest sheet */
+  --color-text: #33261b;          /* walnut ink (≈11.5:1 on bg, 13.1:1 on card) */
+  --color-text-soft: #6a5642;     /* faded ink, secondary text (≈5.5:1 / 6.2:1) */
+  --color-accent: #9d4a1e;        /* burnt orange — links, buttons (≈4.8:1 / 5.5:1) */
+  --color-accent-dark: #7d3915;   /* hover/active (≈7.6:1 on card) */
+  --color-accent-soft: #f4e2d3;   /* orange-tinted wash — errors, pressed states */
+  --color-sage: #4f5f3f;          /* sage green — approvals, budget (≈5.4:1 / 6.2:1) */
+  --color-sage-soft: #e4e7d5;     /* sage-tinted wash */
+  --color-gold: #9a7b2f;          /* antique brass — rules, diamonds, ornaments */
+  --color-gold-deep: #80621f;     /* brass dark enough to carry small text */
+  --color-gold-soft: #f2e6c8;     /* brass-tinted wash (favorites) */
+  --color-border: #d8c6a2;        /* soft edge of an aged page */
+  --color-border-strong: #b79d72; /* the same edge, pressed harder */
+  --color-tile-bg: #8a6238;       /* weathered board — photo tiles, progress track */
+  --color-leather: #5b3a1e;       /* saddle leather */
+  --color-leather-dark: #3a2a1c;  /* the shadowed side of the same hide */
+  --color-leather-text: #f0e2c6;  /* lamp-lit cream on leather (≈8:1) */
+  --color-leather-text-soft: #cbb08a; /* dimmer, still legible (≈4.9:1) */
 
-  /* Type — a woodtype display face up top, large and readable below */
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-heading: Georgia, "Times New Roman", serif;
-  --font-display: "Rye", var(--font-heading);
-  --text-base: 1.25rem;   /* 20px */
+  /* Type — old-style serifs throughout, set large. Goudy for display
+     (American, 1910s, warm); Lora for everything meant to be read. */
+  --font-body: "Lora", Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  --font-display: "Sorts Mill Goudy", "Goudy Old Style", Georgia, "Times New Roman", serif;
+  --font-heading: var(--font-display);
+  --text-base: 1.25rem;   /* 20px — big enough to read from across the counter */
   --text-lg: 1.5rem;      /* 24px */
-  --text-xl: 1.9rem;      /* ~30px */
-  --text-2xl: 2.4rem;     /* ~38px */
+  --text-xl: 1.95rem;     /* ~31px */
+  --text-2xl: 2.6rem;     /* ~42px */
 
   /* Spacing scale — generous air everywhere */
   --space-1: 0.5rem;
@@ -41,12 +47,31 @@
   --space-4: 2.5rem;
   --space-5: 4rem;
 
-  --radius: 10px;
-  --shadow: 0 1px 3px rgba(42, 26, 15, 0.08), 0 4px 14px rgba(42, 26, 15, 0.07);
-  --shadow-hover: 0 2px 6px rgba(42, 26, 15, 0.1), 0 10px 26px rgba(42, 26, 15, 0.1);
-  --shadow-emboss: inset 0 1px 0 rgba(255, 240, 210, 0.25), inset 0 -2px 0 rgba(30, 16, 6, 0.18);
+  /* Letterpress geometry: shallow corners, not app-store pills */
+  --radius: 6px;
+  --radius-sm: 4px;
+  --shadow: 0 1px 2px rgba(51, 38, 27, 0.09), 0 4px 14px rgba(51, 38, 27, 0.07);
+  --shadow-hover: 0 2px 5px rgba(51, 38, 27, 0.11), 0 10px 26px rgba(51, 38, 27, 0.1);
+  --shadow-emboss: inset 0 1px 0 rgba(255, 244, 220, 0.28), inset 0 -2px 0 rgba(40, 24, 10, 0.2);
   --transition: 160ms ease;
   --content-width: 62rem;
+
+  /* Textures — all generated inline, no image requests, negligible paint cost.
+     Paper is a fine fibre grain; leather is a coarser, stretched grain. */
+  --texture-paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23p)' opacity='0.055'/%3E%3C/svg%3E");
+  --texture-leather: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='l'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55 0.85' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23l)' opacity='0.3'/%3E%3C/svg%3E");
+  /* Sawn board: grain lines running the length of the plank */
+  --texture-wood:
+    repeating-linear-gradient(0deg,
+      rgba(40, 24, 10, 0) 0 4px,
+      rgba(40, 24, 10, 0.16) 4px 5px,
+      rgba(40, 24, 10, 0) 5px 13px,
+      rgba(40, 24, 10, 0.1) 13px 15px,
+      rgba(40, 24, 10, 0) 15px 26px,
+      rgba(40, 24, 10, 0.2) 26px 27px,
+      rgba(40, 24, 10, 0) 27px 39px,
+      rgba(255, 226, 186, 0.07) 39px 40px,
+      rgba(40, 24, 10, 0) 40px 52px);
 }
 
 /* --------------------------------------------------------------------------
@@ -70,36 +95,37 @@ html {
   navigation: auto;
 }
 
-/* A faint sun-bleached vignette — three low-alpha gradients, no image
-   requests, negligible paint cost. Reads as aged paper, not noise. */
+/* Aged paper: a fibre grain, a warm light from the upper left, and the
+   soft browning an old page picks up at its edges. */
 body {
   margin: 0;
   background-color: var(--color-bg);
   background-image:
-    radial-gradient(1100px circle at 12% -8%, rgba(255, 248, 224, 0.55), transparent 55%),
-    radial-gradient(900px circle at 105% 0%, rgba(122, 64, 24, 0.07), transparent 50%),
-    radial-gradient(ellipse at 50% 100%, rgba(30, 17, 8, 0.09), transparent 60%);
+    var(--texture-paper),
+    radial-gradient(1200px circle at 10% -10%, rgba(255, 250, 232, 0.6), transparent 55%),
+    radial-gradient(900px circle at 100% 4%, rgba(138, 98, 56, 0.09), transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(58, 42, 28, 0.1), transparent 62%);
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--text-base);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
+/* Goudy has one weight and it is the right one — no synthetic bold anywhere. */
 h1,
 h2,
 h3 {
   font-family: var(--font-heading);
-  line-height: 1.25;
+  font-weight: normal;
+  line-height: 1.24;
   margin: 0 0 var(--space-2);
-  letter-spacing: 0.01em;
+  letter-spacing: 0.012em;
   text-wrap: balance;           /* headings break evenly instead of orphaning */
 }
 
 h1 {
-  font-family: var(--font-display);
-  font-weight: normal;          /* Rye is a single display weight */
-  letter-spacing: 0.02em;
   font-size: var(--text-2xl);
+  letter-spacing: 0.018em;
 }
 
 h2 { font-size: var(--text-xl); }
@@ -117,7 +143,8 @@ img {
 a {
   color: var(--color-accent);
   text-decoration: underline;
-  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
 }
 
 a:hover {
@@ -128,7 +155,7 @@ a:hover {
 :focus-visible {
   outline: 3px solid var(--color-accent);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -173,6 +200,21 @@ a:hover {
 .card-grid .card:nth-child(5), .meal-week .meal-card:nth-child(5) { animation-delay: 200ms; }
 .card-grid .card:nth-child(n+6), .meal-week .meal-card:nth-child(n+6) { animation-delay: 250ms; }
 
+/* A brass lozenge — the one Western flourish, used as a bullet and as the
+   mark before every section heading. Saddle-blanket diamond, printer's mark.
+   Section headings are matched as direct children only: cards nested inside
+   a section carry their own titles and must not inherit the chapter mark. */
+.content-section > h2::before,
+.ingredients li::before,
+.why-list li::before {
+  content: "";
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  background: var(--color-gold);
+  transform: rotate(45deg);
+}
+
 /* --------------------------------------------------------------------------
    Skip link (injected by layout.js, first focusable element on the page)
    -------------------------------------------------------------------------- */
@@ -184,7 +226,8 @@ a:hover {
   background: var(--color-accent);
   color: #fff;
   padding: var(--space-1) var(--space-2);
-  z-index: 10;
+  border-radius: var(--radius-sm);
+  z-index: 30;
 }
 
 .skip-link:focus {
@@ -193,23 +236,48 @@ a:hover {
 }
 
 /* --------------------------------------------------------------------------
-   Header + navigation
-   No hidden menus: every page is one tap away, always visible — on any
-   screen size. On larger screens the nav bar sticks to the top on scroll.
+   Header — the cookbook's title page
    -------------------------------------------------------------------------- */
 
 .site-header {
+  position: relative;
   text-align: center;
-  padding: var(--space-4) var(--space-2) var(--space-2);
-  background: var(--color-surface);
-  border-bottom: 4px double var(--color-border-strong);
+  padding: var(--space-4) var(--space-3) var(--space-3);
+  background-color: var(--color-surface);
+  background-image:
+    var(--texture-paper),
+    radial-gradient(760px circle at 50% -40%, rgba(255, 252, 240, 0.85), transparent 70%);
+  overflow: hidden;
+}
+
+/* Botanical sprigs in the margins, the way an engraver would fill a title
+   page. Decorative only — they vanish where there isn't room. */
+.site-header::before,
+.site-header::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 3.4rem;
+  height: 9rem;
+  transform: translateY(-50%);
+  background: url("../images/ornaments/wheat-sprig.svg") no-repeat center / contain;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.site-header::before { left: 6%; }
+.site-header::after { right: 6%; transform: translateY(-50%) scaleX(-1); }
+
+@media (max-width: 52em) {
+  .site-header::before,
+  .site-header::after { display: none; }
 }
 
 .site-title {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
   font-weight: normal;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   margin: 0;
 }
 
@@ -218,15 +286,45 @@ a:hover {
   text-decoration: none;
 }
 
+/* The tagline carries the printer's flourish beneath it */
 .site-tagline {
   color: var(--color-text-soft);
-  margin: var(--space-1) 0 0;
+  font-style: italic;
+  margin: var(--space-1) auto 0;
+  padding-bottom: 2rem;
+  background: url("../images/ornaments/divider.svg") no-repeat center bottom / 15rem auto;
 }
 
+/* --------------------------------------------------------------------------
+   Navigation — a tooled leather binding strip, saddle-stitched.
+   No hidden menus: every page is one tap away, always visible.
+   -------------------------------------------------------------------------- */
+
 .site-nav-bar {
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--space-1) var(--space-2) var(--space-2);
+  position: relative;
+  padding: var(--space-2) var(--space-2) calc(var(--space-2) + 2px);
+  background-color: var(--color-leather);
+  background-image:
+    /* the sawn board the binding is mounted on, along the top edge */
+    var(--texture-wood),
+    var(--texture-leather),
+    radial-gradient(900px circle at 30% -60%, rgba(255, 214, 160, 0.16), transparent 60%),
+    linear-gradient(180deg, rgba(255, 220, 170, 0.08), rgba(30, 18, 8, 0.32));
+  background-size: 100% 9px, auto, auto, auto;
+  background-repeat: repeat-x, repeat, no-repeat, no-repeat;
+  background-position: top center, center, center, center;
+  border-bottom: 1px solid var(--color-leather-dark);
+  box-shadow: inset 0 -8px 14px rgba(28, 16, 6, 0.28);
+}
+
+/* Saddle stitching, inset from the edge like a hand-sewn seam */
+.site-nav-bar::after {
+  content: "";
+  position: absolute;
+  inset: 13px 10px 7px;
+  border: 1px dashed rgba(240, 226, 198, 0.28);
+  border-radius: var(--radius-sm);
+  pointer-events: none;
 }
 
 /* Sticky only where there's room to spare; on phones the nav wraps to
@@ -236,7 +334,7 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 20;
-    box-shadow: 0 2px 10px rgba(42, 26, 15, 0.08);
+    box-shadow: inset 0 -8px 14px rgba(28, 16, 6, 0.28), 0 3px 12px rgba(51, 38, 27, 0.22);
   }
 }
 
@@ -247,32 +345,34 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-1);
+  gap: 0.35rem var(--space-1);
   max-width: var(--content-width);
+  position: relative;   /* above the stitching */
+  z-index: 1;
 }
 
 .site-nav a {
   display: block;
-  padding: 0.6em 1.1em;          /* ≥44px touch target */
-  border-radius: 999px;
+  padding: 0.55em 1.05em;        /* ≥44px touch target */
+  border-radius: var(--radius-sm);
   text-decoration: none;
-  color: var(--color-text);
-  font-size: 0.92em;
-  font-weight: bold;
+  color: var(--color-leather-text);
+  font-size: 0.86em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
   border: 1px solid transparent;
   transition: background var(--transition), border-color var(--transition), color var(--transition);
 }
 
 .site-nav a:hover {
-  border-color: var(--color-border-strong);
-  background: var(--color-bg);
-  color: var(--color-text);
+  border-color: rgba(240, 226, 198, 0.45);
+  background: rgba(255, 232, 196, 0.12);
+  color: #fff;
 }
 
 .site-nav a[aria-current="page"] {
   background: var(--color-accent);
+  border-color: rgba(255, 226, 190, 0.4);
   color: #fff;
   box-shadow: var(--shadow-emboss);
 }
@@ -301,6 +401,7 @@ main {
 .lead {
   font-size: var(--text-lg);
   color: var(--color-text-soft);
+  font-style: italic;
   max-width: 46rem;
 }
 
@@ -329,9 +430,17 @@ main {
   }
 }
 
+/* A lone card — the featured recipe, a single search result — reads badly
+   squeezed into a third of the row, with its title broken over two lines.
+   Give it a comfortable measure instead. */
+.card-grid:has(.card:only-child) {
+  grid-template-columns: minmax(0, 34rem);
+}
+
 /* Shared panel styling — every card-like surface in the site (recipe
-   cards, hero, fieldsets, list rows) draws from one rule so the paper
-   background, border, radius, and shadow stay in lockstep. */
+   cards, hero, fieldsets, list rows) draws from one rule, so the paper
+   stock, border, corners, and shadow stay in lockstep. Each is a sheet
+   laid on the page: paper grain, hairline edge, soft drop shadow. */
 .card,
 .hero,
 .meal-card,
@@ -340,7 +449,8 @@ main {
 .submission-row,
 .review-row,
 .local-list li {
-  background: var(--color-surface);
+  background-color: var(--color-surface);
+  background-image: var(--texture-paper);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -396,8 +506,15 @@ main {
    -------------------------------------------------------------------------- */
 
 .notice {
-  background: var(--color-surface);
-  border: 1px dashed var(--color-border);
+  position: relative;
+  background-color: var(--color-surface);
+  background-image:
+    url("../images/ornaments/herb-sprig.svg"),
+    var(--texture-paper);
+  background-repeat: no-repeat, repeat;
+  background-position: right 1.1rem bottom 0.9rem, center;
+  background-size: 7.5rem auto, auto;
+  border: 1px dashed var(--color-border-strong);
   border-radius: var(--radius);
   padding: var(--space-3);
   margin-top: var(--space-3);
@@ -409,20 +526,20 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   Buttons
+   Buttons — pressed like a label on a preserve jar
    -------------------------------------------------------------------------- */
 
 .button {
   display: inline-block;
   background: var(--color-accent);
   color: #fff;
-  border: none;
-  border-radius: 999px;
-  padding: 0.6em 1.5em;          /* comfortably larger than 44px tall */
+  border: 1px solid var(--color-accent-dark);
+  border-radius: var(--radius-sm);
+  padding: 0.55em 1.5em;         /* comfortably larger than 44px tall */
   font-size: var(--text-base);
   font-family: var(--font-body);
-  font-weight: bold;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   text-decoration: none;
   cursor: pointer;
   box-shadow: var(--shadow), var(--shadow-emboss);
@@ -437,7 +554,7 @@ main {
 }
 
 .button:active {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(0) scale(0.99);
   box-shadow: var(--shadow);
 }
 
@@ -447,16 +564,31 @@ main {
 
 .eyebrow {
   color: var(--color-accent);
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.95em;
+  letter-spacing: 0.12em;
+  font-size: 0.9em;
   margin-bottom: var(--space-1);
 }
 
 .hero {
+  position: relative;
   padding: var(--space-4) var(--space-3);
   margin-top: var(--space-3);
+  overflow: hidden;
+}
+
+/* A sprig tucked into the corner of the featured page */
+.hero::after {
+  content: "";
+  position: absolute;
+  right: 1.1rem;
+  bottom: 0.9rem;
+  width: 9.5rem;
+  height: 4.1rem;
+  background: url("../images/ornaments/herb-sprig.svg") no-repeat center / contain;
+  opacity: 0.45;
+  pointer-events: none;
 }
 
 .hero h2 {
@@ -465,22 +597,26 @@ main {
 }
 
 .hero .recipe-meta {
-  background: var(--color-bg);
+  background-color: var(--color-bg-deep);
 }
 
+/* Where the food sits: a weathered board */
 .hero-photo {
   display: grid;
   place-items: center;
   height: 7rem;
-  background: var(--color-tile-bg);
-  border-radius: calc(var(--radius) - 4px);
+  background-color: var(--color-tile-bg);
+  background-image: var(--texture-wood);
+  border: 1px solid rgba(40, 24, 10, 0.35);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 0 18px rgba(35, 20, 8, 0.35);
   margin-bottom: var(--space-2);
   font-size: 3.2rem;
 }
 
 .button-large {
   font-size: var(--text-lg);
-  padding: 0.7em 1.6em;
+  padding: 0.6em 1.6em;
 }
 
 .dashboard-grid {
@@ -503,14 +639,18 @@ main {
 
 .dashboard-answer {
   font-size: var(--text-lg);
-  font-weight: bold;
+  font-weight: 600;
   margin: var(--space-1) 0;
 }
 
+/* Kitchen wisdom, set as a pull quote in the display italic */
 .tip-text {
   font-size: var(--text-lg);
   font-family: var(--font-heading);
   font-style: italic;
+  color: var(--color-text);
+  border-left: 3px solid var(--color-gold);
+  padding-left: var(--space-2);
 }
 
 /* Weekly overview: one small card per dinner */
@@ -519,7 +659,9 @@ main {
   margin: var(--space-2) 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  /* The serif sets wider than a sans would: give each day enough room that
+     the date and the dish name don't break mid-phrase. */
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
   gap: var(--space-2);
 }
 
@@ -539,7 +681,7 @@ main {
 }
 
 .meal-card a {
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -559,17 +701,20 @@ main {
   align-items: center;
   flex-wrap: wrap;              /* "Today" badge wraps instead of clipping */
   gap: 0.5em;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 0.95em;
+  letter-spacing: 0.03em;
   color: var(--color-text-soft);
 }
 
 .today-badge {
   background: var(--color-accent);
   color: #fff;
-  border-radius: 999px;
-  padding: 0.05em 0.7em;
-  font-size: 0.85em;
+  border-radius: var(--radius-sm);
+  padding: 0.05em 0.6em;
+  font-size: 0.8em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .meal-icon {
@@ -584,12 +729,14 @@ main {
   font-size: 0.9em;
 }
 
-/* Budget progress bar */
+/* Budget progress: sage filling a groove cut in the board */
 .progress {
   height: 1.1rem;
-  background: var(--color-tile-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
+  background-color: var(--color-tile-bg);
+  background-image: var(--texture-wood);
+  border: 1px solid rgba(40, 24, 10, 0.35);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 1px 4px rgba(35, 20, 8, 0.45);
   overflow: hidden;
   margin-top: var(--space-2);
 }
@@ -597,11 +744,10 @@ main {
 .progress-fill {
   height: 100%;
   background: var(--color-sage);  /* calm green: spending on track */
-  border-radius: 999px;
 }
 
 /* --------------------------------------------------------------------------
-   Badges, ratings, and tags
+   Badges, ratings, and tags — small stamped labels, not app pills
    -------------------------------------------------------------------------- */
 
 .badges {
@@ -613,22 +759,23 @@ main {
 
 .badge {
   display: inline-block;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  padding: 0.2em 0.9em;
-  font-size: 0.9em;
+  background: var(--color-bg-deep);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.15em 0.75em;
+  font-size: 0.85em;
+  letter-spacing: 0.02em;
   color: var(--color-text-soft);
 }
 
-/* Favorites wear the brass of a tin star */
+/* Favorites wear antique brass */
 .badge-favorite {
   background: var(--color-gold-soft);
   border-color: var(--color-gold);
   color: var(--color-text);
 }
 
-/* Approvals wear the olive-sage of the palette — calm, not celebratory */
+/* Approvals wear sage — calm, not celebratory */
 .badge-sage {
   background: var(--color-sage-soft);
   border-color: var(--color-sage);
@@ -637,8 +784,10 @@ main {
 
 /* Editorial status chips */
 .status-badge {
-  font-size: 0.8em;
-  vertical-align: 0.1em;
+  font-size: 0.75em;
+  vertical-align: 0.14em;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
 }
 
 .status-published {
@@ -670,11 +819,13 @@ main {
 .recipe-colophon {
   color: var(--color-text-soft);
   font-size: 0.92em;
+  font-style: italic;
   margin: calc(-1 * var(--space-1)) 0 var(--space-2);
 }
 
 .editorial-panel {
-  background: var(--color-surface);
+  background-color: var(--color-surface);
+  background-image: var(--texture-paper);
   border: 1px dashed var(--color-border-strong);
   border-radius: var(--radius);
   padding: var(--space-2) var(--space-3);
@@ -682,7 +833,7 @@ main {
 }
 
 .editorial-panel summary {
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
   padding: 0.3em 0;          /* comfortable tap target */
 }
@@ -700,7 +851,7 @@ main {
 .check-mark {
   display: inline-block;
   width: 1.4em;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .check-done .check-mark {
@@ -724,6 +875,7 @@ main {
 
 .journal-date {
   color: var(--color-accent);
+  font-weight: 600;
 }
 
 .visually-hidden {
@@ -754,7 +906,7 @@ main {
 
 .mini-list li {
   padding: 0.35em 0;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px dotted var(--color-border-strong);
 }
 
 .mini-list li:last-child {
@@ -764,7 +916,7 @@ main {
 .stars {
   display: inline-block;
   color: var(--color-accent);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 }
 
 .card .stars {
@@ -777,52 +929,121 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   Content sections (recipe page, meal plan page)
+   Content sections — each opens with a brass diamond over a double rule,
+   the way a chapter opens in a printed cookbook.
    -------------------------------------------------------------------------- */
 
 .content-section {
   margin-top: var(--space-4);
 }
 
-.content-section h2 {
-  border-bottom: 2px solid var(--color-border);
-  padding-bottom: var(--space-1);
+.content-section > h2 {
+  position: relative;
+  border-bottom: 1px solid var(--color-border-strong);
+  padding-bottom: 0.3em;
+  margin-bottom: calc(var(--space-2) + 4px);
+}
+
+.content-section > h2::before {
+  margin-right: 0.55em;
+  vertical-align: 0.18em;
+}
+
+/* The second, lighter rule of the pair */
+.content-section > h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--color-border);
 }
 
 /* --------------------------------------------------------------------------
-   Recipe page
+   Recipe page — the part that has to stay dead simple to follow
    -------------------------------------------------------------------------- */
 
 .recipe-meta {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
   gap: var(--space-2);
   padding: var(--space-3);
   margin: var(--space-3) 0;
 }
 
 .recipe-meta-item dt {
-  font-size: 0.9em;
+  font-size: 0.82em;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
   color: var(--color-text-soft);
 }
 
 .recipe-meta-item dd {
+  margin: 0.15em 0 0;
+  font-size: 1.05em;
+  font-weight: 600;
+}
+
+/* Ingredients: a checklist you can read at arm's length, each line ruled
+   off like a hand-written list. */
+.ingredients {
+  list-style: none;
   margin: 0;
-  font-weight: bold;
+  padding: 0;
+  max-width: 42rem;
 }
 
-.ingredients li,
+.ingredients li {
+  position: relative;
+  padding: 0.5em 0 0.5em 1.6em;
+  border-bottom: 1px dotted var(--color-border-strong);
+}
+
+.ingredients li:last-child {
+  border-bottom: none;
+}
+
+/* Centred on the first line of the item, whatever its length */
+.ingredients li::before {
+  position: absolute;
+  left: 0.35em;
+  top: 1.15em;
+  background: var(--color-sage);
+}
+
+.instructions {
+  padding-left: 1.4em;
+  max-width: 46rem;
+}
+
 .instructions li {
-  padding: 0.35em 0;
+  padding: 0.45em 0 0.45em 0.3em;
 }
 
-.instructions li {
-  padding-left: 0.3em;
-}
-
+/* Goudy sets old-style figures, which run short — size them up so the step
+   numbers keep their weight against the body text. */
 .instructions li::marker {
-  font-weight: bold;
+  font-family: var(--font-display);
+  font-size: 1.3em;
   color: var(--color-accent);
+}
+
+.why-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.why-list li {
+  position: relative;
+  padding: 0.3em 0 0.3em 1.6em;
+}
+
+.why-list li::before {
+  position: absolute;
+  left: 0.35em;
+  top: 0.95em;
 }
 
 /* --------------------------------------------------------------------------
@@ -840,9 +1061,9 @@ main {
 
 .week-picker a {
   display: block;
-  padding: 0.6em 1.2em;            /* ≥44px touch target */
-  border-radius: 999px;
-  border: 1px solid var(--color-border);
+  padding: 0.55em 1.2em;            /* ≥44px touch target */
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-strong);
   background: var(--color-surface);
   text-decoration: none;
   color: var(--color-text);
@@ -850,15 +1071,16 @@ main {
 }
 
 .week-picker a:hover {
-  border-color: var(--color-border-strong);
-  background: var(--color-bg);
+  border-color: var(--color-accent);
+  background: var(--color-bg-deep);
 }
 
 .week-picker a[aria-current="page"] {
   background: var(--color-accent);
-  border-color: var(--color-accent);
+  border-color: var(--color-accent-dark);
   color: #fff;
-  font-weight: bold;
+  font-weight: 600;
+  box-shadow: var(--shadow-emboss);
 }
 
 .day-list {
@@ -872,16 +1094,17 @@ main {
   flex-wrap: wrap;
   gap: var(--space-1);
   padding: 0.6em 0;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px dotted var(--color-border-strong);
 }
 
 .day-name {
-  font-weight: bold;
+  font-weight: 600;
   flex: 0 0 7.5em;
 }
 
 .day-note {
   color: var(--color-text-soft);
+  font-style: italic;
 }
 
 .grocery-group h3 {
@@ -904,28 +1127,29 @@ main {
   display: grid;
   place-items: center;
   height: 5.5rem;
-  background: var(--color-tile-bg);
-  border-radius: calc(var(--radius) - 4px);
+  background-color: var(--color-tile-bg);
+  background-image: var(--texture-wood);
+  border: 1px solid rgba(40, 24, 10, 0.35);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 0 14px rgba(35, 20, 8, 0.35);
   margin-bottom: var(--space-2);
   font-size: var(--text-xl);
 }
 
 .product-photo img {
   max-height: 100%;
-  border-radius: calc(var(--radius) - 4px);
+  border-radius: var(--radius-sm);
 }
 
 /* --------------------------------------------------------------------------
    Why We Chose This + product details
    -------------------------------------------------------------------------- */
 
-.why-list li {
-  padding: 0.2em 0;
-}
-
 .product-why h4 {
+  font-family: var(--font-heading);
+  font-weight: normal;
   margin: var(--space-2) 0 var(--space-1);
-  font-size: 1em;
+  font-size: 1.05em;
 }
 
 .product-why ul {
@@ -944,20 +1168,27 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   Family favorites
+   Family favorites — a note in the margin, in someone's own hand
    -------------------------------------------------------------------------- */
 
 .favorite-note {
   margin-top: var(--space-2);
+  padding-left: var(--space-2);
+  border-left: 3px solid var(--color-gold);
   font-family: var(--font-heading);
+  font-size: 1.08em;
   font-style: italic;
+  color: var(--color-text);
 }
 
 .favorite-by {
+  display: block;
   color: var(--color-text-soft);
   font-style: normal;
   font-family: var(--font-body);
-  font-size: 0.9em;
+  font-size: 0.82em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 /* --------------------------------------------------------------------------
@@ -973,8 +1204,9 @@ main {
 .recipe-form legend {
   font-family: var(--font-heading);
   font-size: var(--text-lg);
-  font-weight: bold;
-  padding: 0 0.4em;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  padding: 0 0.5em;
 }
 
 .req {
@@ -998,7 +1230,7 @@ main {
 .field label,
 .field-label {
   display: block;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 0.3em;
 }
 
@@ -1013,6 +1245,7 @@ main {
   color: var(--color-text-soft);
   font-size: 0.92em;
   font-weight: normal;
+  font-style: italic;
 }
 
 .recipe-form input[type="text"],
@@ -1020,9 +1253,10 @@ main {
 .recipe-form select {
   font: inherit;
   color: var(--color-text);
-  background: #fffaf0;
+  background: #fffaee;
   border: 1px solid var(--color-border-strong);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 1px 2px rgba(51, 38, 27, 0.08);
   padding: 0.5em 0.7em;         /* ≥44px tall at 20px type */
   width: 100%;
   max-width: 32rem;
@@ -1042,8 +1276,8 @@ main {
 }
 
 .field-error {
-  color: var(--color-accent);
-  font-weight: bold;
+  color: var(--color-accent-dark);
+  font-weight: 600;
   font-size: 0.92em;
   margin: 0.3em 0 0;
 }
@@ -1057,7 +1291,7 @@ main {
 }
 
 .form-alert p {
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: var(--space-1);
 }
 
@@ -1105,8 +1339,8 @@ main {
   font-size: 0.9em;
   color: var(--color-text-soft);
   background: none;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
   padding: 0.4em 0.9em;
   cursor: pointer;
   transition: border-color var(--transition), color var(--transition);
@@ -1121,6 +1355,7 @@ main {
   background: var(--color-surface);
   color: var(--color-accent);
   border: 1px solid var(--color-accent);
+  box-shadow: var(--shadow);
 }
 
 .button-secondary:hover {
@@ -1142,13 +1377,15 @@ main {
 }
 
 .preview-box {
-  background: var(--color-surface);
+  background-color: var(--color-surface);
+  background-image: var(--texture-paper);
   border: 2px dashed var(--color-border-strong);
   border-radius: var(--radius);
   padding: var(--space-3);
 }
 
 .preview-title {
+  font-family: var(--font-heading);
   font-size: var(--text-xl);
 }
 
@@ -1174,7 +1411,7 @@ main {
 }
 
 .local-name {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .local-actions {
@@ -1193,13 +1430,17 @@ main {
   margin: var(--space-3) 0;
 }
 
-/* Square photo tile; shows a category emoji when there's no image */
+/* Square photo tile on a weathered board; shows a category emoji when
+   there's no image yet. */
 .ingredient-photo {
   display: grid;
   place-items: center;
   aspect-ratio: 4 / 3;
-  background: var(--color-tile-bg);
-  border-radius: calc(var(--radius) - 4px);
+  background-color: var(--color-tile-bg);
+  background-image: var(--texture-wood);
+  border: 1px solid rgba(40, 24, 10, 0.35);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 0 14px rgba(35, 20, 8, 0.35);
   margin-bottom: var(--space-2);
   font-size: var(--text-2xl);
   overflow: hidden;
@@ -1257,7 +1498,7 @@ main {
 }
 
 .submission-name {
-  font-weight: bold;
+  font-weight: 600;
   font-size: var(--text-lg);
 }
 
@@ -1282,11 +1523,11 @@ main {
   width: 100%;
   max-width: 22rem;
   padding: 0.8em 1.2em;          /* comfortably tall tap target */
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--color-accent);
   background: var(--color-surface);
   color: var(--color-accent);
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
   transition: background var(--transition);
 }
@@ -1321,8 +1562,8 @@ main {
 
 .decision-btn {
   font: inherit;
-  font-weight: bold;
-  border-radius: 999px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
   padding: 0.5em 1.1em;         /* comfortable tap target */
   cursor: pointer;
   border: 1px solid var(--color-border-strong);
@@ -1369,24 +1610,59 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   Footer
+   Footer — the back cover: leather, saddle-stitched, with a sprig
    -------------------------------------------------------------------------- */
 
-/* Dusk falls at the bottom of every page — the closing shot */
 .site-footer {
-  background: var(--color-footer-bg);
-  border-top: 4px double var(--color-gold);
+  position: relative;
   text-align: center;
-  padding: var(--space-4) var(--space-2);
-  color: var(--color-footer-text);
+  padding: 4rem var(--space-3) var(--space-4);
+  background-color: var(--color-leather-dark);
+  background-image:
+    var(--texture-leather),
+    radial-gradient(700px circle at 50% -30%, rgba(255, 214, 160, 0.14), transparent 65%),
+    linear-gradient(180deg, rgba(255, 220, 170, 0.06), rgba(20, 12, 5, 0.35));
+  border-top: 3px solid var(--color-gold);
+  color: var(--color-leather-text);
+  overflow: hidden;
+}
+
+/* Saddle stitching, echoing the binding strip at the top of the page */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px dashed rgba(240, 226, 198, 0.24);
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+}
+
+/* The same printer's flourish that closes the title page closes the book */
+.site-footer::after {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  width: 13rem;
+  height: 1.1rem;
+  transform: translateX(-50%);
+  background: url("../images/ornaments/divider.svg") no-repeat center / contain;
+  pointer-events: none;
 }
 
 .site-footer p {
+  position: relative;
   margin: 0 0 var(--space-1);
+}
+
+.site-footer p:first-child {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  letter-spacing: 0.03em;
 }
 
 .site-footer p:last-child {
   margin-bottom: 0;
-  color: var(--color-footer-text-soft);
+  color: var(--color-leather-text-soft);
   font-style: italic;
 }

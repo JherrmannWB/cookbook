@@ -6,15 +6,23 @@
   <title>Page not found — Papaw’s Kitchen</title>
   <!-- GitHub Pages serves this file for ANY missing URL, at any depth,
        so styles are inlined and the home link is resolved by script:
-       relative paths could break here. -->
+       relative paths could break here. Absolute URLs and data: URIs are
+       safe, so the page keeps the cookbook's fonts and parchment. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Sorts+Mill+Goudy:ital@0;1&display=swap">
   <style>
     body {
       margin: 0;
-      background: #f0e1bd;
-      color: #2a1a0f;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #efe3cb;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23p)' opacity='0.055'/%3E%3C/svg%3E"),
+        radial-gradient(1200px circle at 10% -10%, rgba(255, 250, 232, 0.6), transparent 55%),
+        radial-gradient(ellipse at 50% 100%, rgba(58, 42, 28, 0.1), transparent 62%);
+      color: #33261b;
+      font-family: "Lora", Georgia, "Palatino Linotype", serif;
       font-size: 1.25rem;
-      line-height: 1.65;
+      line-height: 1.7;
       display: grid;
       min-height: 100vh;
       place-items: center;
@@ -22,29 +30,43 @@
       padding: 1rem;
     }
     h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.4rem;
-      font-weight: bold;
-      letter-spacing: 0.02em;
+      font-family: "Sorts Mill Goudy", "Goudy Old Style", Georgia, serif;
+      font-size: 2.6rem;
+      font-weight: normal;
+      letter-spacing: 0.018em;
       margin: 0 0 1rem;
+    }
+    p { font-style: italic; color: #6a5642; }
+    /* A brass diamond, the same printer's mark the rest of the site uses */
+    .mark {
+      display: inline-block;
+      width: 0.5rem;
+      height: 0.5rem;
+      background: #9a7b2f;
+      transform: rotate(45deg);
+      margin-bottom: 1.5rem;
     }
     a.home {
       display: inline-block;
       margin-top: 1.5rem;
-      background: #9c3418;
+      background: #9d4a1e;
       color: #fff;
-      font-weight: bold;
+      font-weight: 600;
+      letter-spacing: 0.03em;
       text-decoration: none;
-      border-radius: 999px;
-      padding: 0.6em 1.4em;
+      border: 1px solid #7d3915;
+      border-radius: 4px;
+      padding: 0.55em 1.5em;
+      box-shadow: inset 0 1px 0 rgba(255, 244, 220, 0.28), inset 0 -2px 0 rgba(40, 24, 10, 0.2);
     }
-    a.home:hover { background: #7a2812; }
-    a.home:focus-visible { outline: 3px solid #9c3418; outline-offset: 3px; }
+    a.home:hover { background: #7d3915; }
+    a.home:focus-visible { outline: 3px solid #9d4a1e; outline-offset: 3px; }
   </style>
 </head>
 <body>
   <main>
     <h1>Well, that page wandered off.</h1>
+    <span class="mark" aria-hidden="true"></span>
     <p>We couldn’t find what you were looking for —<br>but the kitchen is right this way.</p>
     <a class="home" id="home-link" href="/">Back to the kitchen</a>
   </main>

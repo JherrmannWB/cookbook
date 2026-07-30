@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 22" role="presentation">
+  <!-- A printer's flourish: hairline rules, a pair of leaves, a brass diamond.
+       Sits under the site title and between major sections. -->
+  <g stroke="#9a7b2f" stroke-width="1.2" stroke-linecap="round" fill="none">
+    <path d="M4 11 H126"/>
+    <path d="M234 11 H356"/>
+  </g>
+
+  <g fill="#9a7b2f">
+    <path d="M126 11 C134 11 141 7 149 4 C147 11 139 15 129 13 Z"/>
+    <path d="M234 11 C226 11 219 7 211 4 C213 11 221 15 231 13 Z"/>
+    <circle cx="160" cy="11" r="1.8"/>
+    <circle cx="200" cy="11" r="1.8"/>
+    <path d="M180 2.5 L188.5 11 L180 19.5 L171.5 11 Z"/>
+  </g>
+</svg>
