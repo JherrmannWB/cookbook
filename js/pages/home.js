@@ -34,9 +34,9 @@
 
   /* ---- Hero: tonight's dinner ------------------------------------------ */
 
-  function heroSection(dinner, recipe, todayName) {
+  function heroSection(dinner, recipe, todayLabel) {
     var hero = R.el('section', 'hero');
-    hero.appendChild(R.el('p', 'eyebrow', 'Tonight’s dinner · ' + todayName));
+    hero.appendChild(R.el('p', 'eyebrow', 'Tonight’s dinner · ' + todayLabel));
 
     if (recipe) {
       var photo = R.el('div', 'hero-photo');
@@ -65,7 +65,7 @@
 
   /* ---- Weekly overview: one small card per dinner ---------------------- */
 
-  function weekOverview(week, recipesById, todayName) {
+  function weekOverview(week, recipesById, todayName, now) {
     var wrap = R.section('This Week’s Dinners');
     if (week.title) wrap.appendChild(R.el('p', 'card-meta', week.title));
 
@@ -75,7 +75,9 @@
       var li = R.el('li', 'meal-card' + (isToday ? ' today' : ''));
       if (isToday) li.setAttribute('aria-current', 'date');
 
-      var dayRow = R.el('span', 'meal-day', meal.day);
+      var mealDate = S.dateForDay(now, meal.day);
+      var dayLabel = meal.day + (mealDate ? ' · ' + R.formatShortDate(mealDate) : '');
+      var dayRow = R.el('span', 'meal-day', dayLabel);
       if (isToday) dayRow.appendChild(R.el('span', 'today-badge', 'Today'));
       li.appendChild(dayRow);
 
@@ -101,10 +103,10 @@
 
   /* ---- Tomorrow's lunch ------------------------------------------------ */
 
-  function lunchCard(weekTomorrow, tomorrowName, recipesById, tips) {
+  function lunchCard(weekTomorrow, tomorrowName, tomorrowLabel, recipesById, tips) {
     var card = R.el('div', 'card');
     card.appendChild(R.el('h2', null, 'Tomorrow’s Lunch'));
-    card.appendChild(R.el('p', 'card-meta', tomorrowName));
+    card.appendChild(R.el('p', 'card-meta', tomorrowLabel));
 
     var lunch = weekTomorrow ? findMeal(weekTomorrow.lunches, tomorrowName) : null;
 
@@ -287,12 +289,15 @@
           : Promise.resolve(null);
 
         return recipePromise.then(function (tonightRecipe) {
+          var todayLabel = todayName + ', ' + R.formatShortDate(now);
+          var tomorrowLabel = tomorrowName + ', ' + R.formatShortDate(tomorrow);
+
           R.clear(container);
-          container.appendChild(heroSection(dinner, tonightRecipe, todayName));
-          container.appendChild(weekOverview(weekToday, recipesById, todayName));
+          container.appendChild(heroSection(dinner, tonightRecipe, todayLabel));
+          container.appendChild(weekOverview(weekToday, recipesById, todayName, now));
 
           var grid = R.el('div', 'dashboard-grid');
-          grid.appendChild(lunchCard(weekTomorrow, tomorrowName, recipesById, tips));
+          grid.appendChild(lunchCard(weekTomorrow, tomorrowName, tomorrowLabel, recipesById, tips));
           grid.appendChild(budgetCard(weekToday));
           grid.appendChild(tipCard(tips));
           container.appendChild(grid);
