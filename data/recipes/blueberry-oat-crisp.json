@@ -1,0 +1,65 @@
+{
+  "id": "blueberry-oat-crisp",
+  "title": "Blueberry Oat Crisp",
+  "description": "Sweet Florida blueberries topped with a buttery oat crumble for a simple dessert that's not overly sweet.",
+  "category": "desserts",
+  "difficulty": "Easy",
+  "prepTime": "15 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "50 minutes",
+  "servings": "8 servings",
+  "estimatedCost": "$10",
+  "budgetFriendly": true,
+  "image": null,
+  "ingredients": [
+    { "item": "fresh blueberries", "quantity": 4, "unit": "cups" },
+    { "item": "lemon juice", "quantity": 1, "unit": "tablespoon" },
+    { "item": "honey", "quantity": 2, "unit": "tablespoons" },
+    { "item": "old-fashioned oats", "quantity": 1, "unit": "cup" },
+    { "item": "whole wheat flour", "quantity": 0.5, "unit": "cup" },
+    { "item": "chopped pecans", "quantity": 0.25, "unit": "cup" },
+    { "item": "cold butter", "quantity": 3, "unit": "tablespoons", "note": "cubed" },
+    { "item": "cinnamon", "quantity": 1, "unit": "teaspoon" }
+  ],
+  "instructions": [
+    "Preheat oven to 350°F.",
+    "Toss blueberries with lemon juice and honey. Place in a baking dish.",
+    "Mix oats, flour, pecans, cinnamon, and butter until crumbly.",
+    "Sprinkle topping over the blueberries.",
+    "Bake for 35 minutes until bubbly and golden.",
+    "Let cool for 10 minutes before serving."
+  ],
+  "tags": ["dessert", "blueberries", "fruit"],
+  "mealType": "dessert",
+  "seasons": ["all"],
+  "notes": [
+    "Fresh Florida blueberries are best when in season.",
+    "Serve with plain Greek yogurt or a small scoop of vanilla ice cream for a special treat."
+  ],
+  "leftovers": "Keeps well and is delicious cold or warmed.",
+  "storage": "Refrigerate up to 4 days.",
+  "familyRating": null,
+  "mamawApproved": true,
+  "familyFavorite": true,
+  "greatLeftovers": false,
+  "papawEasy": false,
+  "whyWeChoseThis": [
+    "Not overly sweet, so it works any night of the week.",
+    "A buttery oat topping instead of a heavy crust.",
+    "A good way to use fresh blueberries in season."
+  ],
+  "featured": false,
+  "approvedProducts": [],
+  "protein": "none",
+  "cuisine": "american",
+  "budgetTier": "$",
+  "cookingMethod": "oven",
+  "status": "published",
+  "origin": "Original",
+  "version": "1.0",
+  "dateAdded": "2026-07-30",
+  "lastUpdated": "2026-07-30",
+  "editorialNotes": [
+    { "date": "2026-07", "note": "Added to the cookbook." }
+  ]
+}

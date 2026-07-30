@@ -1,0 +1,67 @@
+{
+  "id": "garden-squash-casserole",
+  "title": "Garden Squash Casserole",
+  "description": "Fresh yellow squash baked into a creamy casserole with a crunchy homemade topping. A true Southern favorite.",
+  "category": "casseroles",
+  "difficulty": "Easy",
+  "prepTime": "20 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "55 minutes",
+  "servings": "6 servings",
+  "estimatedCost": "$9",
+  "budgetFriendly": true,
+  "image": null,
+  "ingredients": [
+    { "item": "yellow squash", "quantity": 4, "unit": "medium", "note": "sliced" },
+    { "item": "sweet onion", "quantity": 1, "unit": "", "note": "diced" },
+    { "item": "butter", "quantity": 2, "unit": "tablespoons" },
+    { "item": "shredded cheddar cheese", "quantity": 1, "unit": "cup" },
+    { "item": "plain Greek yogurt", "quantity": 0.5, "unit": "cup" },
+    { "item": "whole wheat breadcrumbs", "quantity": 0.5, "unit": "cup" },
+    { "item": "olive oil", "quantity": 1, "unit": "tablespoon" },
+    { "item": "dried thyme", "quantity": 1, "unit": "teaspoon" },
+    { "item": "salt", "quantity": 0.5, "unit": "teaspoon" },
+    { "item": "black pepper", "quantity": 0.25, "unit": "teaspoon" }
+  ],
+  "instructions": [
+    "Preheat oven to 375°F.",
+    "Sauté squash and onion in butter until just tender.",
+    "Mix with yogurt, cheese, thyme, salt, and pepper.",
+    "Spread into a baking dish.",
+    "Toss breadcrumbs with olive oil and sprinkle on top.",
+    "Bake 30 to 35 minutes until golden."
+  ],
+  "tags": ["squash", "casserole", "vegetables"],
+  "mealType": "side",
+  "seasons": ["all"],
+  "notes": [
+    "Zucchini can replace half the squash.",
+    "Fresh basil is a tasty addition."
+  ],
+  "leftovers": "Excellent reheated.",
+  "storage": "Refrigerate up to 4 days.",
+  "familyRating": null,
+  "mamawApproved": true,
+  "familyFavorite": true,
+  "greatLeftovers": true,
+  "papawEasy": false,
+  "whyWeChoseThis": [
+    "A creamy update on the classic squash casserole.",
+    "A crunchy homemade topping instead of a box of crackers.",
+    "A Southern side that disappears fast."
+  ],
+  "featured": false,
+  "approvedProducts": [],
+  "protein": "none",
+  "cuisine": "southern",
+  "budgetTier": "$",
+  "cookingMethod": "oven",
+  "status": "published",
+  "origin": "Original",
+  "version": "1.0",
+  "dateAdded": "2026-07-30",
+  "lastUpdated": "2026-07-30",
+  "editorialNotes": [
+    { "date": "2026-07", "note": "Added to the cookbook." }
+  ]
+}

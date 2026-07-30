@@ -1,0 +1,68 @@
+{
+  "id": "florida-black-bean-soup",
+  "title": "Florida Black Bean Soup",
+  "description": "A hearty black bean soup with fresh vegetables and a splash of citrus for a bright Florida finish.",
+  "category": "main-dishes",
+  "difficulty": "Easy",
+  "prepTime": "15 minutes",
+  "cookTime": "40 minutes",
+  "totalTime": "55 minutes",
+  "servings": "6 servings",
+  "estimatedCost": "$8",
+  "budgetFriendly": true,
+  "image": null,
+  "ingredients": [
+    { "item": "olive oil", "quantity": 2, "unit": "tablespoons" },
+    { "item": "sweet onion", "quantity": 1, "unit": "", "note": "diced" },
+    { "item": "green bell pepper", "quantity": 1, "unit": "", "note": "diced" },
+    { "item": "carrots", "quantity": 2, "unit": "", "note": "diced" },
+    { "item": "black beans", "quantity": 2, "unit": "cans", "note": "no-salt-added, drained and rinsed" },
+    { "item": "vegetable broth", "quantity": 4, "unit": "cups", "note": "low-sodium" },
+    { "item": "ground cumin", "quantity": 1, "unit": "teaspoon" },
+    { "item": "smoked paprika", "quantity": 0.5, "unit": "teaspoon" },
+    { "item": "lime juice", "quantity": 1, "unit": "tablespoon", "note": "fresh" },
+    { "item": "salt", "quantity": 1, "unit": "teaspoon" },
+    { "item": "black pepper", "quantity": 0.5, "unit": "teaspoon" }
+  ],
+  "instructions": [
+    "Cook onion, bell pepper, and carrots in olive oil until softened.",
+    "Add beans, broth, cumin, paprika, salt, and pepper.",
+    "Simmer for 35 minutes.",
+    "Blend about one-third of the soup for a creamier texture, then stir it back in.",
+    "Finish with fresh lime juice before serving."
+  ],
+  "tags": ["soup", "beans", "healthy", "budget"],
+  "mealType": "lunch",
+  "seasons": ["all"],
+  "notes": [
+    "Garnish with chopped parsley.",
+    "Serve with homemade cornbread."
+  ],
+  "leftovers": "Even better the next day.",
+  "storage": "Refrigerate 5 days or freeze up to 3 months.",
+  "familyRating": null,
+  "mamawApproved": true,
+  "familyFavorite": false,
+  "greatLeftovers": true,
+  "papawEasy": false,
+  "freezerFriendly": true,
+  "whyWeChoseThis": [
+    "A budget-friendly pot of soup that feeds six.",
+    "Simple pantry beans and fresh vegetables.",
+    "A splash of lime brightens the whole pot."
+  ],
+  "featured": false,
+  "approvedProducts": [],
+  "protein": "none",
+  "cuisine": "southern",
+  "budgetTier": "$",
+  "cookingMethod": "one-pot",
+  "status": "published",
+  "origin": "Original",
+  "version": "1.0",
+  "dateAdded": "2026-07-30",
+  "lastUpdated": "2026-07-30",
+  "editorialNotes": [
+    { "date": "2026-07", "note": "Added to the cookbook." }
+  ]
+}
