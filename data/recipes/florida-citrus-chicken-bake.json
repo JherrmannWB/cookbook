@@ -1,0 +1,68 @@
+{
+  "id": "florida-citrus-chicken-bake",
+  "title": "Florida Citrus Chicken Bake",
+  "description": "Tender chicken baked with fresh Florida oranges, lemon, and herbs for a bright, comforting meal that's perfect year-round.",
+  "category": "main-dishes",
+  "difficulty": "Easy",
+  "prepTime": "15 minutes",
+  "cookTime": "40 minutes",
+  "totalTime": "55 minutes",
+  "servings": "4 servings",
+  "estimatedCost": "$13",
+  "budgetFriendly": false,
+  "image": null,
+  "ingredients": [
+    { "item": "boneless skinless chicken breasts", "quantity": 4, "unit": "" },
+    { "item": "olive oil", "quantity": 2, "unit": "tablespoons" },
+    { "item": "Florida orange", "quantity": 1, "unit": "", "note": "juiced" },
+    { "item": "lemon", "quantity": 0.5, "unit": "", "note": "juiced" },
+    { "item": "dried thyme", "quantity": 1, "unit": "teaspoon" },
+    { "item": "dried parsley", "quantity": 1, "unit": "teaspoon" },
+    { "item": "paprika", "quantity": 1, "unit": "teaspoon" },
+    { "item": "salt", "quantity": 1, "unit": "teaspoon" },
+    { "item": "black pepper", "quantity": 0.5, "unit": "teaspoon" },
+    { "item": "sweet onion", "quantity": 1, "unit": "", "note": "sliced" },
+    { "item": "baby potatoes", "quantity": 1, "unit": "pound", "note": "halved" }
+  ],
+  "instructions": [
+    "Preheat oven to 400°F.",
+    "Whisk together olive oil, orange juice, lemon juice, thyme, parsley, paprika, salt, and pepper.",
+    "Arrange the chicken, potatoes, and onion in a baking dish.",
+    "Pour the citrus mixture over everything.",
+    "Bake for 40 minutes or until the chicken reaches 165°F.",
+    "Spoon the juices over the chicken before serving."
+  ],
+  "tags": ["chicken", "citrus", "one-pan", "florida"],
+  "mealType": "dinner",
+  "seasons": ["all"],
+  "notes": [
+    "Fresh rosemary is a nice substitute for thyme.",
+    "Serve with steamed green beans."
+  ],
+  "leftovers": "Delicious sliced for sandwiches or salads.",
+  "storage": "Refrigerate up to 4 days.",
+  "familyRating": null,
+  "mamawApproved": true,
+  "familyFavorite": true,
+  "greatLeftovers": true,
+  "papawEasy": false,
+  "whyWeChoseThis": [
+    "One pan, and the citrus does all the work flavor-wise.",
+    "Ready in under an hour.",
+    "Chicken, potatoes, and vegetables all cook together."
+  ],
+  "featured": false,
+  "approvedProducts": [],
+  "protein": "chicken",
+  "cuisine": "southern",
+  "budgetTier": "$$",
+  "cookingMethod": "oven",
+  "status": "published",
+  "origin": "Original",
+  "version": "1.0",
+  "dateAdded": "2026-07-30",
+  "lastUpdated": "2026-07-30",
+  "editorialNotes": [
+    { "date": "2026-07", "note": "Added to the cookbook." }
+  ]
+}

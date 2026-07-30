@@ -1,0 +1,69 @@
+{
+  "id": "sunshine-yellow-rice-chicken",
+  "title": "Sunshine Yellow Rice & Chicken",
+  "description": "A comforting one-pot meal inspired by Florida kitchens, full of colorful vegetables and tender chicken.",
+  "category": "main-dishes",
+  "difficulty": "Easy",
+  "prepTime": "15 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "50 minutes",
+  "servings": "6 servings",
+  "estimatedCost": "$12",
+  "budgetFriendly": true,
+  "image": null,
+  "ingredients": [
+    { "item": "boneless skinless chicken thighs", "quantity": 1, "unit": "pound", "note": "diced" },
+    { "item": "olive oil", "quantity": 2, "unit": "tablespoons" },
+    { "item": "long-grain rice", "quantity": 1, "unit": "cup" },
+    { "item": "chicken broth", "quantity": 2, "unit": "cups", "note": "low-sodium" },
+    { "item": "turmeric", "quantity": 1, "unit": "teaspoon" },
+    { "item": "paprika", "quantity": 0.5, "unit": "teaspoon" },
+    { "item": "sweet onion", "quantity": 1, "unit": "", "note": "diced" },
+    { "item": "red bell pepper", "quantity": 1, "unit": "", "note": "diced" },
+    { "item": "frozen peas", "quantity": 1, "unit": "cup" },
+    { "item": "salt", "quantity": 1, "unit": "teaspoon" },
+    { "item": "black pepper", "quantity": 0.5, "unit": "teaspoon" }
+  ],
+  "instructions": [
+    "Brown the chicken in olive oil.",
+    "Add onion and bell pepper and cook until softened.",
+    "Stir in rice and seasonings.",
+    "Pour in broth and bring to a boil.",
+    "Cover and simmer for 20 minutes.",
+    "Stir in peas and cook 5 more minutes."
+  ],
+  "tags": ["chicken", "rice", "one-pot", "comfort-food"],
+  "mealType": "dinner",
+  "seasons": ["all"],
+  "notes": [
+    "Add fresh parsley before serving.",
+    "Great with a side salad."
+  ],
+  "leftovers": "Reheats beautifully.",
+  "storage": "Refrigerate 4 days or freeze up to 2 months.",
+  "familyRating": null,
+  "mamawApproved": true,
+  "familyFavorite": true,
+  "greatLeftovers": true,
+  "papawEasy": false,
+  "freezerFriendly": true,
+  "whyWeChoseThis": [
+    "One pot, start to finish.",
+    "Colorful vegetables and tender chicken in every bite.",
+    "Freezes well for busy weeknights."
+  ],
+  "featured": false,
+  "approvedProducts": [],
+  "protein": "chicken",
+  "cuisine": "southern",
+  "budgetTier": "$",
+  "cookingMethod": "one-pot",
+  "status": "published",
+  "origin": "Original",
+  "version": "1.0",
+  "dateAdded": "2026-07-30",
+  "lastUpdated": "2026-07-30",
+  "editorialNotes": [
+    { "date": "2026-07", "note": "Added to the cookbook." }
+  ]
+}
