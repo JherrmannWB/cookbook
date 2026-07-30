@@ -1,0 +1,65 @@
+{
+  "id": "garlic-butter-pork-chops",
+  "title": "Garlic Butter Pork Chops",
+  "description": "Tender pork chops seared and finished with garlic butter for an easy dinner that's packed with homemade flavor.",
+  "category": "main-dishes",
+  "difficulty": "Easy",
+  "prepTime": "10 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "30 minutes",
+  "servings": "4 servings",
+  "estimatedCost": "$13",
+  "budgetFriendly": false,
+  "image": null,
+  "ingredients": [
+    { "item": "boneless pork chops", "quantity": 4, "unit": "" },
+    { "item": "butter", "quantity": 2, "unit": "tablespoons" },
+    { "item": "olive oil", "quantity": 1, "unit": "tablespoon" },
+    { "item": "garlic cloves", "quantity": 3, "unit": "", "note": "minced" },
+    { "item": "salt", "quantity": 1, "unit": "teaspoon" },
+    { "item": "black pepper", "quantity": 0.5, "unit": "teaspoon" },
+    { "item": "paprika", "quantity": 1, "unit": "teaspoon" },
+    { "item": "dried thyme", "quantity": 1, "unit": "teaspoon" }
+  ],
+  "instructions": [
+    "Season pork chops with salt, pepper, paprika, and thyme.",
+    "Heat olive oil in a skillet over medium-high heat.",
+    "Cook pork chops 4 to 5 minutes per side.",
+    "Reduce heat and add butter and garlic.",
+    "Spoon garlic butter over the chops for 2 to 3 minutes.",
+    "Rest 5 minutes before serving."
+  ],
+  "tags": ["pork", "skillet", "quick-dinner"],
+  "mealType": "dinner",
+  "seasons": ["all"],
+  "notes": [
+    "Serve with mashed potatoes or roasted vegetables.",
+    "Avoid overcooking to keep the meat juicy."
+  ],
+  "leftovers": "Great sliced for sandwiches or salads.",
+  "storage": "Refrigerate up to 4 days.",
+  "familyRating": null,
+  "mamawApproved": false,
+  "familyFavorite": true,
+  "greatLeftovers": false,
+  "papawEasy": true,
+  "whyWeChoseThis": [
+    "Ready in 30 minutes, start to finish.",
+    "One skillet, easy for a weeknight.",
+    "Garlic butter turns basic pork chops into something special."
+  ],
+  "featured": false,
+  "approvedProducts": [],
+  "protein": "pork",
+  "cuisine": "american",
+  "budgetTier": "$$",
+  "cookingMethod": "stovetop",
+  "status": "published",
+  "origin": "Original",
+  "version": "1.0",
+  "dateAdded": "2026-07-30",
+  "lastUpdated": "2026-07-30",
+  "editorialNotes": [
+    { "date": "2026-07", "note": "Added to the cookbook." }
+  ]
+}

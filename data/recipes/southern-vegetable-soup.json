@@ -1,0 +1,69 @@
+{
+  "id": "southern-vegetable-soup",
+  "title": "Southern Vegetable Soup",
+  "description": "A hearty pot of vegetables simmered together for a healthy, comforting meal full of fresh flavor.",
+  "category": "main-dishes",
+  "difficulty": "Easy",
+  "prepTime": "20 minutes",
+  "cookTime": "45 minutes",
+  "totalTime": "1 hour 5 minutes",
+  "servings": "6 servings",
+  "estimatedCost": "$11",
+  "budgetFriendly": true,
+  "image": null,
+  "ingredients": [
+    { "item": "olive oil", "quantity": 2, "unit": "tablespoons" },
+    { "item": "onion", "quantity": 1, "unit": "", "note": "chopped" },
+    { "item": "carrots", "quantity": 3, "unit": "", "note": "sliced" },
+    { "item": "celery stalks", "quantity": 2, "unit": "", "note": "chopped" },
+    { "item": "potatoes", "quantity": 3, "unit": "", "note": "diced" },
+    { "item": "zucchini", "quantity": 2, "unit": "", "note": "chopped" },
+    { "item": "green beans", "quantity": 1, "unit": "cup" },
+    { "item": "diced tomatoes", "quantity": 1, "unit": "can", "note": "no-salt-added" },
+    { "item": "vegetable broth", "quantity": 6, "unit": "cups" },
+    { "item": "thyme", "quantity": 1, "unit": "teaspoon" },
+    { "item": "salt", "quantity": 1, "unit": "teaspoon" },
+    { "item": "black pepper", "quantity": 0.5, "unit": "teaspoon" }
+  ],
+  "instructions": [
+    "Sauté onion, carrots, and celery in olive oil.",
+    "Add remaining vegetables and broth.",
+    "Stir in seasonings.",
+    "Simmer 45 minutes until vegetables are tender.",
+    "Taste and adjust seasoning."
+  ],
+  "tags": ["soup", "vegetables", "healthy"],
+  "mealType": "dinner",
+  "seasons": ["all"],
+  "notes": [
+    "Add cooked beans for extra protein.",
+    "Fresh corn is excellent in summer."
+  ],
+  "leftovers": "Wonderful after a day in the refrigerator.",
+  "storage": "Refrigerate 5 days or freeze 3 months.",
+  "familyRating": null,
+  "mamawApproved": true,
+  "familyFavorite": false,
+  "greatLeftovers": true,
+  "papawEasy": false,
+  "freezerFriendly": true,
+  "whyWeChoseThis": [
+    "One pot and simple pantry vegetables.",
+    "Ready in about an hour, start to finish.",
+    "Freezes beautifully for later."
+  ],
+  "featured": false,
+  "approvedProducts": [],
+  "protein": "none",
+  "cuisine": "southern",
+  "budgetTier": "$",
+  "cookingMethod": "one-pot",
+  "status": "published",
+  "origin": "Original",
+  "version": "1.0",
+  "dateAdded": "2026-07-30",
+  "lastUpdated": "2026-07-30",
+  "editorialNotes": [
+    { "date": "2026-07", "note": "Added to the cookbook." }
+  ]
+}
